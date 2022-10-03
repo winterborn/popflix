@@ -1,0 +1,13 @@
+/src/main/resources/static/image/**
+/target
+.idea/
+/node_modules
+dependency-reduced-pom.xml
+*.iml
+.log
+/src/main/resources/static/built
+.classpath
+.factorypath
+.project
+.settings/
+!src/main/resources/static/image/.gitkeep
