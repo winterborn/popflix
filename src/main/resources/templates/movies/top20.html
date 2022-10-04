@@ -52,17 +52,15 @@
             <!-- FIRST STARTS -->
             <div class="card" th:each="card: ${firstList}">
               <img
-                th:src="@{https://image.tmdb.org/t/p/original/{ext}(ext=${card.getPosterPath()})}"
+                th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title" th:text="${card.title}">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title" th:text="${card.voteAverage}">Card title</h5>
+                <h5 th:text="${card.title}"></h5>
+                <p th:text="${card.videos}" class="btn btn-primary">Trailer</p>
+                <a href="#" class="btn btn-primary">Watchlist</a>
               </div>
             </div>
             <!-- FIRST SET ENDS -->
@@ -73,17 +71,14 @@
           <div class="cards-wrapper">
             <div class="card" th:each="card: ${movie}">
               <img
-                th:src="@{https://image.tmdb.org/t/p/original/{ext}(ext=${card.getPosterPath()})}"
+                th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
                 <h5 class="card-title" th:text="${card.title}">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="@{https://www.youtube.com/watch?v={ext}(ext=${card.getVideoKey()})}" class="btn btn-primary">Trailer</a>
+                <a href="#" class="btn btn-primary">Watchlist</a>
               </div>
             </div>
             <!-- SECOND TO FOURTH SET ENDS -->
@@ -111,6 +106,9 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+       <!-- <h5 class="card-title" th:text="${watch}"></h5> -->
+
 
     <!-- BOOTSTRAP SCRIPTS -->
     <script
