@@ -48,10 +48,8 @@ public class MoviesController {
   TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
   MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
   // System.out.println(movie.toString());
-  // System.out.println(movie.getBudget());
   // System.out.println(movie.getReleaseDate());
   // System.out.println(movie.getCredits().getCast());
-  // System.out.println(movie.getPosterPath());
   // System.out.println(movies.getPopularMovies("en", 1));
   List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
   List<List<MovieDb>> nested = new ArrayList<>();
@@ -71,10 +69,19 @@ public class MoviesController {
 
   model.addAttribute("firstList", firstList);
   model.addAttribute("movies", nested);
+  model.addAttribute("watch", movies);
 
   // System.out.println(firstList);
   // System.out.println(secondList);
   System.out.println(nested);
   return "movies/top20";
+ }
+
+ @GetMapping("/test")
+ @ResponseBody
+ public MovieDb getData() {
+  TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+  MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+  return movie;
  }
 }
