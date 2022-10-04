@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background: #181818;
   color: #fff;
@@ -201,6 +201,7 @@ h6 {
 
 .eye {
   position: absolute;
+  transform: translateX(-20px);
 }
 
 #hide1 {
