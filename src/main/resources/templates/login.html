@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Log in</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="left">
+        <div id="signin">
+          <div class="logo">
+            <h1>POPFLIX</h1>
+          </div>
+          <div th:if="${param.error}" class="alert alert-danger">
+            Invalid username or password.
+          </div>
+          <div th:if="${param.logout}" class="alert alert-success">
+            Successfully logged out
+          </div>
+          <form th:action="@{/login}" method="post">
+            <div>
+              <label>Email</label>
+              <input type="text" class="text-input" />
+            </div>
+            <div>
+              <label>Password</label>
+              <input type="password" class="text-input" />
+            </div>
+            <button type="submit" class="primary-btn">Log in</button>
+          </form>
+
+          <!-- REDIRECT TO SIGN UP PAGE -->
+          <div class="or">
+            <hr class="bar" />
+            <span>OR</span>
+            <hr class="bar" />
+          </div>
+          <a href="/users/new" class="secondary-btn">Sign up</a>
+        </div>
+        <footer id="main-footer">
+          <p>Copyright &copy; 2018, All Rights Reserved</p>
+          <div>
+            <a href="#">terms of use</a> | <a href="#">Privacy Policy</a>
+          </div>
+        </footer>
+      </div>
+      <div id="right">
+        <div id="showcase">
+          <div class="showcase-content">
+            <iframe
+              width="1000"
+              height="1100"
+              src="https://www.youtube.com/embed/U3-iXA6H3Q0?autoplay=1"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
