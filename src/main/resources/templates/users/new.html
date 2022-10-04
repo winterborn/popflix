@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
     <title>Sign up</title>
   </head>
   <body>
@@ -27,12 +31,19 @@
               <input type="text" th:field="*{username}" class="text-input" />
             </div>
             <div>
-              <label>Password</label>
+              <label for="password">Password</label>
               <input
                 type="password"
+                id="password"
                 th:field="*{password}"
+                name="password"
                 class="text-input"
+                required
               />
+              <span class="eye" onclick="toggle()">
+                <i id="hide1" class="bi bi-eye"></i>
+                <i id="hide2" class="bi bi-eye-slash"></i>
+              </span>
             </div>
             <button type="submit" class="primary-btn" value="Sign up">
               Sign Up
@@ -68,4 +79,21 @@
       </div>
     </div>
   </body>
+  <script>
+    // toggles password visibility
+    function toggle() {
+      var x = document.getElementById('password')
+      var y = document.getElementById('hide1')
+      var z = document.getElementById('hide2')
+      if (x.type === 'password') {
+        x.type = 'text'
+        y.style.display = 'block'
+        z.style.display = 'none'
+      } else {
+        x.type = 'password'
+        y.style.display = 'none'
+        z.style.display = 'block'
+      }
+    }
+  </script>
 </html>
