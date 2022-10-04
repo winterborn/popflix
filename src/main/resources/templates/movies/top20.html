@@ -21,6 +21,46 @@
     <link rel="stylesheet" href="/movies.css" />
   </head>
   <body>
+    <!-- <ul th:each="movie: ${movies}">
+      <div class="card carousel" style="width: 18rem">
+        <img
+          th:src="@{https://image.tmdb.org/t/p/w200/{ext}(ext=${movie.getPosterPath()})}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title" th:text="${movie.title}"></h5>
+          <p class="card-text" th:text="${movie.tagline}"></p>
+        </div>
+        <div class="card-body">
+          <a href="#" class="card-link">Trailer</a>
+          <a href="#" class="card-link">Watchlist</a>
+        </div>
+      </div>
+    </ul> -->
+    <!-- th:each="card : ${firstList}" -->
+    <!-- BOOTSTRAP DESIGN -->
+
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cards-wrapper">
+            <!-- FIRST STARTS -->
+            <div class="card" th:each="card: ${firstList}">
+              <img
+                th:src="@{https://image.tmdb.org/t/p/original/{ext}(ext=${card.getPosterPath()})}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title" th:text="${card.title}">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
                 </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
