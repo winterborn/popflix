@@ -61,7 +61,7 @@ public class MoviesController {
   for (int i = 0; i < 20; i += 5) { // 1
    List<MovieDb> list = new ArrayList<>();
    for (int j = i; j < i + 5; j++) { // 3
-    list.add(top20.get(i));
+    list.add(top20.get(j));
    }
    nested.add(list);
   }
