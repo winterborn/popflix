@@ -45,11 +45,11 @@
 
 .watchlist_carousel-control-prev,
 .watchlist_carousel-control-next {
-  background-color: #e1e1e1;
+  /* background-color: #e1e1e1; */
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
-  top: 50%;
+  top: 54%;
   /* bottom: 50px; */
   /* transform: translateY(-50%); */
 }
@@ -65,11 +65,12 @@
 
 .movies_carousel-control-prev,
 .movies_carousel-control-next {
-  background-color: #e1e1e1;
+  /* background-color: #e1e1e1; */
+  /* color: black; */
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
-  top: 80%;
+  top: 85%;
   /* bottom: 50px; */
   /* transform: translateY(-50%); */
 }
