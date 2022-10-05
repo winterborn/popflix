@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html 
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ------------------------------------------------ -->
+    <!--                  BOOTSTRAP CDN                   -->
+    <!-- ------------------------------------------------ -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+    />
+    <title>Popflix</title>
+    <link rel="icon" href="img/popflix_logo_2.png">
+    <link rel="stylesheet" href="/movies.css" />
+    <link rel="stylesheet" href="/homepage.css">
+</head>
+<body>
+  <!-- ------------------------------------------------ -->
+  <!--           NAVBAR WITH SEARCH BAR                 -->
+  <!-- ------------------------------------------------ -->
+    <header>
+        <div class="head-block" >
+            <img class="imdb-logo" src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="error">
+            <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+            <div class="input-field">
+                <select id="search-imdb-select">
+                    <option value='all'>All <span>&#9662</span></option>
+                    <option value="titles">Titles</option>
+                    <option value="tv-episodes">TV Episodes</option>
+                    <option value="celebs">Celebs</option>
+                    <option value="companies">Companies</option>
+                    <option value="keywords">Keywords</option>
+                    <option value="advanced-search">Advanced Search</option>
+                </select>
+                <input type="text" id="search-imdb" placeholder="Search Popflix"/>
+            </div>
+            <img class="pro-button" src="https://m.media-amazon.com/images/G/01/imdbpro/logos/IMDbPro-logo-primary-reversed._CB1513032401_.png" alt="IMDbPro">
+            <div class="empty-div"> </div>
+            <a href='#' class="header-button"><b>Watchlist</b></a>
+            <a href='/login' class="header-button"><b>Login</b></a>
+            <select class="lang-select">
+                <option value='en'>EN &#9662</option>
+                <option value="titles">UA</option>
+                <option value="tv-episodes">ESP</option>
+                <option value="celebs">IT</option>
+                <option value="companies">DE</option>
+            </select>
+        </div>
+    </header>
+    <main>
+      <!-- ------------------------------------------------ -->
+      <!--           MENU WITH MAIN BUTTONS                 -->
+      <!-- ------------------------------------------------ -->
+
+            <div class="wrapper">
+              <div class="main-header">What to Watch</div>
+              <div class="main-buttons">
+                  <button class="main-button" id="most-popular"><b>MOST POPULAR</b></button>
+                  <button class="main-button" id="top-raiting"><b>TOP RAITING</b></button>
+                  <button class="main-button"><b>TOP PICKS</b></button>
+                  <button class="main-button"><b>FROM YOUR WATCHLIST</b></button>
+                  <button class="main-button"><b>WATCH GUIDE</b></button>
+              </div>
+        <!-- <div class="search-result">
+            <div class="film-search"></div>
+        </div> -->
+    </main>
+    <!-- ------------------------------------------------ -->
+    <!--          ALL SCRIPTS (BOOTSTRAP && JS)           -->
+    <!-- ------------------------------------------------ -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
