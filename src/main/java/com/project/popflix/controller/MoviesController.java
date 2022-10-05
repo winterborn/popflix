@@ -80,9 +80,9 @@ public class MoviesController {
         } else {
           vidList.add(top20Vid.get(j).getVideos().get(0).getKey());
         }
-        videoNested.add(vidList);
-        nested.add(list);
       }
+      videoNested.add(vidList);
+      nested.add(list);
     }
 
     System.out.println(videoNested);
@@ -95,7 +95,7 @@ public class MoviesController {
     model.addAttribute("vidExt", videoNested);
     model.addAttribute("movies", nested);
     System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
-    model.addAttribute("watch", movies);
+    // model.addAttribute("watch", movies);
 
     // System.out.println(firstList);
     // System.out.println(secondList);
