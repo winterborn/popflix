@@ -42,12 +42,18 @@ public class MoviesController {
   return id;
  }
 
+ private String getMovieVideoLink(int id) {
+  TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+  MovieDb movie = movies.getMovie(id, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+  return movie.getVideos().get(0).getKey();
+ }
+
  @GetMapping("/")
  // @ResponseBody
  public String getMovie(Model model) {
   TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
   MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-  // System.out.println(movie.toString());
+  System.out.println(movie.getVideos().get(0).getKey());
   // System.out.println(movie.getReleaseDate());
   // System.out.println(movie.getCredits().getCast());
   // System.out.println(movies.getPopularMovies("en", 1));
@@ -74,7 +80,7 @@ public class MoviesController {
   // System.out.println(firstList);
   // System.out.println(secondList);
   System.out.println(nested);
-  return "movies/top20";
+  return "movies/homepage";
  }
 
  @GetMapping("/test")
