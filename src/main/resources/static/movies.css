@@ -26,9 +26,24 @@
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
-  top: 50%;
+  top: 80%;
+  /* bottom: 50px; */
   /* transform: translateY(-50%); */
 }
+.carousel-control-prev {
+  position: absolute;
+  margin-left: 80px;
+}
+
+.carousel-control-next {
+  position: absolute;
+  margin-right: 90px;
+}
+
+/* .carousel-control-next-icon {
+  right: 200px;
+} */
+
 @media (min-width: 768px) {
   .card img {
     /* height: 23em; */
