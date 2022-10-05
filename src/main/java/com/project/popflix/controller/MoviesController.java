@@ -110,4 +110,54 @@ public class MoviesController {
     MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     return movie;
   }
+
+  @GetMapping("/movies")
+  public String getHomePageForSignedInUser(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    System.out.println(movie.getVideos().get(0).getKey());
+    List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
+    List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
+
+    System.out.println(top20id);
+
+    List<MovieDb> top20Vid = new ArrayList<>();
+    for (int i = 0; i < top20id.size(); i++) {
+      top20Vid = top20id.stream()
+          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .collect(Collectors.toList());
+    }
+
+    List<List<MovieDb>> nested = new ArrayList<>();
+    List<List<String>> videoNested = new ArrayList<>();
+
+    for (int i = 0; i < 20; i += 5) { // 1
+      List<MovieDb> list = new ArrayList<>();
+      List<String> vidList = new ArrayList<>();
+      for (int j = i; j < i + 5; j++) { // 3
+        list.add(top20Vid.get(j));
+        if (top20Vid.get(j).getVideos() == null || top20Vid.get(j).getVideos().size() == 0) {
+          vidList.add("");
+        } else {
+          vidList.add(top20Vid.get(j).getVideos().get(0).getKey());
+        }
+      }
+      videoNested.add(vidList);
+      nested.add(list);
+    }
+
+    System.out.println(videoNested);
+    List<MovieDb> firstList = new ArrayList<>(nested.get(0));
+    nested.remove(0);
+    videoNested.remove(0);
+
+    model.addAttribute("firstList", firstList);
+    // return firstList.get(0);
+    model.addAttribute("vidExt", videoNested);
+    model.addAttribute("movies", nested);
+    System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
+    // model.addAttribute("watch", movies);
+
+    return "movies/signedHomePage";
+  }
 }
