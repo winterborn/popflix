@@ -1,7 +1,8 @@
 body {
   background-color: black;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Poppins", sans-serif;
   color: white;
 }
 
@@ -142,11 +143,36 @@ main {
   width: 84%;
 }
 
+.rectangle {
+  display: inline-block;
+  margin: 0 0 -9px 0;
+  height: 40px;
+  width: 10px;
+  background-color: rgb(113, 161, 251);
+}
+
+.chevron {
+  color: white;
+  padding: 0 0 0 8px;
+}
+
+.section_description {
+  padding: 10px 0 0 0;
+}
+
+h3 {
+  font-weight: bold;
+  display: inline;
+  padding: 0 0 0 10px;
+  color: rgb(113, 161, 251);
+}
+
 .main-header {
   display: "";
-  /* display: none; */
+  font-weight: bold;
   font-size: 48px;
   padding: 15px;
+  color: rgb(113, 161, 251);
 }
 
 .main-header-UA {
@@ -304,12 +330,13 @@ main {
   text-decoration: none;
 }
 
+/* HERO_HEADER */
+
 .hero_image {
   width: 90vw;
-  height: 90vh;
+  height: 95vh;
   object-fit: cover;
 }
-/* HERO_HEADER */
 
 .hero_caption {
   bottom: 50px;
@@ -320,6 +347,7 @@ main {
 h1 {
   font-size: 60px;
   font-weight: bold;
+  padding: 0 0 40px 0;
 }
 
 .hero_genre {
