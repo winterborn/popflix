@@ -30,7 +30,7 @@
     <header>
         <div class="head-block" >
             <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-            <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Home</b></a>
             <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
@@ -43,9 +43,10 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search Popflix"/>
             </div>
-            <img class="pro-button" src="logo_black.png" alt="IMDbPro">
+            <!-- <img class="pro-button" src="img/pop.jpeg" alt="IMDbPro"> -->
             <div class="empty-div"> </div>
-            <a href='#' class="header-button"><b>Watchlist</b></a>
+            <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
+            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span><b></a>
             <a href='/logout' class="header-button"><b>Logout</b></a>
             <select class="lang-select">
                 <option value='en'>EN &#9662</option>
@@ -151,19 +152,20 @@
             <div class="wrapper">
               <div class="main-header">What to Watch</div>
               <div class="main-buttons">
-                  <button class="main-button" id="most-popular"><b>MOST POPULAR</b></button>
-                  <button class="main-button" id="top-raiting"><b>TOP RAITING</b></button>
-                  <button class="main-button"><b>TOP PICKS</b></button>
-                  <button class="main-button"><b>FROM YOUR WATCHLIST</b></button>
-                  <button class="main-button"><b>WATCH GUIDE</b></button>
+               <!-- <a href="/" class="main-button"><b>HOME</b></a> -->
+                  <a href="/mostPopular" class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+                  <a href="/topRatings" class="main-button" id="top-raiting"><b>TOP RATING</b></a>
+                  <a href="/topPicks" class="main-button"><b>TOP PICKS</b></a>
+                  <a href="/watchlist" class="main-button"><b>FROM YOUR WATCHLIST</b></a>
               </div>
+              <br>
 
-               <!-- ------------------------------------------------ -->
+      <!-- ------------------------------------------------ -->
       <!--           COLLECTION OF WATCHLIST                -->
       <!-- ------------------------------------------------ -->
           <div class="watchlist">
             <div class="section-heading">
-              <a href="#" class="most-popular" tabindex="0">
+              <a href="/watchlist" class="most-popular" tabindex="0">
               <h3 class="">Watchlist</h3></a>
               <div class="">From your Watchlist</div>
             </div>
@@ -233,7 +235,7 @@
               role="button"
               data-slide="prev"
             >
-              <span class="watchlist_carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
             <a
@@ -242,31 +244,32 @@
               role="button"
               data-slide="next"
             >
-              <span class="watchlist_carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
           </div>
         </div>  
         </div>
-
+        <!-- ***************************************************************************************************** -->
+        <!-- END OF WATCHLIST CAROUSEL -->
+        <!-- ***************************************************************************************************** -->
+        <!-- END OF WATCHLIST CAROUSEL -->
+        <!-- ***************************************************************************************************** -->
+        <!-- END OF WATCHLIST CAROUSEL -->
+        <!-- ***************************************************************************************************** -->
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-              <!-- END OF WATCHLIST -->
-
       <!-- ------------------------------------------------ -->
       <!--           COLLECTION OF MOVIES                   -->
       <!-- ------------------------------------------------ -->
-            <div class="section-heading">
+            <div class="fan-heading">
               <a href="#" class="most-popular" tabindex="0">
               <h3 class="">Fan favorites</h3></a>
               <div class="">This week's top TV and movies</div>
             </div>
             <div class="films-wrapper">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="cards-wrapper">
@@ -327,20 +330,20 @@
             <!-- ------------------------------------------------ -->
             <a
               class="movies_carousel-control-prev"
-              href="#carouselExampleControls"
+              href="#carouselExampleControls2"
               role="button"
               data-slide="prev"
             >
-              <span class="movies_carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
             <a
               class="movies_carousel-control-next"
-              href="#carouselExampleControls"
+              href="#carouselExampleControls2"
               role="button"
               data-slide="next"
             >
-              <span class="movies_carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="carousel-control-next-icon"aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
@@ -349,6 +352,7 @@
         <!-- <div class="search-result">
             <div class="film-search"></div>
         </div> -->
+
     </main>
     <!-- ------------------------------------------------ -->
     <!--          ALL SCRIPTS (BOOTSTRAP && JS)           -->
