@@ -29,7 +29,7 @@
   <!-- ------------------------------------------------ -->
     <header>
         <div class="head-block" >
-            <img class="imdb-logo" src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="error">
+            <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
             <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
             <div class="input-field">
                 <select id="search-imdb-select">
@@ -43,7 +43,7 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search Popflix"/>
             </div>
-            <img class="pro-button" src="https://m.media-amazon.com/images/G/01/imdbpro/logos/IMDbPro-logo-primary-reversed._CB1513032401_.png" alt="IMDbPro">
+            <img class="pro-button" src="logo_black.png" alt="IMDbPro">
             <div class="empty-div"> </div>
             <a href='#' class="header-button"><b>Watchlist</b></a>
             <a href='/login' class="header-button"><b>Login</b></a>
@@ -147,6 +147,7 @@
           </div>
         </div>
 
+
             <div class="wrapper">
               <div class="main-header">What to Watch</div>
               <div class="main-buttons">
@@ -181,13 +182,14 @@
                 />
                 <div>
                   <div>
+
                   <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
                   <button class="star-button">☆</button>
                   </div>
                   
                   <div class="film-name" th:text="${card.title}"></div>
                   <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                  <button href="#" class="film-trailer-button">Trailer</button>
+                  <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
                 </div>
                 </div>
               </div>
@@ -195,22 +197,25 @@
               <!-- -------------------------------------- -->
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
-              <div class="carousel-item" th:each="movie: ${movies}">
+              <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
                 <div class="cards-wrapper">
-                  <div class="film" th:each="card: ${movie}">
+                  <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
                     <img
-                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
                     class="card-img-top"
                     alt="..."
                     />
                     <div>
                     <div>
+
                       <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
                       <button class="star-button">☆</button>
                     </div>
                     <div class="film-name" th:text="${card.title}">Card title</div>
                     <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                    <button href="#" class="film-trailer-button">Trailer</button>
+                    <!-- <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${vid})}"> -->
+                        <button class="film-trailer-button">Trailer</button>
+                    <!-- </a> -->
                     </div>
                   </div>
                   </div>

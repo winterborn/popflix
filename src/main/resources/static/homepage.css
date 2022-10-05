@@ -23,9 +23,9 @@ header {
 }
 
 .imdb-logo {
-  width: 5%;
-  height: 115%;
-  padding-right: 15px;
+  width: auto;
+  height: 70%;
+  /* padding-right: 15px; */
 }
 
 .header-button {
@@ -304,6 +304,11 @@ main {
   text-decoration: none;
 }
 
+.hero_image {
+  width: 90vw;
+  height: 90vh;
+  object-fit: cover;
+}
 /* HERO_HEADER */
 
 .hero_caption {

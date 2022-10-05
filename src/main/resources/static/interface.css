@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: ‘Roboto’, sans-serif;
   font-weight: 300;
   background: #181818;
   color: #fff;
@@ -24,25 +24,25 @@ h6 {
   display: flex;
 }
 #left {
+  background-color: #18181875;
+  position: absolute;
   flex: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 25vw;
   align-items: center;
   justify-content: center;
 }
-
-/* img {
-  width: 200px;
-  height: auto;
-} */
 /* Sign In */
 #signin {
+  z-index: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 110%;
   padding-bottom: 1rem;
 }
 #signin form {
@@ -50,10 +50,10 @@ h6 {
   padding-bottom: 3rem;
 }
 #signin .logo {
-  margin-bottom: 8vh;
+  margin-bottom: 4vh;
 }
 #signin .logo img {
-  width: 300px;
+  width: 400px;
 }
 #signin label {
   font-size: 0.9rem;
@@ -163,6 +163,13 @@ h6 {
   align-items: center;
   text-align: center;
 }
+#showcase .showcase-content {
+  overflow: visible;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
 #showcase .showcase-text {
   font-size: 3rem;
   width: 100%;
@@ -203,14 +210,11 @@ h6 {
     padding-top: 1rem;
   }
 }
-
 .eye {
   position: absolute;
-  /* padding-bottom: 200px; */
-  /* bottom: 200px; */
-  transform: translateX(-20px);
+  transform: translate(-20px);
+  padding-top: 10px;
 }
-
 #hide1 {
   display: none;
 }
