@@ -1,6 +1,6 @@
 # Popflix
 
-This is a springboot application
+This is a springboot application built to help others explore the world of movies and shows and decide what to watch.
 
 The application uses:
 
@@ -14,4 +14,4 @@ The application uses:
 - `bootstrap` for styling and responsive design
 - `javascript`
 - `TheMovieDB API` [TheMovieDB API](https://www.themoviedb.org/documentation/api)
-- `Holger Brandl's themoviedbapi` a java wrapper around the json api provided by TheMovieDB.or [themoviedbapi](https://github.com/holgerbrandl/themoviedbapi)
+- `Holger Brandl's TheMoviedbAPI` a java wrapper around the json api provided by TheMovieDB
