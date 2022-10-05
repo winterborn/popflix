@@ -4,38 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/interface.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
-    <title>Sign up</title>
+    <link rel="icon" href="/img/popflix_logo_2.png" />
+    <title>Sign Up</title>
   </head>
   <body>
     <div id="wrapper">
       <div id="left">
         <div id="signin">
           <div class="logo">
-            <h1>POPFLIX</h1>
+            <img src="/logo_black.png" alt="logo" />
           </div>
-          <div th:if="${param.retry}" class="alert alert-danger">
+          <div th:if="${param.error}" class="alert alert-danger">
             Invalid username or password.
           </div>
+          <div th:if="${param.logout}" class="alert alert-success">
+            Successfully logged out
+          </div>
+
           <form th:action="@{/users}" th:object="${user}" method="post">
             <div>
-              <label>Email </label>
-              <input type="text" th:field="*{email}" class="text-input" />
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="text-input" />
             </div>
             <div>
-              <label>Username</label>
-              <input type="text" th:field="*{username}" class="text-input" />
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                class="text-input"
+              />
             </div>
+
             <div>
               <label for="password">Password</label>
               <input
                 type="password"
                 id="password"
-                th:field="*{password}"
                 name="password"
                 class="text-input"
                 required
@@ -45,12 +55,12 @@
                 <i id="hide2" class="bi bi-eye-slash"></i>
               </span>
             </div>
-            <button type="submit" class="primary-btn" value="Sign up">
+            <button id="login" type="submit" class="primary-btn">
               Sign Up
             </button>
           </form>
 
-          <!-- REDIRECT TO LOGIN PAGE -->
+          <!-- REDIRECT TO SIGN IN PAGE -->
           <div class="or">
             <hr class="bar" />
             <span>OR</span>
@@ -61,24 +71,28 @@
         <footer id="main-footer">
           <p>Copyright &copy; 2022, All Rights Reserved</p>
           <div>
-            <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a>
+            <a href="#">terms of use</a> | <a href="#">Privacy Policy</a>
           </div>
         </footer>
       </div>
       <div id="right">
         <div id="showcase">
           <div class="showcase-content">
-            <iframe
-              width="1000"
-              height="1100"
-              src="https://www.youtube.com/embed/U3-iXA6H3Q0?autoplay=1"
+            <video
+              style="max-height: 100%; max-width: 100%"
+              autoplay
+              loop
+              muted
             >
-            </iframe>
+              <!-- <source src="/vid.mp4" /> -->
+              <!-- <source type="/video/mp4" /> -->
+            </video>
           </div>
         </div>
       </div>
     </div>
   </body>
+
   <script>
     // toggles password visibility
     function toggle() {
