@@ -347,6 +347,7 @@ h3 {
 h1 {
   font-size: 60px;
   font-weight: bold;
+  padding: 0 0 40px 0;
 }
 
 .hero_genre {
