@@ -20,6 +20,9 @@ import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.TmdbMovies.MovieMethod;
 import info.movito.themoviedbapi.model.MovieDb;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import info.movito.themoviedbapi.model.people.PersonCast;
 
 import org.springframework.security.core.Authentication;
@@ -49,7 +52,7 @@ public class MoviesController {
     return movie.getVideos().get(0).getKey();
   }
 
-  @GetMapping("/")
+  @GetMapping("/movies")
   // @ResponseBody
   public String getMovie(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
@@ -111,7 +114,7 @@ public class MoviesController {
     return movie;
   }
 
-  @GetMapping("/movies")
+  @GetMapping("/")
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
@@ -159,5 +162,40 @@ public class MoviesController {
     // model.addAttribute("watch", movies);
 
     return "movies/signedHomePage";
+  }
+
+  @GetMapping("/mostPopular")
+  public String getMostPopularMovies(Model model) {
+
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    List<MovieDb> mostPopular = movies.getPopularMovies("en", 2).getResults();
+
+    model.addAttribute("movies", mostPopular);
+    return "pages/mostPopular";
+  }
+
+  @GetMapping("/topRatings")
+  public String getTopRatingMovies(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    // MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits,
+    // MovieMethod.images, MovieMethod.videos);
+    MovieResultsPage topRated = movies.getTopRatedMovies("en", 1);
+    model.addAttribute("movies", topRated);
+    return "pages/topRatings";
+  }
+
+  @GetMapping("/topPicks")
+  public String getTopPicksMovies(Model model) {
+    return "pages/topPicks";
+  }
+
+  @GetMapping("/watchGuide")
+  public String getWatchGuide(Model model) {
+    return "watchGuide";
+  }
+
+  @GetMapping("/watchlist")
+  public String getWatchlist(Model model) {
+    return "pages/watchlist";
   }
 }
