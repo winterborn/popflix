@@ -206,6 +206,8 @@ h6 {
 
 .eye {
   position: absolute;
+  /* padding-bottom: 200px; */
+  /* bottom: 200px; */
   transform: translateX(-20px);
 }
 
