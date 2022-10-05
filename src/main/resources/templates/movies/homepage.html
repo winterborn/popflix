@@ -17,6 +17,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Popflix</title>
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
@@ -59,50 +60,93 @@
       <!-- ------------------------------------------------ -->
       <!--           MENU WITH MAIN BUTTONS                 -->
       <!-- ------------------------------------------------ -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg" alt="Third slide">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg" alt="First slide">
                   <div class="hero_caption carousel-caption d-none d-md-block">
-                    <h5>Blade Runner 2049 (2017)</h5>
-                    <p>The key to the future is finally unearthed.</p>
+                    <h1 class="hero_header">BLADE RUNNER 2049</h1>
+                    <p class="hero_tagline">THE KEY TO THE FUTURE IS FINALLY UNEARTHED.</p>
+                    <p class="hero_genre">SCI-FI</p>
+                    <p class="hero_genre">THRILLER</p>
+                    <p class="hero_genre">DRAMA</p>
+                    <!-- <div class="hero_rating_container">
+                      <img class="hero_rating_img"src="../img/popcorn.png" alt="">
+                      <h5 class="hero_rating">7.5</h5>
+                    </div> -->
+                    <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
-                  <div class="hero_caption carousel-caption d-none d-md-block">
-                    <h5>Rogue One: A Star Wars Story (2016)</h5>
-                    <p> A rebellion built on hope.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="First slide">
-                  <div class="hero_caption carousel-caption d-none d-md-block">
-                    <h5>The Martian (2015)</h5>
-                    <p> Bring Him Home.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="First slide">
-                  <div class="hero_caption carousel-caption d-none d-md-block">
-                    <h5>The Martian (2015)</h5>
-                    <p> Bring Him Home.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="First slide">
-                  <div class="hero_caption carousel-caption d-none d-md-block">
-                    <h5>The Martian (2015)</h5>
-                    <p> Bring Him Home.</p>
-                  </div>
-                </div>
+            <div class="carousel-item">
+              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
+              <div class="hero_caption carousel-caption d-none d-md-block">
+                <h1 class="hero_header">ROGUE ONE: <br> A STAR WARS STORY</h1>
+                <p class="hero_tagline">A REBELLION BUILT ON HOPE.</p>
+                <p class="hero_genre">SCI-FI</p>
+                <p class="hero_genre">ACTION</p>
+                <p class="hero_genre">ADVENTURE</p>
+                <!-- <div class="hero_rating_container">
+                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
+                  <h5 class="hero_rating">7.5</h5>
+                </div> -->
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
+            <div class="carousel-item">
+              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
+              <div class="hero_caption carousel-caption d-none d-md-block">
+                <h1 class="hero_header">INTERSTELLAR</h1>
+                <p class="hero_tagline">MANKIND WAS BORN ON EARTH. IT WAS NEVER MEANT TO DIE HERE.</p>
+                <p class="hero_genre">SCI-FI</p>
+                <p class="hero_genre">DRAMA</p>
+                <p class="hero_genre">ADVENTURE</p>
+                <!-- <div class="hero_rating_container">
+                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
+                  <h5 class="hero_rating">8.4</h5>
+                </div> -->
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
+              <div class="hero_caption carousel-caption d-none d-md-block">
+                <h1 class="hero_header">THE MARTIAN</h1>
+                <p class="hero_tagline">BRING HIM HOME.</p>
+                <p class="hero_genre">SCI-FI</p>
+                <p class="hero_genre">DRAMA</p>
+                <p class="hero_genre">ADVENTURE</p>
+                <!-- <div class="hero_rating_container">
+                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
+                  <h5 class="hero_rating">7.7</h5>
+                </div> -->
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=ej3ioOneTy8"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
+              <div class="hero_caption carousel-caption d-none d-md-block">
+                <h1 class="hero_header">INCEPTION</h1>
+                <p class="hero_tagline">YOUR MIND IS THE SCENE OF THE CRIME.</p>
+                <p class="hero_genre">SCI-FI</p>
+                <p class="hero_genre">ACTION</p>
+                <p class="hero_genre">ADVENTURE</p>
+                <!-- <div class="hero_rating_container">
+                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
+                  <h5 class="hero_rating">8.4</h5>
+                </div> -->
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=YoHD9XEInc0"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
             <div class="wrapper">
               <div class="main-header">What to Watch</div>
@@ -138,8 +182,9 @@
                 />
                 <div>
                   <div>
-                  <img class="star-for-rating" src="https://www.clipartmax.com/png/full/307-3078264_star-rating-icon-rating-star-single-png.png" alt="star" th:text="${card.voteAverage}">
-                  <button class="star-button"><img src="/popcorn.png" alt=""></button>
+
+                  <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                  <button class="star-button">☆</button>
                   </div>
                   
                   <div class="film-name" th:text="${card.title}"></div>
@@ -162,10 +207,11 @@
                     />
                     <div>
                     <div>
-                  <img class="star-for-rating" src="https://www.clipartmax.com/png/full/307-3078264_star-rating-icon-rating-star-single-png.png" alt="star" th:text="${movie1.voteAverage}">
-                  <button class="star-button"><img src="/popcorn.png" alt=""></button>
-                  </div>
-                    <div class="film-name" th:text="${movie1.title}">Card title</div>
+
+                      <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                      <button class="star-button">☆</button>
+                    </div>
+                    <div class="film-name" th:text="${card.title}">Card title</div>
                     <button href="#" class="film-watchlist-button">+ Watchlist</button>
                     <!-- <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${vid})}"> -->
                         <button class="film-trailer-button">Trailer</button>
