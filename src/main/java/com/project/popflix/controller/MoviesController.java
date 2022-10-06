@@ -34,6 +34,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class MoviesController {
 
+ 
   @Autowired
   UserRepository userRepository;
   @Autowired
@@ -66,6 +67,8 @@ public class MoviesController {
           .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
+    
+    
 
     List<List<MovieDb>> nested = new ArrayList<>();
     List<List<String>> videoNested = new ArrayList<>();
@@ -106,6 +109,10 @@ public class MoviesController {
     // System.out.println(nested);
     return "movies/homepage";
   }
+  
+  @GetMapping("/movie")
+ public String getMovieDetails(Model model){
+ return "movies/movieIndPage";}
 
   @GetMapping("/test")
   @ResponseBody
@@ -119,6 +126,7 @@ public class MoviesController {
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    
     // System.out.println(movie.getVideos().get(0).getKey());
     List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
@@ -185,14 +193,30 @@ public class MoviesController {
     return "pages/topRatings";
   }
 
-  @GetMapping("/topPicks")
+  @GetMapping("/nowPlayingMovies")
   public String getTopPicksMovies(Model model) {
-    return "pages/topPicks";
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en", 2, "");
+    System.out.println(nowPlayingMovies.getResults());
+    // System.out.println(nowPlayingMovies.getPage());
+    model.addAttribute("movies", nowPlayingMovies);
+    return "pages/nowPlayingMovies";
   }
 
-  @GetMapping("/watchlist")
-  public String getWatchlist(Model model) {
-    return "pages/watchlist";
+  @GetMapping("/upcomingMovies")
+  public String getUpcomingMovies(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieResultsPage upcomingMovies = movies.getUpcoming("en", 1, "");
+    model.addAttribute("movies", upcomingMovies);
+    return "pages/upcomingMovies";
+  }
+
+  @GetMapping("/newReleases")
+  public String getNewReleases(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    // MovieResultsPage newReleases = movies.get
+    // model.addAttribute("movies", newReleases);
+    return "pages/newReleases";
   }
 
   // @GetMapping("/watchGuide")

@@ -18,10 +18,19 @@
     crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Popflix</title>
+
+    <!-- ------------------------------------------------ -->
+    <!--                  GOOGLE FONTS                    -->
+    <!-- ------------------------------------------------ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>PopFlix | Home</title>
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
-    <link rel="stylesheet" href="/watchlist.css">
+    <link rel="stylesheet" href="/homepage.css">
 </head>
 <body>
   <!-- ------------------------------------------------ -->
@@ -30,7 +39,29 @@
     <header>
         <div class="head-block" >
             <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Home</b></a>
+            <div class="header-button">          
+              <div class="dropdown navitem">
+                <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+              <div class="dropdown-content">
+                <form action="/nowPlayingMovies">
+                <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                </form>
+                <form action="/upcomingMovies">
+                <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>
+                </form>
+                <form action="/mostPopular">
+                  <button class="navitem noselect neon-button
+                  blue">MOST POPULAR</button>
+                  </form>
+                <form action="/topRatings">
+                <button class="navitem noselect neon-button blue">TOP RATED</button>
+                <form action="/popflixPicks">
+                  <button class="navitem noselect neon-button blue">POPFLIX PICKS</button>
+                </form>
+              </div>
+          </div>
+        </div>    
+            </a>
             <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
@@ -41,12 +72,12 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
-                <input type="text" id="search-imdb" placeholder="Search Popflix"/>
+                <input type="text" id="search-imdb" placeholder="Search PopFlix"/>
             </div>
-            <!-- <img class="pro-button" src="img/pop.jpeg" alt="IMDbPro"> -->
+
             <div class="empty-div"> </div>
-            <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
-            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span><b></a>
+            <a href='/watchlist/' class="header-button"><b>Watchlist</b></a>
+            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
             <a href='/logout' class="header-button"><b>Logout</b></a>
             <select class="lang-select">
                 <option value='en'>EN &#9662</option>
@@ -58,9 +89,11 @@
         </div>
     </header>
     <main>
+
       <!-- ------------------------------------------------ -->
-      <!--           MENU WITH MAIN BUTTONS                 -->
+      <!--                   HERO_HEADER                    -->
       <!-- ------------------------------------------------ -->
+
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -78,10 +111,6 @@
                     <p class="hero_genre">SCI-FI</p>
                     <p class="hero_genre">THRILLER</p>
                     <p class="hero_genre">DRAMA</p>
-                    <!-- <div class="hero_rating_container">
-                      <img class="hero_rating_img"src="../img/popcorn.png" alt="">
-                      <h5 class="hero_rating">7.5</h5>
-                    </div> -->
                     <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
@@ -93,10 +122,6 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">ACTION</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <!-- <div class="hero_rating_container">
-                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
-                  <h5 class="hero_rating">7.5</h5>
-                </div> -->
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
@@ -108,10 +133,6 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">DRAMA</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <!-- <div class="hero_rating_container">
-                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
-                  <h5 class="hero_rating">8.4</h5>
-                </div> -->
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
@@ -123,10 +144,6 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">DRAMA</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <!-- <div class="hero_rating_container">
-                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
-                  <h5 class="hero_rating">7.7</h5>
-                </div> -->
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=ej3ioOneTy8"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
@@ -138,44 +155,43 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">ACTION</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <!-- <div class="hero_rating_container">
-                  <img class="hero_rating_img"src="../img/popcorn.png" alt="">
-                  <h5 class="hero_rating">8.4</h5>
-                </div> -->
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=YoHD9XEInc0"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ***************************************************************************************************** -->
+        <!-- ***************************************************************************************************** -->
+        <!--                                      WATCHLIST CAROUSEL                                              -->
+        <!-- ***************************************************************************************************** -->
+        <!-- ***************************************************************************************************** -->
 
-            <div class="wrapper">
-              <div class="main-header">What to Watch</div>
-              <div class="main-buttons">
-               <!-- <a href="/" class="main-button"><b>HOME</b></a> -->
-                  <a href="/mostPopular" class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
-                  <a href="/topRatings" class="main-button" id="top-raiting"><b>TOP RATING</b></a>
-                  <a href="/topPicks" class="main-button"><b>TOP PICKS</b></a>
-                  <a href="/watchlist" class="main-button"><b>FROM YOUR WATCHLIST</b></a>
-              </div>
-              <br>
-        <!-- ***************************************************************************************************** -->
-        <!-- ***************************************************************************************************** -->
-        <!--                                       WATCHLIST CAROUSEL                                              -->
-        <!-- ***************************************************************************************************** -->
-        <!-- ***************************************************************************************************** -->
+        <div class="wrapper">
+          <div class="main-header">What to watch:</div>
+          <div class="main-buttons">
+            <a href='/nowPlayingMovies' class="main-button" id="in-theatres"><b>IN THEATRES</b></a>
+            <a href='/upcomingMovies' class="main-button" id="new-releases"><b>UPCOMING MOVIES</b></a>
+            <a href='/mostPopular' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+            <a href='/topRatings' class="main-button" id="top-rated"><b>TOP RATED</b></a>
+            <a href='/watchlist' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
+          </div>
+  
+          <br>
 
           <div class="watchlist">
-            <div class="section-heading">
-              <a href="/watchlist" class="most-popular" tabindex="0">
-              <h3 class="">Watchlist</h3></a>
-              <div class="">From your Watchlist</div>
+             <div class="section_header">
+              <div class="rectangle"></div>
+              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Watchlist</h3></a>
+              <h3 class="chevron">></h3>
             </div>
+            <div class="section_description">Movies added to your watchlist</div>
+
             <div class="films-wrapper">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="cards-wrapper">
+            <div class="cards-wrapper">
               <!-- --------------------------- -->
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
@@ -187,13 +203,11 @@
                 />
                 <div>
                   <div>
-
-                  <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
-                  <button class="star-button">☆</button>
+                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                    <button class="star-button">☆</button>
                   </div>
-                  
                   <div class="film-name" th:text="${card.title}"></div>
-                  <button href="#" class="film-watchlist-button">Remove</button>
+                  <button href="#" class="film-watchlist-button">+ Watchlist</button>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
                 </div>
                 </div>
@@ -207,18 +221,17 @@
                   <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
                     <img
                     th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
-                    class="card-img-top"
+                    class="film-img"
                     alt="..."
                     />
                     <div>
                     <div>
-
                       <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
                       <button class="star-button">☆</button>
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
-                    <button href="#" class="film-watchlist-button">Remove</button>
-                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos.get(0).getKey()})}">
+                    <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
                     </a>
                     </div>
@@ -252,29 +265,29 @@
           </div>
           </div>
         </div>  
-        </div>
+
         <!-- ***************************************************************************************************** -->
         <!-- END OF FIRST WATCHLIST CAROUSEL -->
         <!-- ***************************************************************************************************** -->
-        <!-- END OF FIRST WATCHLIST CAROUSEL -->
+        <!-- START OF SECOND WATCHLIST CAROUSEL -->
         <!-- ***************************************************************************************************** -->
+
         <br>
         <br>
-      <!-- ------------------------------------------------ -->
-      <!--              MOVIES CAROUSEL                     -->
-      <!-- ------------------------------------------------ -->
-      <!--           COLLECTION OF MOVIES                   -->
-      <!-- ------------------------------------------------ -->
-            <div class="fan-heading">
-              <a href="#" class="most-popular" tabindex="0">
-              <h3 class="">Fan favorites</h3></a>
-              <div class="">This week's top TV and movies</div>
+
+          <div class="watchlist">
+            <div class="section_header">
+              <div class="rectangle"></div>
+              <a href="#" class="most-popular" tabindex="0"><h3 class="">Most Popular</h3></a>
+              <h3 class="chevron">></h3>
             </div>
+            <div class="section_description">Check out the most popular movies on PopFlix</div>
+
             <div class="films-wrapper">
             <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="cards-wrapper">
+            <div class="cards-wrapper">
               <!-- --------------------------- -->
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
@@ -292,26 +305,29 @@
                   </div>
                   
                   <div class="film-name" th:text="${card.title}"></div>
-                  <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                  <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                  </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
                 </div>
                 </div>
               </div>
               </div>
+
               <!-- -------------------------------------- -->
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
+
               <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
                 <div class="cards-wrapper">
                   <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
                     <img
                     th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
-                    class="card-img-top"
+                    class="film-img"
                     alt="..."
                     />
                     <div>
                     <div>
-
                       <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
                       <button class="star-button">☆</button>
                     </div>
@@ -351,9 +367,6 @@
           </div>
           </div>
         </div>
-        <!-- <div class="search-result">
-            <div class="film-search"></div>
-        </div> -->
 
     </main>
     <!-- ------------------------------------------------ -->

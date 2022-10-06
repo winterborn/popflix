@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html 
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ------------------------------------------------ -->
+    <!--                  BOOTSTRAP CDN                   -->
+    <!-- ------------------------------------------------ -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- ------------------------------------------------ -->
+    <!--                  GOOGLE FONTS                    -->
+    <!-- ------------------------------------------------ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>PopFlix | Movie</title>
+    <link rel="icon" href="img/popflix_logo_2.png">
+    <link rel="stylesheet" href="/movies.css" />
+    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/moviePage.css">
+</head>
+<body>
+  <!-- ------------------------------------------------ -->
+  <!--           NAVBAR WITH SEARCH BAR                 -->
+  <!-- ------------------------------------------------ -->
+    <header>
+        <div class="head-block" >
+            <img class="imdb-logo" src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="error">
+            <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+            <div class="input-field">
+                <select id="search-imdb-select">
+                    <option value='all'>All <span>&#9662</span></option>
+                    <option value="titles">Titles</option>
+                    <option value="tv-episodes">TV Episodes</option>
+                    <option value="celebs">Celebs</option>
+                    <option value="companies">Companies</option>
+                    <option value="keywords">Keywords</option>
+                    <option value="advanced-search">Advanced Search</option>
+                </select>
+                <input type="text" id="search-imdb" placeholder="Search Popflix"/>
+            </div>
+            <img class="pro-button" src="https://m.media-amazon.com/images/G/01/imdbpro/logos/IMDbPro-logo-primary-reversed._CB1513032401_.png" alt="IMDbPro">
+            <div class="empty-div"> </div>
+            <a href='#' class="header-button"><b>Watchlist</b></a>
+            <a href='/login' class="header-button"><b>Login</b></a>
+            <select class="lang-select">
+                <option value='en'>EN &#9662</option>
+                <option value="titles">UA</option>
+                <option value="tv-episodes">ESP</option>
+                <option value="celebs">IT</option>
+                <option value="companies">DE</option>
+            </select>
+        </div>
+    </header>
+    <main>
+
+    <!-- ------------------------------------------------ -->
+        <!-- Main block of info start -->
+        <div class="mainMovieDiv">
+            <br>
+            <br>
+            <h1 class="movieTitle"><b>(Title Example)</b></h1>
+            <p>(year) . (age rating) . (runtime)</p>
+            <!-- Trailer and poster -->
+            <div class="movieContainter"> 
+                <div class="posterblock">poster</div>
+                <div class="trailerblock">trailer</div>
+            </div>
+            <!-- Details -->
+            <div class="detailsBlock">
+                <div class="mediaContainter">
+                    <div class="genre">
+                        <p>(genre)</p>
+                    </div> 
+                    <div class="genre">
+                        <p>(genre)</p>
+                    </div> 
+                    <br>
+                    <hr>
+                    <div>
+                        <p>(description) LAPD detective Tom Ludlow is a ruthlessly efficient, unorthodox undercover cop. Captain Jack Wander always covers for Ludlow, as do even his somewhat jealous colleagues. After technically excessive violence against a vicious Korean gang during the liberation of kidnapped child sex slaves, Ludlow becomes the target of hotshot Internal Affairs captain James Biggs, who feels passed-over after Wander's promotion to chief. Ludlow's ex-patrol partner, Terrence Washington, sides with IA but is killed during a shop robbery in Ludlow's presence. Ludlow works his way through the twisted rungs of the police and the deadly streets of Los Angeles for answers that only lead to more questions.</p>
+                    </div>
+                    <hr>
+                    <p>Director: (directors name)</p>
+                    <hr>
+                    <p> Stars: (top 3 billing cast)</p>
+                    <hr>
+                </div>
+            </div>
+            <!-- Where to watch -->
+            <div class="whereWatchBlock">
+                <a href="#" class="streamingService"><img src="https://img.icons8.com/color/40/000000/amazon-prime-video.png"/>Watch now on Prime Video</a>
+                <br>
+                <a href="#" class="streamingService"><img src="https://img.icons8.com/3d-fluency/40/000000/netflix-desktop-app.png"/>Watch now on Netflix</a>
+                <a href="#" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/>  Add to Watchlist</a>
+            </div>
+        </div>
+        <!-- Main block of info finish -->
+    <!-- ------------------------------------------------ -->
+
+    <!-- ------------------------------------------------ -->
+    <!-- All details block start-->
+
+    <div class="secondaryMovieDiv">
+        <div class="fullDetailsBlock">
+            <div class="detailsContainer">
+                <h2><b>Details</b></h2>
+                <hr>
+                <p>Production companies: (companies)</p>
+                <hr>
+                <p>Language: (language)</p>
+                <hr>
+                <p>Country of origin: (language)</p>
+                <hr>
+                <p>Official site: (check to see if has value, if so link here, if not get rid off line)</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="whereWatchBlock">
+            <div class="budgetBlock">
+                <h2><b>Box Office</b></h2>
+                <hr>
+                <p>Release date: (date)</p>
+                <hr>
+                <p>Budget: (budget)</p>
+                <hr>
+                <p>Revenue: (revenue)</p>
+                <hr>
+                <p>Rating: (rating)</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="castBlock">
+            <h2><b>Cast</b></h2>
+            <div class="row">
+                <div class="column">
+                    <p>This cast member</p>
+                    <hr>
+                    <p>This too is a cast member</p>
+                    <hr>
+                    <p>This could be a cast member</p>
+                    <hr>
+                    <p>Who the fuck is that guy?</p>
+                    <hr>
+                </div>
+                <div class="column">
+                    <p>This too is a cast member</p>
+                    <hr>
+                    <p>Who the fuck is that guy?</p>
+                    <hr>
+                    <p>This cast member</p>
+                    <hr>
+                    <p>This could be a cast member</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h2 style="color: white;"><b>Imagine this to be real please</b></h2>
+        <img src="../img/suggested.png" width="1200" height="auto"/>
+    </div>
+    <!-- All details block finish -->
+    <!-- ------------------------------------------------ -->
+
+    <!-- ------------------------------------------------ -->
+    <!-- Suggested movies start -->
+
+    <!-- Someone put a fucking carousel here please -->
+
+    <!-- Suggested movies finish -->
+    <!-- ------------------------------------------------ --> 
+    </main>
+    <!-- ------------------------------------------------ -->
+    <!--          ALL SCRIPTS (BOOTSTRAP && JS)           -->
+    <!-- ------------------------------------------------ -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
