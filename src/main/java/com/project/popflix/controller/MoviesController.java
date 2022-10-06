@@ -57,11 +57,8 @@ public class MoviesController {
   public String getMovie(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-    System.out.println(movie.getVideos().get(0).getKey());
     List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
-
-    System.out.println(top20id);
 
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
@@ -88,7 +85,7 @@ public class MoviesController {
       nested.add(list);
     }
 
-    System.out.println(videoNested);
+    // System.out.println(videoNested);
     List<MovieDb> firstList = new ArrayList<>(nested.get(0));
     nested.remove(0);
     videoNested.remove(0);
@@ -101,7 +98,7 @@ public class MoviesController {
     // return firstList.get(0);
     model.addAttribute("vidExt", videoNested);
     model.addAttribute("movies", nested);
-    System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
+    // System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
     // model.addAttribute("watch", movies);
 
     // System.out.println(firstList);
@@ -122,11 +119,11 @@ public class MoviesController {
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-    System.out.println(movie.getVideos().get(0).getKey());
+    // System.out.println(movie.getVideos().get(0).getKey());
     List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
-    System.out.println(top20id);
+    // System.out.println(top20id);
 
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
@@ -153,7 +150,7 @@ public class MoviesController {
       nested.add(list);
     }
 
-    System.out.println(videoNested);
+    // System.out.println(videoNested);
     List<MovieDb> firstList = new ArrayList<>(nested.get(0));
     nested.remove(0);
     videoNested.remove(0);
@@ -162,7 +159,7 @@ public class MoviesController {
     // return firstList.get(0);
     model.addAttribute("vidExt", videoNested);
     model.addAttribute("movies", nested);
-    System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
+    // System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
     // model.addAttribute("watch", movies);
 
     return "movies/signedHomePage";
@@ -193,13 +190,13 @@ public class MoviesController {
     return "pages/topPicks";
   }
 
-
+  @GetMapping("/watchlist")
   public String getWatchlist(Model model) {
     return "pages/watchlist";
-  } 
-  
+  }
+
   // @GetMapping("/watchGuide")
   // blic String getWatchGuide(Model model) {
-  //   return "watchGuide";
+  // return "watchGuide";
   // }
 }
