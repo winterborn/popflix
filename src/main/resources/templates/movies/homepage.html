@@ -180,11 +180,9 @@
                 />
                 <div>
                   <div>
-
-                  <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
-                  <button class="star-button">☆</button>
+                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                    <button class="star-button">☆</button>
                   </div>
-                  
                   <div class="film-name" th:text="${card.title}"></div>
                   <button href="#" class="film-watchlist-button">+ Watchlist</button>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
