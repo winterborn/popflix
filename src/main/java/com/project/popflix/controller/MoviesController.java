@@ -193,7 +193,7 @@ public class MoviesController {
   public String getMostPopularMovies(Model model) {
 
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    List<MovieDb> mostPopular = movies.getPopularMovies("en", 2).getResults();
+    List<MovieDb> mostPopular = movies.getPopularMovies("en", 1).getResults();
     mostPopular = this.getMoviesWithVideo(mostPopular, movies);
 
     model.addAttribute("movies", mostPopular);
