@@ -190,11 +190,6 @@ public class MoviesController {
     return "pages/topPicks";
   }
 
-  @GetMapping("/watchlist")
-  public String getWatchlist(Model model) {
-    return "pages/watchlist";
-  }
-
   // @GetMapping("/watchGuide")
   // blic String getWatchGuide(Model model) {
   // return "watchGuide";
