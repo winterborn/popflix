@@ -119,7 +119,7 @@ public class MoviesController {
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-
+    
     // System.out.println(movie.getVideos().get(0).getKey());
     List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
