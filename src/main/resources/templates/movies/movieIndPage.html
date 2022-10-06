@@ -37,19 +37,33 @@
   <!-- ------------------------------------------------ -->
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
-  <header>
-    <div class="head-block" >
-      <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-        <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span>Home</b></a>
-        <div class="input-field">
-            <select id="search-imdb-select">
-                <option value='all'>All <span>&#9662</span></option>
-                <option value="titles">Titles</option>
-                <option value="tv-episodes">TV Episodes</option>
-                <option value="celebs">Celebs</option>
-                <option value="companies">Companies</option>
-                <option value="keywords">Keywords</option>
-                <option value="advanced-search">Advanced Search</option>
+    <header>
+        <div class="head-block" >
+            <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
+            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+            <div class="input-field">
+                <select id="search-imdb-select">
+                    <option value='all'>All <span>&#9662</span></option>
+                    <option value="titles">Titles</option>
+                    <option value="tv-episodes">TV Episodes</option>
+                    <option value="celebs">Celebs</option>
+                    <option value="companies">Companies</option>
+                    <option value="keywords">Keywords</option>
+                    <option value="advanced-search">Advanced Search</option>
+                </select>
+                <input type="text" id="search-imdb" placeholder="Search PopFlix"/>
+            </div>
+
+            <div class="empty-div"> </div>
+            <a href='/watchlist/' class="header-button"><b>Watchlist</b></a>
+            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
+            <a href='/logout' class="header-button"><b>Logout</b></a>
+            <select class="lang-select">
+                <option value='en'>EN &#9662</option>
+                <option value="titles">UA</option>
+                <option value="tv-episodes">ESP</option>
+                <option value="celebs">IT</option>
+                <option value="companies">DE</option>
             </select>
             <input type="text" id="search-imdb" placeholder="Search Popflix"/>
         </div>
