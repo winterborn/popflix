@@ -185,9 +185,30 @@ public class MoviesController {
     return "pages/topRatings";
   }
 
-  @GetMapping("/topPicks")
+  @GetMapping("/nowPlayingMovies")
   public String getTopPicksMovies(Model model) {
-    return "pages/topPicks";
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en", 2, "");
+    System.out.println(nowPlayingMovies.getResults());
+    // System.out.println(nowPlayingMovies.getPage());
+    model.addAttribute("movies", nowPlayingMovies);
+    return "pages/nowPlayingMovies";
+  }
+
+  @GetMapping("/upcomingMovies")
+  public String getUpcomingMovies(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieResultsPage upcomingMovies = movies.getUpcoming("en", 1, "");
+    model.addAttribute("movies", upcomingMovies);
+    return "pages/upcomingMovies";
+  }
+
+  @GetMapping("/newReleases")
+  public String getNewReleases(Model model) {
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    // MovieResultsPage newReleases = movies.get
+    // model.addAttribute("movies", newReleases);
+    return "pages/newReleases";
   }
 
   // @GetMapping("/watchGuide")
