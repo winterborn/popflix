@@ -39,7 +39,7 @@
     <header>
         <div class="head-block" >
             <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-            <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
             <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
@@ -52,9 +52,9 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search PopFlix"/>
             </div>
-            <!-- <img class="pro-button" src="logo_black.png" alt="IMDbPro"> -->
+
             <div class="empty-div"> </div>
-            <a href='#' class="header-button"><b>Watchlist</b></a>
+            <a href='/login' class="header-button"><b>Watchlist</b></a>
             <a href='/login' class="header-button"><b>Login</b></a>
             <select class="lang-select">
                 <option value='en'>EN &#9662</option>
@@ -141,22 +141,20 @@
           </div>
         </div>
 
-
             <div class="wrapper">
               <div class="main-header">What to watch:</div>
               <div class="main-buttons">
-
-                  <a href='/login' class="main-button" id="most-popular"><b>NEW RELEASES</b></a>
-                  <a href='/login' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
-                  <a href='/login' class="main-button" id="top-raiting"><b>TOP RATED</b></a>
-                  <a href='/login' class="main-button"><b>POPFLIX PICKS</b></a>
-                  <a href='/login' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
-
+                <a href='/login' class="main-button" id="in-theatres"><b>IN THEATRES</b></a>
+                <a href='/login' class="main-button" id="new-releases"><b>NEW RELEASES</b></a>
+                <a href='/login' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+                <a href='/login' class="main-button" id="top-rated"><b>TOP RATED</b></a>
+                <a href='/login' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
               </div>
+
               <br>
 
       <!-- ------------------------------------------------ -->
-      <!--           COLLECTION OF MOVIES                   -->
+      <!--           POPULAR MOVIES CAROUSEL                -->
       <!-- ------------------------------------------------ -->
             <div class="section-heading">
               <div class="section_header">
@@ -247,9 +245,7 @@
           </div>
           </div>
         </div>
-        <!-- <div class="search-result">
-            <div class="film-search"></div>
-        </div> -->
+
     </main>
     <!-- ------------------------------------------------ -->
     <!--          ALL SCRIPTS (BOOTSTRAP && JS)           -->
