@@ -1,29 +1,15 @@
 <!DOCTYPE html>
-<html
+<html 
   xmlns:th="http://www.thymeleaf.org"
   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ------------------------------------------------ -->
     <!--                  BOOTSTRAP CDN                   -->
-    <!-- ------------------------------------------------ -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
-
-    <!-- ------------------------------------------------ -->
-    <!--                  GOOGLE FONTS                    -->
     <!-- ------------------------------------------------ -->
     <link
     rel="stylesheet"
@@ -32,15 +18,26 @@
     crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Popflix</title>
+
+    <!-- ------------------------------------------------ -->
+    <!--                  GOOGLE FONTS                    -->
+    <!-- ------------------------------------------------ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>PopFlix | Most Popular</title>
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
-    <link rel="stylesheet" href="/watchlist.css">
-   </head>
-  <body>
-    <!-- ------------------------------------------------ -->
+    <link rel="stylesheet" href="/homepage.css">
+</head>
+<body>
+
+  <!-- ------------------------------------------------ -->
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
+
     <header>
         <div class="head-block" >
           <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
@@ -57,10 +54,9 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search Popflix"/>
             </div>
-            <!-- <img class="pro-button" src="img/pop.jpeg" alt="IMDbPro"> -->
             <div class="empty-div"> </div>
             <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
-            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span><b></a>
+            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
             <a href='/logout' class="header-button"><b>Logout</b></a>
             <select class="lang-select">
                 <option value='en'>EN &#9662</option>
@@ -75,19 +71,27 @@
       <!-- ------------------------------------------------ -->
       <!--           MENU WITH MAIN BUTTONS                 -->
       <!-- ------------------------------------------------ -->
+
     <div class="wrapper">
-    <br>
-    <br>
-    <div class="main-buttons">
-     <!-- <a href="/" class="main-button"><b>HOME</b></a> -->
-    <a href="/mostPopular" class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
-    <a href="/topRatings" class="main-button" id="top-raiting"><b>TOP RATING</b></a>
-    <a href="/nowPlayingMovies" class="main-button"><b>MOVIES IN THEATERS</b></a>
-    <a href="/upcomingMovies" class="main-button"><b>UPCOMING MOVIES</b></a>
-    <a href="/watchlist" class="main-button"><b>FROM YOUR WATCHLIST</b></a>
+      <div class="main-header">What to watch:</div>
+      <div class="main-buttons">
+        <a href='/nowPlayingMovies' class="main-button" id="in-theatres"><b>IN THEATRES</b></a>
+        <a href='/upcomingMovies' class="main-button" id="new-releases"><b>UPCOMING MOVIES</b></a>
+        <a href='/mostPopular' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+        <a href='/topRatings' class="main-button" id="top-rated"><b>TOP RATED</b></a>
+        <a href='/watchlist' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
+      </div>
     </div>
+
     <br>
-    <div class="main-header">Most Popular Movies:</div>
+
+    <div class="section-heading">
+      <div class="section_header">
+        <div class="rectangle"></div>
+        <a href="#" class="most-popular" tabindex="0"><h3 class="">Popular Movies</h3></a>
+        <h3 class="chevron">></h3>
+      </div>
+      <div class="section_description">Check out the most popular movies on PopFlix</div>
     </div>
 
     <div class="topRatings">
