@@ -1,8 +1,7 @@
 body {
   background-color: black;
   margin: 0;
-  /* font-family: "Open Sans", sans-serif; */
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: white;
 }
 
@@ -36,11 +35,11 @@ header {
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
   height: 40%;
-  width: 90px;
+  width: 80px;
+  border-radius: 5px;
   padding-right: 5px;
   padding-left: 5px;
-  border-radius: 5px;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   text-decoration: none;
 }
 
@@ -145,36 +144,11 @@ main {
   width: 84%;
 }
 
-.rectangle {
-  display: inline-block;
-  margin: 0 0 -9px 0;
-  height: 40px;
-  width: 10px;
-  background-color: rgb(113, 161, 251);
-}
-
-.chevron {
-  color: white;
-  padding: 0 0 0 8px;
-}
-
-.section_description {
-  padding: 10px 0 0 0;
-}
-
-h3 {
-  font-weight: bold;
-  display: inline;
-  padding: 0 0 0 10px;
-  color: rgb(113, 161, 251);
-}
-
 .main-header {
   display: '';
-  font-weight: bold;
+  /* display: none; */
   font-size: 48px;
   padding: 15px;
-  color: rgb(113, 161, 251);
 }
 
 .main-header-UA {
@@ -185,12 +159,13 @@ h3 {
 }
 
 .main-button {
-  color: white;
-  background-color: black;
+  color: #007bff;
+  background-color: rgb(9, 9, 9);
+  font-size: 17px;
+  padding: 15px;
   border: none;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   transition-duration: 0.2s;
   text-decoration: none;
 }
@@ -335,13 +310,12 @@ h3 {
   text-decoration: none;
 }
 
-/* HERO_HEADER */
-
 .hero_image {
   width: 90vw;
-  height: 95vh;
+  height: 90vh;
   object-fit: cover;
 }
+/* HERO_HEADER */
 
 .hero_caption {
   bottom: 50px;
@@ -352,7 +326,6 @@ h3 {
 h1 {
   font-size: 60px;
   font-weight: bold;
-  padding: 0 0 40px 0;
 }
 
 .hero_genre {
@@ -386,6 +359,18 @@ h1 {
 
 .bi {
   padding: 0 0 10px 10px;
+}
+
+.fan-heading {
+  position: relative;
+  /* bottom: 50%; */
+  text-decoration: none;
+  left: -480px;
+}
+
+.fan-heading :hover {
+  /* background-color: rgb(20, 20, 20); */
+  text-decoration: none;
 }
 
 .topRatings {
