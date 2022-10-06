@@ -68,7 +68,7 @@
           </div>
           <a href="/login" class="secondary-btn">Log In</a>
         </div>
-        <footer id="main-footer">
+        <footer id="main-footer-signup">
           <p>Copyright &copy; 2022, All Rights Reserved</p>
           <div>
             <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a>
@@ -78,15 +78,14 @@
       <div id="right">
         <div id="showcase">
           <div class="showcase-content">
-            <video
-              style="max-height: 100%; max-width: 100%"
-              autoplay
-              loop
-              muted
-            >
-              <!-- <source src="/vid.mp4" /> -->
-              <!-- <source type="/video/mp4" /> -->
-            </video>
+            <div class="wrapper">
+              <div class="frame-container">
+                <iframe
+                  src="https://www.youtube.com/embed/U3-iXA6H3Q0?start=10&autoplay=1&loop=1&mute=1&modestbranding=1&controls=0&autohide=1&vq=2160&playlist=U3-iXA6H3Q0"
+                  frameborder="0"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -96,17 +95,17 @@
   <script>
     // toggles password visibility
     function toggle() {
-      var x = document.getElementById("password");
-      var y = document.getElementById("hide1");
-      var z = document.getElementById("hide2");
-      if (x.type === "password") {
-        x.type = "text";
-        y.style.display = "block";
-        z.style.display = "none";
+      var x = document.getElementById('password')
+      var y = document.getElementById('hide1')
+      var z = document.getElementById('hide2')
+      if (x.type === 'password') {
+        x.type = 'text'
+        y.style.display = 'block'
+        z.style.display = 'none'
       } else {
-        x.type = "password";
-        y.style.display = "none";
-        z.style.display = "block";
+        x.type = 'password'
+        y.style.display = 'none'
+        z.style.display = 'block'
       }
     }
   </script>

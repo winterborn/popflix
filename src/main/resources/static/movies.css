@@ -43,6 +43,47 @@
   right: 200px;
 } */
 
+.watchlist_carousel-control-prev,
+.watchlist_carousel-control-next {
+  /* background-color: #e1e1e1; */
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 54%;
+  /* bottom: 50px; */
+  /* transform: translateY(-50%); */
+}
+.watchlist_carousel-control-prev {
+  position: absolute;
+  margin-left: -2%;
+}
+
+.watchlist_carousel-control-next {
+  position: absolute;
+  margin-left: 83%;
+}
+
+.movies_carousel-control-prev,
+.movies_carousel-control-next {
+  /* background-color: #e1e1e1; */
+  /* color: black; */
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 85%;
+  /* bottom: 50px; */
+  /* transform: translateY(-50%); */
+}
+.movies_carousel-control-prev {
+  position: absolute;
+  margin-left: -2%;
+}
+
+.movies_carousel-control-next {
+  position: absolute;
+  margin-left: 83%;
+}
+
 @media (min-width: 768px) {
   .card img {
     /* height: 23em; */
