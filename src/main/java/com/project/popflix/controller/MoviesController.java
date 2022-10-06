@@ -48,6 +48,10 @@ public class MoviesController {
   return movie.getVideos().get(0).getKey();
  }
 
+ @GetMapping("/movie")
+ public String getMovieDetails(Model model){
+ return "movies/movieIndPage";}
+
  @GetMapping("/")
  // @ResponseBody
  public String getMovie(Model model) {
