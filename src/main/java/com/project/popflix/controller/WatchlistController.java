@@ -3,7 +3,6 @@ package com.project.popflix.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,9 +68,11 @@ public class WatchlistController {
 
         List<MovieDb> moviesWatchlist = movieId
         .stream()
-        .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos)).collect(Collectors.toList());
-
-        model.addAllAttributes(moviesWatchlist);
+        .map(x -> movies
+            .getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+            .collect(Collectors.toList());
+        System.out.println(moviesWatchlist);
+        model.addAttribute("watchlist", moviesWatchlist);
 
         return "/watchlist/user";
     }

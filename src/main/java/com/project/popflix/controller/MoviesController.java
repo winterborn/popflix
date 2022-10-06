@@ -62,6 +62,7 @@ public class MoviesController {
   // System.out.println("---------------HERE-----------------");
   // System.out.println(top20.size());
 
+
   for (int i = 0; i < 20; i += 5) { // 1
    List<MovieDb> list = new ArrayList<>();
    for (int j = i; j < i + 5; j++) { // 3
