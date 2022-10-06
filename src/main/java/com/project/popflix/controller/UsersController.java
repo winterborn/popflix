@@ -1,4 +1,5 @@
 
+
 package com.project.popflix.controller;
 
 import com.project.popflix.model.Authority;
@@ -61,4 +62,5 @@ public class UsersController {
    return new RedirectView("/login");
   }
  }
+
 }

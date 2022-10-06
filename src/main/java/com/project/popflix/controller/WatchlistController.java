@@ -80,6 +80,7 @@ public class WatchlistController {
     @RequestMapping("/watchlist/delete")
     @ResponseBody
     public RedirectView removeWatchlist(Model model, @RequestParam("movieid") Integer movieid) {
+        // th:href
         Watchlist movie = watchlistRepository.findByUseridAndMovieid(getUserId(), movieid);
         watchlistRepository.deleteById(movie.getId());
 
