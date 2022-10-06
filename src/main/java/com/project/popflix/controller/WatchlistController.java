@@ -1,6 +1,5 @@
 package com.project.popflix.controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,14 +9,16 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import org.springframework.security.core.Authentication;
-
 
 import com.project.popflix.model.Watchlist;
 import com.project.popflix.repository.UserRepository;
@@ -28,10 +29,9 @@ import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.TmdbMovies.MovieMethod;
 
-
 @Controller
 public class WatchlistController {
-    
+
     @Autowired
     WatchlistRepository watchlistRepository;
     @Autowired
@@ -42,11 +42,11 @@ public class WatchlistController {
         Authentication authentication = context.getAuthentication();
         Long id = userRepository.findByUsername(authentication.getName()).getId();
         return id;
-       }
+    }
 
     @PostMapping("/watchlist/new")
-    public RedirectView addToWatchlist(@RequestParam("movieid") Integer movieid, @ModelAttribute Watchlist watchlist){
-
+    public RedirectView addToWatchlist(@RequestParam("movieid") Integer movieid, @ModelAttribute Watchlist watchlist) {
+        // watchlist/new?movieid=
         watchlist.setUserid(this.getUserId());
         watchlist.setMovieid(movieid);
 
@@ -56,24 +56,36 @@ public class WatchlistController {
     }
 
     @GetMapping("/watchlist")
-    public String watchlist(Model model){
-        
+    public String watchlist(Model model) {
+
         TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
 
         Iterable<Watchlist> watchlist = watchlistRepository.findByUserid(getUserId());
         List<Integer> movieId = new ArrayList<>();
-        for (Watchlist movie : watchlist){
+        for (Watchlist movie : watchlist) {
             movieId.add(movie.getMovieid());
         }
 
         List<MovieDb> moviesWatchlist = movieId
-        .stream()
-        .map(x -> movies
-            .getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
-            .collect(Collectors.toList());
+                .stream()
+                .map(x -> movies
+                        .getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+                .collect(Collectors.toList());
         System.out.println(moviesWatchlist);
         model.addAttribute("watchlist", moviesWatchlist);
 
-        return "/watchlist/user";
+        return "watchlist/user";
     }
+
+    @RequestMapping("/watchlist/delete")
+    @ResponseBody
+    public RedirectView removeWatchlist(Model model, @RequestParam("movieid") Integer movieid) {
+        // th:href
+        Watchlist movie = watchlistRepository.findByUseridAndMovieid(getUserId(), movieid);
+        watchlistRepository.deleteById(movie.getId());
+
+        return new RedirectView("/watchlist");
+
+    }
+
 }

@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html 
-    lang="en"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-  >
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ------------------------------------------------ -->
     <!--                  BOOTSTRAP CDN                   -->
+    <!-- ------------------------------------------------ -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <!-- ------------------------------------------------ -->
+    <!--                  GOOGLE FONTS                    -->
     <!-- ------------------------------------------------ -->
     <link
     rel="stylesheet"
@@ -18,16 +31,20 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Popflix</title>
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
-    <link rel="stylesheet" href="/homepage.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/watchlist.css">
+  </head>
+  <body>
+    <!-- ------------------------------------------------ -->
+  <!--           NAVBAR WITH SEARCH BAR                 -->
+  <!-- ------------------------------------------------ -->
     <header>
         <div class="head-block" >
-            <img class="imdb-logo" src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="error">
-            <a href='#' class="header-button"><b><span class='buttons-logo'>&#9776</span> Menu</b></a>
+          <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
+            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Home</b></a>
             <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
@@ -40,10 +57,11 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search Popflix"/>
             </div>
-            <img class="pro-button" src="https://m.media-amazon.com/images/G/01/imdbpro/logos/IMDbPro-logo-primary-reversed._CB1513032401_.png" alt="IMDbPro">
+            <!-- <img class="pro-button" src="img/pop.jpeg" alt="IMDbPro"> -->
             <div class="empty-div"> </div>
-            <a href='#' class="header-button"><b>Watchlist</b></a>
-            <a href='/login' class="header-button"><b>Login</b></a>
+            <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
+            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span><b></a>
+            <a href='/logout' class="header-button"><b>Logout</b></a>
             <select class="lang-select">
                 <option value='en'>EN &#9662</option>
                 <option value="titles">UA</option>
@@ -54,10 +72,51 @@
         </div>
     </header>
     <main>
-        <div class="film" th:each="movie: ${watchlist}">
-            <h2 th:text="${movie.title}">
-            </h2>
+      <!-- ------------------------------------------------ -->
+      <!--           MENU WITH MAIN BUTTONS                 -->
+      <!-- ------------------------------------------------ -->
+    <div class="wrapper">
+    <br>
+    <br>
+    <div class="main-buttons">
+    <!-- <a href="/" class="main-button"><b>HOME</b></a> -->
+    <a href="/mostPopular" class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+    <a href="/topRatings" class="main-button" id="top-raiting"><b>TOP RATING</b></a>
+    <a href="/nowPlayingMovies" class="main-button"><b>MOVIES IN THEATERS</b></a>
+    <a href="/upcomingMovies" class="main-button"><b>UPCOMING MOVIES</b></a>
+    <a href="/watchlist" class="main-button"><b>FROM YOUR WATCHLIST</b></a>
+    </div>
+    <br>
+    <div class="main-header">Your Watchlist:</div>
+    </div>
+
+    <div class="topRatings">
+      <div class="film" th:each="card: ${watchlist}">
+        <img
+          th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+          class="film-img"
+          alt="..."
+        />
+        <div>
+          <div>
+            <img
+              class="star-for-rating"
+              src="../img/popcorn.png"
+              alt="star"
+              th:text="${card.voteAverage}"
+            />
+            <button class="star-button">☆</button>
+          </div>
+
+            <div class="film-name" th:text="${card.title}"></div>
+            <!-- <form th:action="@{/watchlist/delete?movieid={id}(id=${card.getId()})}" method="POST"> -->
+                <a th:href="@{/watchlist/delete?movieid={id}(id=${card.getId()})}" class="film-watchlist-button">Remove</a>
+            <!-- </form> -->
+          <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}">
+          <button class="film-trailer-button">Trailer</button>
+          </a>
         </div>
-    </main>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
