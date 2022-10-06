@@ -184,6 +184,7 @@ public class MoviesController {
     // return firstList.get(0);
     model.addAttribute("vidExt", videoNested);
     model.addAttribute("movies", nested);
+    // System.out.println(nested.get(0).get(0).getVideos().get(0).getKey());
     // model.addAttribute("watch", movies);
 
     return "movies/signedHomePage";
