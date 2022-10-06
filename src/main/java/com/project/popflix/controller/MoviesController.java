@@ -34,6 +34,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class MoviesController {
 
+ 
   @Autowired
   UserRepository userRepository;
   @Autowired
@@ -66,6 +67,8 @@ public class MoviesController {
           .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
+    
+    
 
     List<List<MovieDb>> nested = new ArrayList<>();
     List<List<String>> videoNested = new ArrayList<>();
@@ -106,6 +109,10 @@ public class MoviesController {
     // System.out.println(nested);
     return "movies/homepage";
   }
+  
+  @GetMapping("/movie")
+ public String getMovieDetails(Model model){
+ return "movies/movieIndPage";}
 
   @GetMapping("/test")
   @ResponseBody
