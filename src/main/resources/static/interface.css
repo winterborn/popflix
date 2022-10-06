@@ -5,15 +5,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+}
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background: #181818;
   color: #fff;
   overflow: hidden;
 }
-
 h1,
 h2,
 h3,
@@ -22,12 +24,13 @@ h5,
 h6 {
   font-weight: 300;
 }
-
 #wrapper {
   display: flex;
 }
-
 #left {
+  background-color: #1818184e;
+  z-index: 1;
+  position: absolute;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -35,37 +38,32 @@ h6 {
   align-items: center;
   justify-content: center;
 }
-
 /* Sign In */
-
 #signin {
+  z-index: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 110%;
   padding-bottom: 1rem;
 }
-
 #signin form {
   width: 80%;
   padding-bottom: 3rem;
 }
-
 #signin .logo {
   margin-bottom: 8vh;
 }
-
 #signin .logo img {
-  width: 300px;
+  width: 400px;
 }
-
 #signin label {
   font-size: 0.9rem;
   line-height: 2rem;
   font-weight: 500;
 }
-
 #signin .text-input {
   margin-bottom: 1.3rem;
   width: 100%;
@@ -76,13 +74,10 @@ h6 {
   padding: 0.5rem 1rem;
   line-height: 1.3rem;
 }
-
 #right {
   flex: 1;
 }
-
 /* Button */
-
 .primary-btn {
   padding: 0.7rem 1rem;
   height: 2.7rem;
@@ -97,11 +92,9 @@ h6 {
   text-align: center;
   transition: all 0.5s;
 }
-
 .primary-btn:hover {
   background-color: #0096ff;
 }
-
 .secondary-btn {
   padding: 0.7rem 1rem;
   height: 2.7rem;
@@ -116,22 +109,18 @@ h6 {
   text-align: center;
   transition: all 0.5s;
 }
-
 .secondary-btn:hover {
   border-color: #0096ff;
   color: #0096ff;
 }
-
 #signin .primary-btn {
   width: 100%;
 }
-
 #signin .secondary-btn,
 .or,
 .links {
   width: 60%;
 }
-
 #signin .links a {
   display: block;
   color: #0096ff;
@@ -140,25 +129,21 @@ h6 {
   text-align: center;
   font-size: 0.9rem;
 }
-
 #signin .or {
   display: flex;
   margin-bottom: 1.2rem;
   align-items: center;
 }
-
 #signin .or .bar {
   flex: auto;
   border: none;
   height: 1px;
   background: #aaa;
 }
-
 #signin .or span {
   color: #ccc;
   padding: 0 0.8rem;
 }
-
 #main-footer {
   color: #ccc;
   text-align: center;
@@ -167,38 +152,54 @@ h6 {
   padding-top: 5rem;
 }
 
-#main-footer a {
+#main-footer-signup {
+  color: #ccc;
+  text-align: center;
+  font-size: 0.8rem;
+  max-width: 80%;
+  /* padding-top: 1rem; */
+}
+
+#main-footer-signup a {
   color: #0096ff;
   text-decoration: underline;
 }
 
+#main-footer a {
+  color: #0096ff;
+  text-decoration: underline;
+}
 #showcase {
   background-position: absolute;
-  background-size: cover;
+  background-size: fill;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  object-fit: cover;
+  object-fit: fill;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-
+#showcase .showcase-content {
+  pointer-events: none;
+  overflow: visible;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 #showcase .showcase-text {
   font-size: 3rem;
   width: 100%;
   color: #fff;
   margin-bottom: 1.5rem;
 }
-
 #showcase .secondary-btn {
   width: 60%;
   margin: auto;
 }
-
 /* Screens above 1200px */
-
 @media only screen and (min-width: 1200px) {
   #left {
     flex: 4;
@@ -207,7 +208,6 @@ h6 {
     flex: 6;
   }
 }
-
 @media only screen and (max-width: 768px) {
   body {
     overflow: visible;
@@ -232,11 +232,30 @@ h6 {
 
 .eye {
   position: absolute;
-  /* padding-bottom: 200px; */
-  /* bottom: 200px; */
-  transform: translateX(-20px);
+  transform: translate(-20px);
+  bottom: 220px;
 }
 
 #hide1 {
   display: none;
+}
+.frame-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  width: 300%; /* enlarge beyond browser width */
+  left: -100%; /* center */
+}
+
+.frame-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  overflow: hidden;
+  max-width: 100%;
 }

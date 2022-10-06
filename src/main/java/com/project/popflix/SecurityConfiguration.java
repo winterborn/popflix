@@ -12,36 +12,39 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 
+import com.project.popflix.model.User;
+
 import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
- @Autowired
- DataSource dataSource;
+  @Autowired
+  DataSource dataSource;
 
- @Override
- protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-  auth.jdbcAuthentication()
-    .dataSource(dataSource).passwordEncoder(getPasswordEncoder());
- }
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.jdbcAuthentication()
+        .dataSource(dataSource).passwordEncoder(getPasswordEncoder());
+  }
 
- @Override
- protected void configure(HttpSecurity http) throws Exception {
-  http.authorizeRequests()
-    .antMatchers("/").permitAll()
-    .antMatchers("/users").permitAll()
-    .and().formLogin()
-    .loginPage("/login")
-    .permitAll();
-  http.logout()
-    .logoutUrl("/logout");
- }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .antMatchers("/").hasRole("USER")
+        .antMatchers("/movies").permitAll()
+        .antMatchers("/users").permitAll()
+        .and().formLogin()
+        .loginPage("/login")
+        .permitAll();
+    http.logout().logoutSuccessUrl("/movies")
+        .logoutUrl("/logout");
+  }
 
- @Bean
- public PasswordEncoder getPasswordEncoder() {
-  // return NoOpPasswordEncoder.getInstance();
-  return new BCryptPasswordEncoder();
- }
+  @Bean
+  public PasswordEncoder getPasswordEncoder() {
+    // return NoOpPasswordEncoder.getInstance();
+    return new BCryptPasswordEncoder();
+  }
 
 }
