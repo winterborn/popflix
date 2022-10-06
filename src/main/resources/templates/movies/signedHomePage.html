@@ -216,9 +216,9 @@
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
                     <button href="#" class="film-watchlist-button">Remove</button>
-                    <!-- <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${vid})}"> -->
+                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos.get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
-                    <!-- </a> -->
+                    </a>
                     </div>
                   </div>
                   </div>
@@ -315,9 +315,9 @@
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
                     <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                    <!-- <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${vid})}"> -->
+                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
-                    <!-- </a> -->
+                    </a>
                     </div>
                   </div>
                   </div>
