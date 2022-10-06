@@ -11,4 +11,5 @@ public class OverrideSpring implements WebMvcConfigurer {
   registry.addViewController("/login").setViewName("login");
   registry.addViewController("/logout").setViewName("logout");
  }
+
 }

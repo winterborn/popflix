@@ -112,7 +112,7 @@
                   </div>
                 </div>
             <div class="carousel-item">
-              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
+              <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
               <div class="hero_caption carousel-caption d-none d-md-block">
                 <h1 class="hero_header">ROGUE ONE: <br> A STAR WARS STORY</h1>
                 <p class="hero_tagline">A REBELLION BUILT ON HOPE.</p>
@@ -123,7 +123,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
+              <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
               <div class="hero_caption carousel-caption d-none d-md-block">
                 <h1 class="hero_header">INTERSTELLAR</h1>
                 <p class="hero_tagline">MANKIND WAS BORN ON EARTH. IT WAS NEVER MEANT TO DIE HERE.</p>
@@ -134,7 +134,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
+              <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
               <div class="hero_caption carousel-caption d-none d-md-block">
                 <h1 class="hero_header">THE MARTIAN</h1>
                 <p class="hero_tagline">BRING HIM HOME.</p>
@@ -145,7 +145,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
+              <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
               <div class="hero_caption carousel-caption d-none d-md-block">
                 <h1 class="hero_header">INCEPTION</h1>
                 <p class="hero_tagline">YOUR MIND IS THE SCENE OF THE CRIME.</p>
@@ -179,10 +179,10 @@
           <div class="watchlist">
              <div class="section_header">
               <div class="rectangle"></div>
-              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Watchlist</h3></a>
+              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">New Releases</h3></a>
               <h3 class="chevron">></h3>
             </div>
-            <div class="section_description">Movies added to your watchlist</div>
+            <div class="section_description">Check out the latest releases</div>
 
             <div class="films-wrapper">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -195,12 +195,13 @@
               <div class="film" th:each="card: ${firstList}">                 
                 <img
                 th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+                loading="lazy"
                 class="film-img"
                 alt="..."
                 />
                 <div>
                   <div>
-                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
@@ -218,12 +219,13 @@
                   <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
                     <img
                     th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
+                    loading="lazy"
                     class="film-img"
                     alt="..."
                     />
                     <div>
                     <div>
-                      <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
+                      <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${movie1.voteAverage}">
                       <button class="star-button">☆</button>
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
