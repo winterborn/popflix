@@ -14,4 +14,4 @@ The application uses:
 - `bootstrap` for styling and responsive design
 - `javascript`
 - `TheMovieDB API` [TheMovieDB API](https://www.themoviedb.org/documentation/api)
-- `Holger Brandl's TheMoviedbAPI` a java wrapper around the json api provided by TheMovieDB
+- `Holger Brandl's TheMovieDbAPI` a java wrapper around the json api provided by TheMovieDB
