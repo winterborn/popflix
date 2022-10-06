@@ -52,7 +52,7 @@
                 </select>
                 <input type="text" id="search-imdb" placeholder="Search Popflix"/>
             </div>
-            <img class="pro-button" src="logo_black.png" alt="IMDbPro">
+            <!-- <img class="pro-button" src="logo_black.png" alt="IMDbPro"> -->
             <div class="empty-div"> </div>
             <a href='#' class="header-button"><b>Watchlist</b></a>
             <a href='/login' class="header-button"><b>Login</b></a>
@@ -145,12 +145,13 @@
             <div class="wrapper">
               <div class="main-header">What to watch:</div>
               <div class="main-buttons">
-                  <button class="main-button" id="most-popular"><b>NEW RELEASES</b></button>
-                  <button class="main-button" id="most-popular"><b>MOST POPULAR</b></button>
-                  <button class="main-button" id="top-raiting"><b>TOP RATED</b></button>
-                  <button class="main-button"><b>POPFLIX PICKS</b></button>
-                  <button class="main-button"><b>FROM YOUR WATCHLIST</b></button>
+                  <a href='/login' class="main-button" id="most-popular"><b>NEW RELEASES</b></a>
+                  <a href='/login' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+                  <a href='/login' class="main-button" id="top-raiting"><b>TOP RATED</b></a>
+                  <a href='/login' class="main-button"><b>POPFLIX PICKS</b></a>
+                  <a href='/login' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
               </div>
+              <br>
 
       <!-- ------------------------------------------------ -->
       <!--           COLLECTION OF MOVIES                   -->
@@ -210,9 +211,9 @@
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
                     <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                    <!-- <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${vid})}"> -->
+                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
-                    <!-- </a> -->
+                    </a>
                     </div>
                   </div>
                   </div>
