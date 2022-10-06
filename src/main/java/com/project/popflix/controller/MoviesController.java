@@ -93,6 +93,10 @@ public class MoviesController {
     nested.remove(0);
     videoNested.remove(0);
 
+    // for(int i = 0; i < nested.size(); i++) {
+    // nested
+    // }
+
     model.addAttribute("firstList", firstList);
     // return firstList.get(0);
     model.addAttribute("vidExt", videoNested);
@@ -189,13 +193,13 @@ public class MoviesController {
     return "pages/topPicks";
   }
 
-  @GetMapping("/watchGuide")
-  public String getWatchGuide(Model model) {
-    return "watchGuide";
-  }
 
-  @GetMapping("/watchlist")
   public String getWatchlist(Model model) {
     return "pages/watchlist";
-  }
+  } 
+  
+  // @GetMapping("/watchGuide")
+  // blic String getWatchGuide(Model model) {
+  //   return "watchGuide";
+  // }
 }
