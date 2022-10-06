@@ -42,16 +42,16 @@
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
   <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>0.15</version>
-            <scope>test</scope>
-        </dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.github.javafaker</groupId>
+		<artifactId>javafaker</artifactId>
+		<version>0.15</version>
+		<scope>test</scope>
+	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
