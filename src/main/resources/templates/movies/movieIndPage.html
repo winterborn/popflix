@@ -65,9 +65,22 @@
                 <option value="celebs">IT</option>
                 <option value="companies">DE</option>
             </select>
+            <input type="text" id="search-imdb" placeholder="Search Popflix"/>
         </div>
-    </header>
-    <main>
+        <div class="empty-div"> </div>
+        <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
+        <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
+        <a href='/logout' class="header-button"><b>Logout</b></a>
+        <select class="lang-select">
+            <option value='en'>EN &#9662</option>
+            <option value="titles">UA</option>
+            <option value="tv-episodes">ESP</option>
+            <option value="celebs">IT</option>
+            <option value="companies">DE</option>
+        </select>
+    </div>
+</header>
+<main>
 
     <!-- ------------------------------------------------ -->
         <!-- Main block of info start -->

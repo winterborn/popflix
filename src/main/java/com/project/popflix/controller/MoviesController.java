@@ -20,8 +20,7 @@ import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.TmdbMovies.MovieMethod;
 import info.movito.themoviedbapi.model.MovieDb;
-import info.movito.themoviedbapi.model.core.MovieResultsPage;
-import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.Video.Results;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import info.movito.themoviedbapi.model.people.PersonCast;
 
@@ -34,7 +33,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class MoviesController {
 
- 
   @Autowired
   UserRepository userRepository;
   @Autowired
@@ -53,6 +51,26 @@ public class MoviesController {
     return movie.getVideos().get(0).getKey();
   }
 
+  private List<MovieDb> getMoviesWithVideo(List<MovieDb> initList, TmdbMovies movies) {
+    List<MovieDb> withVideo = new ArrayList<>();
+    List<Integer> movieids = initList.stream().map(x -> x.getId()).collect(Collectors.toList());
+    for (int i = 0; i < movieids.size(); i++) {
+      withVideo = movieids.stream()
+          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .collect(Collectors.toList());
+    }
+
+    for (MovieDb movie : withVideo) {
+
+      Results empty = new Results();
+      if (movie.getVideos() == null) {
+        movie.setVideos(empty);
+        movie.getVideos().get(0).setKey("dasdasa");
+      }
+    }
+    return withVideo;
+  }
+
   @GetMapping("/movies")
   // @ResponseBody
   public String getMovie(Model model) {
@@ -67,8 +85,6 @@ public class MoviesController {
           .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
-    
-    
 
     List<List<MovieDb>> nested = new ArrayList<>();
     List<List<String>> videoNested = new ArrayList<>();
@@ -109,10 +125,11 @@ public class MoviesController {
     // System.out.println(nested);
     return "movies/homepage";
   }
-  
+
   @GetMapping("/movie")
- public String getMovieDetails(Model model){
- return "movies/movieIndPage";}
+  public String getMovieDetails(Model model) {
+    return "movies/movieIndPage";
+  }
 
   @GetMapping("/test")
   @ResponseBody
@@ -126,7 +143,7 @@ public class MoviesController {
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-    
+
     // System.out.println(movie.getVideos().get(0).getKey());
     List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
@@ -178,6 +195,7 @@ public class MoviesController {
 
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     List<MovieDb> mostPopular = movies.getPopularMovies("en", 2).getResults();
+    mostPopular = this.getMoviesWithVideo(mostPopular, movies);
 
     model.addAttribute("movies", mostPopular);
     return "pages/mostPopular";
@@ -189,17 +207,29 @@ public class MoviesController {
     // MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits,
     // MovieMethod.images, MovieMethod.videos);
     MovieResultsPage topRated = movies.getTopRatedMovies("en", 1);
-    model.addAttribute("movies", topRated);
+    List<MovieDb> list = new ArrayList<>();
+    topRated.forEach(list::add);
+    list = this.getMoviesWithVideo(list, movies);
+
+    // this.getMoviesWithVideo(topRated, movies);
+    model.addAttribute("movies", list);
     return "pages/topRatings";
   }
 
   @GetMapping("/nowPlayingMovies")
   public String getTopPicksMovies(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en", 2, "");
-    System.out.println(nowPlayingMovies.getResults());
-    // System.out.println(nowPlayingMovies.getPage());
-    model.addAttribute("movies", nowPlayingMovies);
+    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en", 1, "");
+
+    List<MovieDb> list = new ArrayList<>();
+    nowPlayingMovies.forEach(list::add);
+    list = this.getMoviesWithVideo(list, movies);
+
+    for (MovieDb movie : list) {
+      System.out.println(movie.getVideos());
+    }
+
+    model.addAttribute("movies", list);
     return "pages/nowPlayingMovies";
   }
 
@@ -207,7 +237,12 @@ public class MoviesController {
   public String getUpcomingMovies(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieResultsPage upcomingMovies = movies.getUpcoming("en", 1, "");
-    model.addAttribute("movies", upcomingMovies);
+
+    List<MovieDb> list = new ArrayList<>();
+    upcomingMovies.forEach(list::add);
+    list = this.getMoviesWithVideo(list, movies);
+
+    model.addAttribute("movies", list);
     return "pages/upcomingMovies";
   }
 
