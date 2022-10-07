@@ -16,27 +16,19 @@ import info.movito.themoviedbapi.model.MovieDb;
 @Controller
 public class SingleMovieController {
 
- @GetMapping("/movie")
- public String getMovieDetails(Model model) {
-  TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-  MovieDb movie = movies.getMovie(27205, "en", MovieMethod.credits,
-  MovieMethod.images, MovieMethod.videos);
-  model.addAttribute("movie", movie);
+ // @GetMapping("/movie")
+ // public String getMovieDetails(Model model) {
 
-  return "movies/movieIndPage";
- }
+ // return "movies/movieIndPage";
+ // }
 
- @PostMapping("/movie")
- public RedirectView create(@RequestParam("movieid") Integer movieid, Model model) {
-
-  return new RedirectView("/movie/new?movieid=" + movieid);
- }
-
- @RequestMapping("/movie/new")
+ @RequestMapping("/movie")
  // @ResponseBody
  public String movieDetails(@RequestParam("movieid") Integer movieid, Model model) {
-  model.addAttribute("movieid", movieid);
-  System.out.println(movieid);
+  TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+  MovieDb movie = movies.getMovie(movieid, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+
+  model.addAttribute("movie", movie);
 
   return "movies/movieIndPage";
  }
