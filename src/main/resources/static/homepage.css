@@ -1,7 +1,7 @@
 body {
   background-color: black;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: white;
 }
 
@@ -145,6 +145,10 @@ header {
   border-radius: 5px;
   margin-right: 5px;
   text-decoration: none;
+}
+
+.header-button:hover {
+  color: rgb(113, 161, 251);
 }
 
 .header-button-ua {
@@ -305,7 +309,7 @@ h3 {
 }
 
 .main-header {
-  display: '';
+  display: "";
   font-weight: bold;
   font-size: 48px;
   padding: 15px;
@@ -499,7 +503,7 @@ h3 {
 }
 
 .hero_caption {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   bottom: 50px;
   left: 50px;
   text-align: left;
@@ -568,4 +572,4 @@ h1 {
   color: #757575;
 }
 
-@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:100";
