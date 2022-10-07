@@ -24,7 +24,7 @@ header {
 .dropdown {
   position: relative;
   display: inline-block;
-  top:-26px;
+  top:-30px;
 }
 .dropdown-content {
   min-width: 660px;
@@ -106,7 +106,6 @@ ul{
   text-shadow: 0px 0px 10px #71b7f0;
 }
 
- 
 form {
   display:inline-block
 }
@@ -160,7 +159,7 @@ header {
 }
 .burger-logo {
   color: rgb(255, 255, 255);
-  font-size:30px;
+  font-size:38px;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }

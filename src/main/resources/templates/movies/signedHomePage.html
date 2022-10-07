@@ -31,6 +31,7 @@
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/glitch_effect.css">
 </head>
 <body>
 
@@ -76,10 +77,10 @@
             </div>
 
             <div class="empty-div"> </div>
-            <a href='/watchlist/' class="header-button"><b>Watchlist</b></a>
-            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
-            <a href='/logout' class="header-button"><b>Logout</b></a>
-            <select class="lang-select">
+            <a href='/watchlist/' class="header-button" style="margin-top: 8px;"><b>Watchlist</b></a>
+            <a sec:authorize="isAuthenticated()" style="margin-top: 2px; left: 2px;" ><b><span sec:authentication="name"></span></b></a>
+            <a href='/logout' class="header-button" style="margin-top: 7px;"><b>Logout</b></a>
+            <select class="lang-select" style="margin-top: 3px;">
                 <option value='en'>EN &#9662</option>
                 <option value="titles">UA</option>
                 <option value="tv-episodes">ESP</option>
@@ -111,7 +112,7 @@
                     <p class="hero_genre">SCI-FI</p>
                     <p class="hero_genre">THRILLER</p>
                     <p class="hero_genre">DRAMA</p>
-                    <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+                    <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
             <div class="carousel-item">
@@ -122,7 +123,7 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">ACTION</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
             <div class="carousel-item">
@@ -133,7 +134,7 @@
                 <p class="hero_genre">SCI-FI</p>
                 <p class="hero_genre">DRAMA</p>
                 <p class="hero_genre">ADVENTURE</p>
-                <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+                <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
             <div class="carousel-item">
