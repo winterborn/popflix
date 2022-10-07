@@ -279,6 +279,31 @@ h3 {
   color: rgb(113, 161, 251);
 }
 
+.single_movie_rectangle {
+  display: inline-block;
+  margin: 0 0 -9px 0;
+  height: 60px;
+  width: 20px;
+  background-color: rgb(113, 161, 251);
+}
+
+.single_movie_section_description {
+  padding: 10px 0 10px 0;
+}
+
+.single_movie_title {
+  font-weight: bold;
+  display: inline;
+  padding: 0 0 0 10px;
+  color: rgb(113, 161, 251);
+}
+
+.single_movie_chevron {
+  display: inline-block;
+  color: white;
+  padding: 0 0 0 8px;
+}
+
 .main-header {
   display: '';
   font-weight: bold;
