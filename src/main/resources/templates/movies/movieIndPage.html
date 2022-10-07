@@ -155,7 +155,7 @@
             <div class="fullDetailsBlock">
                <div class="detailsContainer">
                   <h2><b>Details:</b></h2>
-                  <p th:text="'Production Companies: ' + ${movie.getProductionCompanies().get(0).getName} + ' • ' + ${movie.getProductionCompanies().get(1).getName}" ></p>
+                  <p th:text="'Studios: ' + ${movie.getProductionCompanies().get(0).getName} + ' • ' + ${movie.getProductionCompanies().get(1).getName}" ></p>
                   <p th:text="@{Language: {language}(language=${movie.getSpokenLanguages().get(0).getName()})}"></p>
                   <a class="single_movie_web_link" th:href="${movie.getHomepage()}"><p th:text="${movie.getHomepage()}"></p></a>               
                 </div>
