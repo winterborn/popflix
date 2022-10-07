@@ -63,7 +63,8 @@
                     </form>                   
                   </div>
               </div>
-          </div>            <div class="input-field">
+          </div>            
+          <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
                     <option value="titles">Titles</option>
@@ -73,8 +74,32 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
-                <input type="text" id="search-imdb" placeholder="Search PopFlix"/>
-            </div>
+                <!-- <div class="container">
+                 <div class="text"></div> -->
+                  <input type="text" id="search-imdb"/> 
+                <!-- </div>
+              </div>
+               <script src="scramble.js"></script>
+            <script> 
+            const phrases = ['Hello there!', 'Welcome to Popflix', 
+            'Search here to find the most:', 'funny', 'action-packed', 'nail-biting', 'romantic', 'spooky', 'adventurous', 
+            'mysterious', 'thrilling', 'movies and films', 'You can also search for:', 
+            'directors', 'actors', 'TV Shows', 'and companies', 'we hope you love our website!'];
+            const el = document.querySelector('.text');
+            const fx = new TextScramble(el);
+            let counter = 0;
+
+            const next = () => {
+              fx.setText(phrases[counter]).then(() => {
+                setTimeout(next, 800);
+              });
+              counter = (counter + 1) % phrases.length;
+            };
+
+            next();
+
+            </script> -->
+          </div>
 
             <div class="empty-div"> </div>
             <a href='/watchlist/' class="header-button" style="margin-top: 8px;"><b>Watchlist</b></a>

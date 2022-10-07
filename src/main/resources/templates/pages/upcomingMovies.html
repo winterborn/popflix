@@ -38,8 +38,29 @@
   <!-- ------------------------------------------------ -->
   <header>
     <div class="head-block" >
-      <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-        <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Home</b></a>
+      <a href="/">
+        <img class="imdb-logo" 
+         src="img/popflix_logo_2.png" style="width:66.6px; height:51.26px;" alt="error">
+        </a>
+        <div class="header-button">          
+          <div class="dropdown navitem">
+            <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+              <div class="dropdown-content">
+                <form action="/nowPlayingMovies">
+                  <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                </form>
+                <form action="/upcomingMovies">
+                  <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                </form>
+                <form action="/mostPopular">
+                  <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                </form>
+                <form action="/topRatings">
+                  <button class="navitem noselect neon-button blue">TOP RATED</button>
+                </form>                   
+              </div>
+          </div>
+      </div>   
         <div class="input-field">
             <select id="search-imdb-select">
                 <option value='all'>All <span>&#9662</span></option>
