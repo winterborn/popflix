@@ -172,54 +172,62 @@
               <!-- --------------------------- -->
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
-              <div class="film" th:each="card: ${firstList}">                 
-                <img
-                th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
-                loading="lazy"
-                class="film-img"
-                alt="..."
-                />
+              <div class="film" th:each="card: ${firstList}">
+                <a th:href="@{/movie?movieid={id}(id=${card.id})}">
+                  <img 
+                  th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+                  loading="lazy"
+                  class="film-img"
+                  alt="..."
+                  /> 
+                </a>
                 <div>
                   <div>
-                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">
+                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">                
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
-                  <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                    <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                  </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
-                  <a id="colour_btn" th:href="@{/movie?movie={id}(id=${movie1.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
                 </div>
               </div>
               </div>
+
               <!-- -------------------------------------- -->
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
-              <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
-                <div class="cards-wrapper">
-                  <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
+            <div class="carousel-item" th:each="card: ${movies}">
+              <div class="cards-wrapper">
+                <div class="film" th:each="movie1: ${card}">
+                  <a th:href="@{/movie?movieid={id}(id=${movie1.id})}">
                     <img
                     th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
                     loading="lazy"
                     class="film-img"
                     alt="..."
                     />
-                    <div>
+                  </a>
+                  <div>
                     <div>
                       <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${movie1.voteAverage}">
                       <button class="star-button">☆</button>
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
-                    <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                    <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
+                      <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                    </form>
                     <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
                     </a>
-                    </div>
-                  </div>
                   </div>
                 </div>
                 </div>
-            </div>
+              </div>
+              </div>
+          </div>
 
             <!-- ------------------------------------------------ -->
             <!--            CAROUSEL CONTROLS                     -->
