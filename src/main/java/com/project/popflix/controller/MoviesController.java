@@ -85,6 +85,17 @@ public class MoviesController {
     MovieDb movie = movies.getMovie(286217, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     List<MovieDb> top20 = movies.getPopularMovies("en-US", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
+
+
+    TmdbMovies movie_test = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    MovieDb fightClub = movie_test.getMovie(550, "en-US", MovieMethod.credits);
+    
+    for (int i = 0; i < fightClub.getCrew().size(); i++) {
+      if (fightClub.getCrew().get(i).getJob().equals("Director")) {
+         System.out.println(fightClub.getCrew().get(i).getName());
+      } 
+    }
+
     
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {

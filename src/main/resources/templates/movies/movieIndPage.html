@@ -115,8 +115,23 @@
                     <p th:text="${movie.getOverview()}"></p>
                   </div>
 
-                  <p th:text="'Director: ' + ${movie.getCrew().get(0).getJob()}"></p>
-                  <p th:text="'Writers: ' + ${movie.getCrew().get(0).getJob()}"></p>
+                  <!-- Director Iteration Block -->
+                  <p>Director:</p>
+                  <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
+                    <div th:if="${movie.getCrew().get(i).getJob().equals('Director')}">
+                       <p th:text="${movie.getCrew().get(i).getName()}"></p>
+                    </div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Director')}"></div>
+                  </th:block>
+
+                  <!-- Writers Iteration Block -->
+                  <p>Writers:</p>
+                  <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
+                    <div th:if="${movie.getCrew().get(i).getJob().equals('Screenplay')}">
+                      <p th:text="${movie.getCrew().get(i).getName()}"></p>
+                    </div>
+                  </th:block>
+
                   <hr>
                   <p class="actors_header">Stars:</p>
                   <div class="actors_container">
