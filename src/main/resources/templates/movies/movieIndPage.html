@@ -133,9 +133,19 @@
                   <!-- Writers Iteration Block -->
                   <p>Writers:</p>
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
-                    <div th:if="${movie.getCrew().get(i).getJob().equals('Screenplay')}">
+                    <div th:if="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}">
                       <p th:text="${movie.getCrew().get(i).getName()}"></p>
                     </div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}"></div>
+                  </th:block>
+
+                  <!-- Based On Novel By Iteration Block -->
+                  <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
+                    <div th:if="${movie.getCrew().get(i).getJob().equals('Novel')}">
+                      <p>Based on the novel by</p>
+                      <p th:text="${movie.getCrew().get(i).getName()}"></p>
+                    </div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Novel')}"></div>
                   </th:block>
 
                   <hr>
