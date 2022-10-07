@@ -1,25 +1,14 @@
-;(function () {
-  $('#carousel123').carousel({ interval: 2000 })
-  $('#carouselABC').carousel({ interval: 3600 })
-})()
-;(function () {
-  $('.carousel-showmanymoveone .item').each(function () {
-    var itemToClone = $(this)
+/*
+ JS to toggle scroll axis styles
+*/
+const control = document.getElementById('direction-toggle')
+const marquees = document.querySelectorAll('.marquee')
+const wrapper = document.querySelector('.wrapper')
 
-    for (var i = 1; i < 4; i++) {
-      itemToClone = itemToClone.next()
-
-      // wrap around if at end of item collection
-      if (!itemToClone.length) {
-        itemToClone = $(this).siblings(':first')
-      }
-
-      // grab item, clone, add marker class, add to collection
-      itemToClone
-        .children(':first-child')
-        .clone()
-        .addClass('cloneditem-' + i)
-        .appendTo($(this))
-    }
-  })
-})()
+control.addEventListener('click', () => {
+  control.classList.toggle('toggle--vertical')
+  wrapper.classList.toggle('wrapper--vertical')
+  ;[...marquees].forEach((marquee) =>
+    marquee.classList.toggle('marquee--vertical')
+  )
+})
