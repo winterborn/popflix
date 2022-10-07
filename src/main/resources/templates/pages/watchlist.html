@@ -113,9 +113,10 @@
           <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
           <button type="submit" class="film-watchlist-button">+ Watchlist</button>
           </form>
-          <!-- <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"> -->
+          <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}">
           <button class="film-trailer-button">Trailer</button>
-          <!-- </a> -->
+          </a>
+        <a id="colour_btn" th:href="@{/movie?movie={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
         </div>
       </div>
     </div>
