@@ -173,7 +173,7 @@
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
               <div class="film" th:each="card: ${firstList}">
-                <a th:href="@{/movie?movieid={id}(id=${card.id})}">
+                <a href="/login">
                   <img 
                   th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
                   loading="lazy"
@@ -201,7 +201,7 @@
             <div class="carousel-item" th:each="card: ${movies}">
               <div class="cards-wrapper">
                 <div class="film" th:each="movie1: ${card}">
-                  <a th:href="@{/movie?movieid={id}(id=${movie1.id})}">
+                  <a href="/login">
                     <img
                     th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
                     loading="lazy"
