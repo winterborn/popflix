@@ -31,6 +31,8 @@
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/glitch_effect.css">
+
 </head>
 <body>
   <!-- ------------------------------------------------ -->
@@ -38,9 +40,30 @@
   <!-- ------------------------------------------------ -->
     <header>
         <div class="head-block" >
-            <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span>Menu</b></a>
-            <div class="input-field">
+          <a href="/">
+          <img class="imdb-logo" 
+           src="img/popflix_logo_2.png" style="width:66.6px; height:51.26px;" alt="error">
+          </a>
+          <div class="header-button">          
+            <div class="dropdown navitem">
+              <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+                <div class="dropdown-content">
+                  <form action="/nowPlayingMovies">
+                    <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                  </form>
+                  <form action="/upcomingMovies">
+                    <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                  </form>
+                  <form action="/mostPopular">
+                    <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                  </form>
+                  <form action="/topRatings">
+                    <button class="navitem noselect neon-button blue">TOP RATED</button>
+                  </form>                   
+                </div>
+            </div>
+        </div>   
+              <div class="input-field">
                 <select id="search-imdb-select">
                     <option value='all'>All <span>&#9662</span></option>
                     <option value="titles">Titles</option>
@@ -54,9 +77,9 @@
             </div>
 
             <div class="empty-div"> </div>
-            <a href='/login' class="header-button"><b>Watchlist</b></a>
-            <a href='/login' class="header-button"><b>Login</b></a>
-            <select class="lang-select">
+            <a href='/login' class="header-button" style="margin-top: 8px;"><b>Watchlist</b></a>
+            <a href='/login' class="header-button" style="margin-top: 7px;"><b>Login</b></a>
+            <select class="lang-select"style="margin-top: 5px;">
                 <option value='en'>EN &#9662</option>
                 <option value="titles">UA</option>
                 <option value="tv-episodes">ESP</option>
@@ -91,7 +114,7 @@
                     <p class="hero_genre">SCI-FI</p>
                     <p class="hero_genre">THRILLER</p>
                     <p class="hero_genre">DRAMA</p>
-                    <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
+                    <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning button-glitch">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
             <div class="carousel-item">
@@ -189,7 +212,7 @@
                   <div class="film-name" th:text="${card.title}"></div>
                   <a href="/login"><button type="submit" class="film-watchlist-button">+ Watchlist</button></a>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
-
+                  <a id="colour_btn" th:href="@{/movie?movie={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
                 </div>
               </div>
