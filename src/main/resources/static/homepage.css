@@ -207,7 +207,7 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 15vw;
-  height: 71vh;
+  /* height: 71vh; */
   margin: 15px;
   margin-left: 10px;
   background-color: rgb(25, 25, 25);
