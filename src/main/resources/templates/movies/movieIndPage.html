@@ -117,7 +117,25 @@
 
                   <p th:text="'Director: ' + ${movie.getCrew().get(0).getJob()}"></p>
                   <hr>
-                  <p th:text="'Stars: ' + ${movie.getCast().get(0).getName} + ' • ' + ${movie.getCast().get(1).getName} + ' • ' + ${movie.getCast().get(2).getName}"></p>
+                  <p class="actors_header">Stars:</p>
+                  <div class="actors_container">
+                    <div class="actor_container">
+                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(0).getProfilePath()})}" alt="">
+                      <p th:text="${movie.getCast().get(0).getName}"></p>
+                    </div>
+                    <div class="actor_container">
+                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(1).getProfilePath()})}" alt="">
+                      <p th:text="${movie.getCast().get(1).getName}"></p>
+                    </div>
+                    <div class="actor_container">
+                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(2).getProfilePath()})}" alt="">
+                      <p th:text="${movie.getCast().get(2).getName}"></p>
+                    </div>
+                    <!-- <div class="actor_container">
+                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(3).getProfilePath()})}" alt="">
+                      <p th:text="${movie.getCast().get(3).getName}"></p>
+                    </div> -->
+                  </div>                
                   <hr>
                 </div>
               </div>

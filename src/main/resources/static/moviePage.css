@@ -175,3 +175,23 @@ hr {
 .section_header {
   padding-top: 20px;
 }
+
+/* ACTORS_SECTION */
+
+.actors_container {
+  display: flex;
+  justify-content: start;
+}
+
+.actor_container {
+  display: inline-block;
+  text-align: center;
+}
+
+.actor_img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 10px;
+}

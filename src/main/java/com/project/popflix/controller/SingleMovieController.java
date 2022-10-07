@@ -19,23 +19,17 @@ import info.movito.themoviedbapi.model.MovieDb;
 @Controller
 public class SingleMovieController {
 
- // @GetMapping("/movie")
- // public String getMovieDetails(Model model) {
-
- // return "movies/movieIndPage";
- // }
-
  @RequestMapping("/movie")
  public String movieDetails(@RequestParam("movieid") Integer movieid, Model model) {
   TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
   MovieDb movie = movies.getMovie(movieid, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-  List<MovieDb> top20 = movies.getSimilarMovies(movieid, "en", 1).getResults();
+  List<MovieDb> top20 = movies.getSimilarMovies(movieid, "en-US", 1).getResults();
   List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
   List<MovieDb> top20Vid = new ArrayList<>();
   for (int i = 0; i < top20id.size(); i++) {
    top20Vid = top20id.stream()
-     .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+     .map(x -> movies.getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
      .collect(Collectors.toList());
   }
 
