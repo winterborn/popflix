@@ -21,8 +21,11 @@ import com.project.popflix.repository.AuthoritiesRepository;
 import com.project.popflix.repository.UserRepository;
 
 import info.movito.themoviedbapi.TmdbApi;
+import info.movito.themoviedbapi.TmdbDiscover;
 import info.movito.themoviedbapi.TmdbMovies;
+import info.movito.themoviedbapi.TmdbSearch;
 import info.movito.themoviedbapi.TmdbMovies.MovieMethod;
+import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.Video.Results;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
@@ -82,7 +85,7 @@ public class MoviesController {
     MovieDb movie = movies.getMovie(286217, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     List<MovieDb> top20 = movies.getPopularMovies("en-US", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
-
+    
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
       top20Vid = top20id.stream()
@@ -300,5 +303,15 @@ public class MoviesController {
   @GetMapping("/about")
   public String getAboutPage(Model model) {
     return "about";
+  }
+
+  @GetMapping("/results")
+  public String results(Model model){
+
+    String searchedItem = "superman";
+    TmdbSearch search = new TmdbApi("d84f9365179dc98dc69ab22833381835").getSearch();
+    List<MovieDb> results = search.searchMovie(searchedItem, null, null, false, null).getResults();
+    model.addAttribute("movies", results);
+    return "pages/results";
   }
 }
