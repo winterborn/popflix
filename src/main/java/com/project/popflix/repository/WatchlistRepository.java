@@ -11,5 +11,4 @@ public interface WatchlistRepository extends CrudRepository<Watchlist, Long> {
     Watchlist findByUseridAndMovieid(Long userid, Integer movieid);
 
     void deleteById(Long id);
-
 }
