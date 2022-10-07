@@ -18,12 +18,11 @@ public class Watchlist {
     private Long userid;
     private Integer movieid;
 
-
     public Watchlist(Long userid, Integer movieid) {
         this.userid = userid;
         this.movieid = movieid;
     }
-    
+
     public Watchlist(Long id, Long userid, Integer movieid) {
         this.movieid = movieid;
     }
@@ -54,8 +53,4 @@ public class Watchlist {
     public void setMovieid(Integer movieid) {
         this.movieid = movieid;
     }
-
-
-
-
 }
