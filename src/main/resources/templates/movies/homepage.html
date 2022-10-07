@@ -187,9 +187,7 @@
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
-                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
-                    <button type="submit" class="film-watchlist-button">+ Watchlist</button>
-                  </form>
+                  <a href="/login"><button type="submit" class="film-watchlist-button">+ Watchlist</button></a>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
                 </div>
                 </div>
@@ -216,9 +214,7 @@
                       <button class="star-button">☆</button>
                     </div>
                     <div class="film-name" th:text="${movie1.title}">Card title</div>
-                    <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
-                      <button type="submit" class="film-watchlist-button">+ Watchlist</button>
-                    </form>
+                    <a href="/login"><button type="submit" class="film-watchlist-button">+ Watchlist</button></a>
                     <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
                     </a>
