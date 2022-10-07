@@ -207,22 +207,20 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 15vw;
-  height: 68vh;
+  height: 71vh;
   margin: 15px;
   margin-left: 10px;
-  /* margin-bottom: 200px; */
   background-color: rgb(25, 25, 25);
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%),
     0 1px 5px 0 rgb(0 0 0 / 12%);
-  /* top-left | top-right | bottom-right | bottom-left */
 }
 
 .film-img {
   width: 100%;
-  height: 60%;
+  height: 100%;
   /* height: auto; */
-  margin-bottom: 13px;
+  /* margin-bottom: 13px; */
 }
 
 .star-for-rating {
