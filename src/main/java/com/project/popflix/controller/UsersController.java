@@ -28,14 +28,14 @@ public class UsersController {
  @Autowired
  AuthoritiesRepository authoritiesRepository;
 
+ PasswordEncoder passwordEncoder;
+
  private Long getUserId() {
   SecurityContext context = SecurityContextHolder.getContext();
   Authentication authentication = context.getAuthentication();
   Long id = userRepository.findByUsername(authentication.getName()).getId();
   return id;
  }
-
- PasswordEncoder passwordEncoder;
 
  @GetMapping("/users/new")
  public String signup(Model model) {
