@@ -1,7 +1,6 @@
 package com.project.popflix.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Data
