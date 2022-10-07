@@ -189,6 +189,7 @@
                   <div class="film-name" th:text="${card.title}"></div>
                   <a href="/login"><button type="submit" class="film-watchlist-button">+ Watchlist</button></a>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
+
                 </div>
                 </div>
               </div>
