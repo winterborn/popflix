@@ -118,11 +118,14 @@
 
     <div class="topRatings">
       <div class="film" th:each="card: ${movies}">
-        <img
+        <a th:href="@{/movie?movieid={id}(id=${card.id})}">
+          <img 
           th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+          loading="lazy"
           class="film-img"
           alt="..."
-        />
+          /> 
+        </a>
         <div>
           <div>
             <img
@@ -139,9 +142,8 @@
             <button type="submit" class="film-watchlist-button">+ Watchlist</button>
           </form>
           <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}">
-          <button class="film-trailer-button">Trailer</button>
+            <button class="film-trailer-button">Trailer</button>
           </a>
-          <a id="colour_btn" th:href="@{/movie?movie={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
         </div>
       </div>
     </div>

@@ -77,36 +77,45 @@
             <!-- <div th:each="card: ${movie}"> -->
             <br>
             <br>
-            <h1 class="movieTitle" th:text="${movie.title}" ><b>(Title Example)</b></h1>
-            <p th:text="${movie.getReleaseDate()}">(year) . (age rating) . (runtime)</p>
+            <h1 class="movieTitle" th:text="${movie.title}"></h1>
+                <p th:text="${movie.getReleaseDate()} + '    ' + ${movie.getRuntime()} + ' minutes'"></p>
             <!-- Trailer and poster -->
             <div class="movieContainter"> 
-            <img
-            th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie.getPosterPath()})}"
-            class="posterblock"
-            alt="..."
-            />
+                <div class="posterblock">
+                    <img
+                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie.getPosterPath()})}"
+                    class="posterblock"
+                    alt="..."
+                    />
+                </div>
                 <!-- <div class="posterblock">poster</div> -->
-                <div class="trailerblock">trailer</div>
+                <!-- <div class="trailerblock">trailer</div> -->
+                       <!-- <div class="trailerblock"> -->
+             
+            <!-- <iframe width="420" height="345" th:src="@{https://www.youtube.com/watch?v={id}(id=${movie.getVideos().get(0).getKey()})}"></iframe> -->
+            <div class="trailerblock">
+                <iframe th:src="@{https://www.youtube.com/watch?v={id}(id=${movie.getVideos().get(0).getKey()})}" width="880" height="500"  class="giphy-embed"></iframe>
+            </div>
+                <!-- <p><a th:href="@{https://www.youtube.com/watch?v={id}(id=${movie.getVideos().get(0).getKey()})}"></a></p> -->
+              <!-- </div> -->
             </div>
             <!-- Details -->
             <div class="detailsBlock">
                 <div class="mediaContainter">
                     <div class="genre">
-                        <p>(genre)</p>
+                        <p th:text="${movie.getGenres().get(0).getName}">(genre)</p>
                     </div> 
                     <div class="genre">
-                        <p>(genre)</p>
+                        <p th:text="${movie.getGenres().get(1).getName}">(genre)</p>
                     </div> 
                     <br>
                     <hr>
                     <div>
-                        <p>(description) LAPD detective Tom Ludlow is a ruthlessly efficient, unorthodox undercover cop. Captain Jack Wander always covers for Ludlow, as do even his somewhat jealous colleagues. After technically excessive violence against a vicious Korean gang during the liberation of kidnapped child sex slaves, Ludlow becomes the target of hotshot Internal Affairs captain James Biggs, who feels passed-over after Wander's promotion to chief. Ludlow's ex-patrol partner, Terrence Washington, sides with IA but is killed during a shop robbery in Ludlow's presence. Ludlow works his way through the twisted rungs of the police and the deadly streets of Los Angeles for answers that only lead to more questions.</p>
+                        <p th:text="${movie.getOverview()}"></p>
                     </div>
+                    <p th:text="'Director: ' + ${movie.getCrew().get(0).getJob()}">Director: </p>
                     <hr>
-                    <p>Director: (directors name)</p>
-                    <hr>
-                    <p> Stars: (top 3 billing cast)</p>
+                    <p th:text="'Stars:' + ${movie.getCast().get(0).getName} + ' , ' + ${movie.getCast().get(1).getName} + ' , ' + ${movie.getCast().get(2).getName}"></p>
                     <hr>
                 </div>
             </div>
@@ -129,11 +138,9 @@
             <div class="detailsContainer">
                 <h2><b>Details</b></h2>
                 <hr>
-                <p>Production companies: (companies)</p>
+                <p th:text="'Production Companies: ' + ${movie.getProductionCompanies().get(0).getName} + ', ' + ${movie.getProductionCompanies().get(1).getName}" ></p>
                 <hr>
-                <p>Language: (language)</p>
-                <hr>
-                <p>Country of origin: (language)</p>
+                <p th:text="@{Language: {language}(language=${movie.getSpokenLanguages().get(0).getName()})}"></p>
                 <hr>
                 <p>Official site: (check to see if has value, if so link here, if not get rid off line)</p>
                 <hr>
@@ -144,13 +151,11 @@
             <div class="budgetBlock">
                 <h2><b>Box Office</b></h2>
                 <hr>
-                <p>Release date: (date)</p>
+                <p th:text="@{Release Date: {rdate}(rdate=${movie.getReleaseDate()})}"></p>
                 <hr>
-                <p>Budget: (budget)</p>
+                <p th:text="@{Budget: ${budget}(budget=${movie.getBudget()})}"></p>
                 <hr>
-                <p>Revenue: (revenue)</p>
-                <hr>
-                <p>Rating: (rating)</p>
+                <p th:text="@{Revenue: ${revenue}(revenue=${movie.getRevenue()})}"></p>
                 <hr>
             </div>
         </div>
@@ -158,22 +163,103 @@
         <div class="castBlock">
             <h2><b>Cast</b></h2>
             <div class="row">
-                <div class="column" th:text="${movie.getCast()}">
-                    <p>This cast member</p>
-                    <hr>
-                    <p>This too is a cast member</p>
-                    <hr>
-                    <p>This could be a cast member</p>
-                    <hr>
-                    <p>Who the fuck is that guy?</p>
-                    <hr>
+                <div class="column" th:each="actor: ${movie.getCast()}">
+                    <p th:text="${actor.getName()} + ' as ' + ${actor.getCharacter()}"></p>
                 </div>
             </div>
         </div>
         <br>
         <br>
-        <h2 style="color: white;"><b>Imagine this to be real please</b></h2>
-        <img src="../img/suggested.png" width="1200" height="auto"/>
+         <div class="section-heading">
+              <div class="section_header">
+                <div class="rectangle"></div>
+                <a href="#" class="most-popular" tabindex="0"><h3 class="">Similar Movies</h3></a>
+                <h3 class="chevron">></h3>
+              </div>
+              <div class="section_description">Check out these movies</div>
+            </div>
+            <div class="films-wrapper">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="cards-wrapper">
+              <!-- --------------------------- -->
+              <!--     FIRST SET STARTS        -->
+              <!-- --------------------------- -->
+              <div class="film" th:each="card: ${firstList}">                 
+                <img
+                th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+                loading="lazy"
+                class="film-img"
+                alt="..."
+                />
+                <div>
+                  <div>
+                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">
+                    <button class="star-button">☆</button>
+                  </div>
+                  <div class="film-name" th:text="${card.title}"></div>
+                  <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                  <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
+                  <a id="colour_btn" th:href="@{/movie?movie={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+                </div>
+              </div>
+              </div>
+              <!-- -------------------------------------- -->
+              <!--      SECOND TO FOURTH SET STARTS       -->
+              <!-- -------------------------------------- -->
+              <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
+                <div class="cards-wrapper">
+                  <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
+                    <img
+                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
+                    loading="lazy"
+                    class="film-img"
+                    alt="..."
+                    />
+                    <div>
+                    <div>
+                      <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${movie1.voteAverage}">
+                      <button class="star-button">☆</button>
+                    </div>
+                    <div class="film-name" th:text="${movie1.title}">Card title</div>
+                    <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
+                        <button class="film-trailer-button">Trailer</button>
+                    </a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- ------------------------------------------------ -->
+            <!--            CAROUSEL CONTROLS                     -->
+            <!-- ------------------------------------------------ -->
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          </div>
+        </div>
+
     <!-- </div> -->
     </div>
     <!-- All details block finish -->

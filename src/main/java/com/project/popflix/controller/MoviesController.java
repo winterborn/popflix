@@ -51,7 +51,7 @@ public class MoviesController {
 
   private String getMovieVideoLink(int id) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieDb movie = movies.getMovie(id, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    MovieDb movie = movies.getMovie(id, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     return movie.getVideos().get(0).getKey();
   }
 
@@ -60,7 +60,7 @@ public class MoviesController {
     List<Integer> movieids = initList.stream().map(x -> x.getId()).collect(Collectors.toList());
     for (int i = 0; i < movieids.size(); i++) {
       withVideo = movieids.stream()
-          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .map(x -> movies.getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
 
@@ -79,14 +79,14 @@ public class MoviesController {
   // @ResponseBody
   public String getMovie(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-    List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
+    MovieDb movie = movies.getMovie(286217, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    List<MovieDb> top20 = movies.getPopularMovies("en-US", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
       top20Vid = top20id.stream()
-          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .map(x -> movies.getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
 
@@ -134,21 +134,21 @@ public class MoviesController {
   @ResponseBody
   public MovieDb getData() {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    MovieDb movie = movies.getMovie(550, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     return movie;
   }
 
   @GetMapping("/")
   public String getHomePageForSignedInUser(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieDb movie = movies.getMovie(286217, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
+    MovieDb movie = movies.getMovie(286217, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
 
     // System.out.println(movie.getVideos().get(0).getKey());
-    List<MovieDb> top20 = movies.getPopularMovies("en", 1).getResults();
+    List<MovieDb> top20 = movies.getPopularMovies("en-US", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
     // **********************
-    List<MovieDb> newMovies = movies.getRecommendedMovies(550, "en", 1).getResults();
+    List<MovieDb> newMovies = movies.getRecommendedMovies(550, "en-US", 1).getResults();
     List<Integer> newMoviesIds = newMovies.stream().map(x -> x.getId()).collect(Collectors.toList());
     // **********************
 
@@ -158,13 +158,13 @@ public class MoviesController {
     List<MovieDb> newMoviesVid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
       top20Vid = top20id.stream()
-          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .map(x -> movies.getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
 
     for (int i = 0; i < newMoviesIds.size(); i++) {
       newMoviesVid = newMoviesIds.stream()
-          .map(x -> movies.getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+          .map(x -> movies.getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
           .collect(Collectors.toList());
     }
 
@@ -237,7 +237,7 @@ public class MoviesController {
   public String getMostPopularMovies(Model model) {
 
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    List<MovieDb> mostPopular = movies.getPopularMovies("en", 1).getResults();
+    List<MovieDb> mostPopular = movies.getPopularMovies("en-US", 1).getResults();
     mostPopular = this.getMoviesWithVideo(mostPopular, movies);
 
     model.addAttribute("movies", mostPopular);
@@ -249,7 +249,7 @@ public class MoviesController {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     // MovieDb movie = movies.getMovie(550, "en", MovieMethod.credits,
     // MovieMethod.images, MovieMethod.videos);
-    MovieResultsPage topRated = movies.getTopRatedMovies("en", 1);
+    MovieResultsPage topRated = movies.getTopRatedMovies("en-US", 1);
     List<MovieDb> list = new ArrayList<>();
     topRated.forEach(list::add);
     list = this.getMoviesWithVideo(list, movies);
@@ -262,7 +262,7 @@ public class MoviesController {
   @GetMapping("/nowPlayingMovies")
   public String getTopPicksMovies(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en", 1, "");
+    MovieResultsPage nowPlayingMovies = movies.getNowPlayingMovies("en-US", 1, "");
 
     List<MovieDb> list = new ArrayList<>();
     nowPlayingMovies.forEach(list::add);
@@ -279,7 +279,7 @@ public class MoviesController {
   @GetMapping("/upcomingMovies")
   public String getUpcomingMovies(Model model) {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieResultsPage upcomingMovies = movies.getUpcoming("en", 1, "");
+    MovieResultsPage upcomingMovies = movies.getUpcoming("en-US", 1, "");
 
     List<MovieDb> list = new ArrayList<>();
     upcomingMovies.forEach(list::add);

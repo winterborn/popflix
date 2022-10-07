@@ -204,14 +204,13 @@
           </div>
   
           <br>
-
           <div class="watchlist">
              <div class="section_header">
               <div class="rectangle"></div>
-              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Featured Today </h3></a>
+              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Featured Today</h3></a>
               <h3 class="chevron">></h3>
             </div>
-            <div class="section_description">Check out these titles</div>
+            <div class="section_description">Check out these featured movies</div>
 
             <div class="films-wrapper">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -223,23 +222,23 @@
               <!-- --------------------------- -->
               <div class="film" th:each="card: ${newMoviesFirstList}">
                 <a th:href="@{/movie?movieid={id}(id=${card.id})}">
-                  <img
+                  <img 
                   th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
                   loading="lazy"
                   class="film-img"
                   alt="..."
                   /> 
                 </a>
-
                 <div>
                   <div>
                     <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">                
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
-                  <button href="#" class="film-watchlist-button">+ Watchlist</button>
+                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                    <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                  </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
-                  <!-- <a id="colour_btn" th:href="@{/movie?movieid={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a> -->
                 </div>
                 </div>
               </div>
@@ -247,31 +246,34 @@
               <!-- -------------------------------------- -->
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
-              <div class="carousel-item" th:each="card: ${newMoviesNested}">  <!--, exts: ${vidExt} -->
+
+              <div class="carousel-item" th:each="card: ${movies}">
                 <div class="cards-wrapper">
-                  <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
-                    <img
-                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
-                    loading="lazy"
-                    class="film-img"
-                    alt="..."
-                    />
-                    <div>
-                    <div>
-                      <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${movie1.voteAverage}">
-                      <button class="star-button">☆</button>
-                    </div>
-                    <div class="film-name" th:text="${movie1.title}">Card title</div>
-                    <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
-                        <button class="film-trailer-button">Trailer</button>
+                  <div class="film" th:each="movie1: ${card}">
+                    <a th:href="@{/movie?movieid={id}(id=${movie1.id})}">
+                      <img
+                      th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
+                      class="film-img"
+                      alt="..."
+                      />
                     </a>
-                    <!-- <a id="colour_btn" th:href="@{/movie?movieid={id}(id=${movie1.id})}" ><i class="bi bi-box-arrow-up-right"></i></a> -->
+                    <div>
+                      <div>
+                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
+                        <button class="star-button">☆</button>
+                      </div>
+                      <div class="film-name" th:text="${movie1.title}">Card title</div>
+                      <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
+                        <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                      </form>
+                      <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
+                        <button class="film-trailer-button">Trailer</button>
+                      </a>
                     </div>
                   </div>
-                  </div>
                 </div>
-                </div>
+              </div>
+              </div>
             </div>
             <!-- ------------------------------------------------ -->
             <!--            CAROUSEL CONTROLS                     -->
@@ -323,27 +325,28 @@
               <!-- --------------------------- -->
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
-              <div class="film" th:each="card: ${firstList}">                 
-                <img
-                th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
-                class="film-img"
-                alt="..."
-                />
+              <div class="film" th:each="card: ${firstList}"> 
+                <a th:href="@{/movie?movieid={id}(id=${card.id})}">              
+                  <img
+                  th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
+                  class="film-img"
+                  alt="..."
+                  />
+                </a>
+
                 <div>
                   <div>
-
-                  <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
-                  <button class="star-button">☆</button>
+                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                    <button class="star-button">☆</button>
                   </div>
                   
                   <div class="film-name" th:text="${card.title}"></div>
                   <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
-                  <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                    <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                   </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
-                  <!-- <a id="colour_btn" th:href="@{/movie?movieid={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a> -->
                 </div>
-                </div>
+              </div>
               </div>
               </div>
 
@@ -351,30 +354,33 @@
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
 
-              <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
+              <div class="carousel-item" th:each="card: ${movies}">
                 <div class="cards-wrapper">
-                  <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
-                    <img
-                    th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
-                    class="film-img"
-                    alt="..."
-                    />
-                    <div>
-                    <div>
-                      <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
-                      <button class="star-button">☆</button>
-                    </div>
-                    <div class="film-name" th:text="${movie1.title}">Card title</div>
-                    <button href="#" class="film-watchlist-button">+ Watchlist</button>
-                    <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
-                        <button class="film-trailer-button">Trailer</button>
+                  <div class="film" th:each="movie1: ${card}">
+                    <a th:href="@{/movie?movieid={id}(id=${movie1.id})}">
+                      <img
+                      th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${movie1.getPosterPath()})}"
+                      class="film-img"
+                      alt="..."
+                      />
                     </a>
-                  <!-- <a id="colour_btn" th:href="@{/movie?movieid={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a> -->
+                    <div>
+                      <div>
+                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
+                        <button class="star-button">☆</button>
+                      </div>
+                      <div class="film-name" th:text="${movie1.title}">Card title</div>
+                      <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
+                        <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                      </form>
+                      <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
+                        <button class="film-trailer-button">Trailer</button>
+                      </a>
                     </div>
                   </div>
-                  </div>
                 </div>
-                </div>
+              </div>
+              </div>
             </div>
 
             <!-- ------------------------------------------------ -->
