@@ -44,7 +44,7 @@
           <a href="/">
           <img class="imdb-logo" 
           src="img/popflix_logo_2.png" style="width:66.6px; height:51.26px;" alt="error">
-         </a>
+          </a>
             <div class="header-button">          
               <div class="dropdown navitem">
                 <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
@@ -74,36 +74,12 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
-                <!-- <div class="container">
-                 <div class="text"></div> -->
                   <input type="text" id="search-imdb"/> 
-                <!-- </div>
-              </div>
-               <script src="scramble.js"></script>
-            <script> 
-            const phrases = ['Hello there!', 'Welcome to Popflix', 
-            'Search here to find the most:', 'funny', 'action-packed', 'nail-biting', 'romantic', 'spooky', 'adventurous', 
-            'mysterious', 'thrilling', 'movies and films', 'You can also search for:', 
-            'directors', 'actors', 'TV Shows', 'and companies', 'we hope you love our website!'];
-            const el = document.querySelector('.text');
-            const fx = new TextScramble(el);
-            let counter = 0;
-
-            const next = () => {
-              fx.setText(phrases[counter]).then(() => {
-                setTimeout(next, 800);
-              });
-              counter = (counter + 1) % phrases.length;
-            };
-
-            next();
-
-            </script> -->
           </div>
 
             <div class="empty-div"> </div>
             <a href='/watchlist/' class="header-button" style="margin-top: 8px;"><b>Watchlist</b></a>
-            <a sec:authorize="isAuthenticated()" style="margin-top: 2px; left: 2px;" ><b><span sec:authentication="name"></span></b></a>
+            <a sec:authorize="isAuthenticated()" style="margin-top: 2px; left: 2px;"><b><span sec:authentication="name"></spspan></b></a>
             <a href='/logout' class="header-button" style="margin-top: 7px;"><b>Logout</b></a>
             <select class="lang-select" style="margin-top: 3px;">
                 <option value='en'>EN &#9662</option>
