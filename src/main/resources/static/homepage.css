@@ -496,6 +496,14 @@ h3 {
   background-color: rgb(113, 161, 251);
 } */
 
+.hero_header {
+  font-family: "Poppins", sans-serif;
+}
+
+.hero_tagline {
+  font-family: "Poppins", sans-serif;
+}
+
 .hero_image {
   width: 90vw;
   height: 95vh;
@@ -520,12 +528,10 @@ h1 {
   padding: 0 20px 0 0;
 }
 
-.hero_tagline {
-}
-
 .hero_trailer {
   display: block;
   padding: 20px 0 0 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .hero_rating_container {
