@@ -162,10 +162,10 @@
           <div class="watchlist">
              <div class="section_header">
               <div class="rectangle"></div>
-              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">New Releases</h3></a>
+              <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Featured Today </h3></a>
               <h3 class="chevron">></h3>
             </div>
-            <div class="section_description">Check out the latest releases</div>
+            <div class="section_description">Check out these titles</div>
 
             <div class="films-wrapper">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -175,7 +175,7 @@
               <!-- --------------------------- -->
               <!--     FIRST SET STARTS        -->
               <!-- --------------------------- -->
-              <div class="film" th:each="card: ${firstList}">                 
+              <div class="film" th:each="card: ${newMoviesFirstList}">                 
                 <img
                 th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
                 loading="lazy"
@@ -190,6 +190,7 @@
                   <div class="film-name" th:text="${card.title}"></div>
                   <button href="#" class="film-watchlist-button">+ Watchlist</button>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
+                  <a id="colour_btn" th:href="@{/movie/new?movie={id}(id=${card.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
                 </div>
               </div>
@@ -197,7 +198,7 @@
               <!-- -------------------------------------- -->
               <!--      SECOND TO FOURTH SET STARTS       -->
               <!-- -------------------------------------- -->
-              <div class="carousel-item" th:each="card: ${movies}">  <!--, exts: ${vidExt} -->
+              <div class="carousel-item" th:each="card: ${newMoviesNested}">  <!--, exts: ${vidExt} -->
                 <div class="cards-wrapper">
                   <div class="film" th:each="movie1: ${card}">  <!--, vid: ${vidExt}-->
                     <img
@@ -216,13 +217,13 @@
                     <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                         <button class="film-trailer-button">Trailer</button>
                     </a>
+                    <a id="colour_btn" th:href="@{/movie?movie={id}(id=${movie1.id})}" ><i class="bi bi-box-arrow-up-right"></i></a>
                     </div>
                   </div>
                   </div>
                 </div>
                 </div>
             </div>
-
             <!-- ------------------------------------------------ -->
             <!--            CAROUSEL CONTROLS                     -->
             <!-- ------------------------------------------------ -->
