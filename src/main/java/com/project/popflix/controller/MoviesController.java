@@ -297,8 +297,8 @@ public class MoviesController {
     return "pages/newReleases";
   }
 
-  // @GetMapping("/watchGuide")
-  // blic String getWatchGuide(Model model) {
-  // return "watchGuide";
-  // }
+  @GetMapping("/about")
+  public String getAboutPage(Model model) {
+    return "about";
+  }
 }
