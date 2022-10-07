@@ -1,7 +1,7 @@
 body {
   background-color: black;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: white;
 }
 
@@ -19,12 +19,11 @@ header {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  
 }
 .dropdown {
   position: relative;
   display: inline-block;
-  top:-30px;
+  top: -30px;
 }
 .dropdown-content {
   min-width: 660px;
@@ -33,14 +32,14 @@ header {
   position: absolute;
   flex-direction: row;
   background-color: #00000017;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-bottom: 10px;
 }
 .navitem {
   display: inline-block;
-  width: 70px; 
-  height: 30px; 
+  width: 70px;
+  height: 30px;
   text-align: center;
   border: gray;
   color: #fff;
@@ -57,7 +56,7 @@ header {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  color:rgb(113, 161, 251);
+  color: rgb(113, 161, 251);
   background-color: #7c7c7c5a;
 }
 
@@ -66,35 +65,37 @@ header {
   display: block;
 }
 .dropdown:hover .dropbtn {
-  background-color:rgba(113, 161, 251, 0)
+  background-color: rgba(113, 161, 251, 0);
 }
 .noselect {
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-ul{
+ul {
   display: inline-block;
-  }
+}
 .neon-button {
-    background-color: rgba(51, 51, 51, 0);
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    background: #333;
-    margin: 5px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
-    color: rgb(191, 191, 191);
-    font-size: 16px;
+  background-color: rgba(51, 51, 51, 0);
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background: #333;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+    inset -5px -5px 10px #222;
+  color: rgb(191, 191, 191);
+  font-size: 16px;
 }
 .neon-button:hover {
-  box-shadow: -5px -5px 15px #71b7f0, 5px 5px 15px #71b7f0, inset 5px 5px 10px #71b7f0, inset -5px -5px 10px #71b7f0;
+  box-shadow: -5px -5px 15px #71b7f0, 5px 5px 15px #71b7f0,
+    inset 5px 5px 10px #71b7f0, inset -5px -5px 10px #71b7f0;
   font-size: 15px;
   transition: 500ms;
 }
@@ -107,7 +108,7 @@ ul{
 }
 
 form {
-  display:inline-block
+  display: inline-block;
 }
 header {
   display: flex;
@@ -159,12 +160,12 @@ header {
 }
 .burger-logo {
   color: rgb(255, 255, 255);
-  font-size:38px;
+  font-size: 38px;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 .burger-logo:hover {
-  color:rgb(113, 161, 251)
+  color: rgb(113, 161, 251);
 }
 
 .buttons-logo {
@@ -279,7 +280,7 @@ h3 {
 }
 
 .main-header {
-  display: "";
+  display: '';
   font-weight: bold;
   font-size: 48px;
   padding: 15px;
@@ -371,7 +372,7 @@ h3 {
   border: none;
   background-color: rgb(40, 40, 40);
   color: rgb(113, 161, 251);
-  width: 160%;
+  width: 180%;
   height: 35px;
   margin-left: 15px;
   margin-top: 15px;
@@ -381,6 +382,24 @@ h3 {
 }
 
 .film-watchlist-button:hover {
+  background-color: rgb(61, 61, 61);
+}
+
+.film-watchlist-button-remove {
+  /* margin-top: 20px; */
+  border: none;
+  background-color: rgb(40, 40, 40);
+  color: rgb(113, 161, 251);
+  width: 80%;
+  height: 35px;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition-duration: 0.2s;
+}
+
+.film-watchlist-button-remove:hover {
   background-color: rgb(61, 61, 61);
 }
 
@@ -455,7 +474,7 @@ h3 {
 }
 
 .hero_caption {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   bottom: 50px;
   left: 50px;
   text-align: left;
@@ -501,7 +520,7 @@ h1 {
 }
 
 .topRatings {
-  margin-left: 100px;
+  margin-left: 120px;
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -524,4 +543,4 @@ h1 {
   color: #757575;
 }
 
-@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100'
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
