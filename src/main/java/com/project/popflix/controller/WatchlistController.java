@@ -69,7 +69,7 @@ public class WatchlistController {
         List<MovieDb> moviesWatchlist = movieId
                 .stream()
                 .map(x -> movies
-                        .getMovie(x, "en", MovieMethod.images, MovieMethod.videos))
+                        .getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
                 .collect(Collectors.toList());
         System.out.println(moviesWatchlist);
         model.addAttribute("watchlist", moviesWatchlist);
