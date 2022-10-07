@@ -3,23 +3,22 @@
 }
 
 .mainMovieDiv {
-  height: 1080px;
   width: 1200px;
+  height: auto;
   background-color: rgba(80, 80, 80, 0.208);
 }
 
 .secondaryMovieDiv {
-  height: 1080px;
   width: 1200px;
-  /* background-color: rgb(255, 255, 255); */
+  height: auto;
   border-radius: 3px;
   vertical-align: bottom;
-  color: black;
+  /* background-color: rgba(80, 80, 80, 0.208); */
 }
 
 .posterblock {
   display: inline-block;
-  width: 300px;
+  width: 350px;
   height: 500px;
   background-color: blue;
   border-radius: 2px;
@@ -29,7 +28,7 @@
 
 .trailerblock {
   display: inline-block;
-  width: 880px;
+  width: 830px;
   height: 500px;
   background-color: rgb(66, 66, 66);
   margin-left: 5px;
@@ -46,15 +45,6 @@
 
 .detailsContainer {
   text-align: left;
-}
-
-.genre {
-  display: inline-block;
-  border-style: solid;
-  border-radius: 7px;
-  width: 75px;
-  height: 30px;
-  text-align: center;
 }
 
 .detailsBlock {
@@ -115,11 +105,11 @@ hr {
 }
 
 .fullDetailsBlock {
+  color: white;
   margin-top: 10px;
   display: inline-block;
   width: 700px;
   height: auto;
-  background-color: rgb(255, 255, 255);
   margin-right: 5px;
   text-align: center;
   border-radius: 7px;
@@ -127,11 +117,11 @@ hr {
 }
 
 .budgetBlock {
+  color: white;
   margin-top: 10px;
   display: inline-block;
   width: 480px;
   height: auto;
-  background-color: rgb(255, 255, 255);
   margin-left: 5px;
   margin-right: 5px;
   text-align: center;
@@ -143,11 +133,11 @@ hr {
 }
 
 .castBlock {
+  color: white;
   margin-top: 10px;
   display: inline-block;
   width: 1200px;
   height: auto;
-  background-color: rgb(255, 255, 255);
   margin-right: 5px;
   text-align: left;
   border-radius: 7px;
@@ -157,12 +147,31 @@ hr {
 .column {
   float: left;
   width: 50%;
-  padding: 10px;
   height: auto;
 }
 
+.row {
+  margin-left: 0;
+}
+
 .row:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
+}
+
+.similar_movies_carousel {
+  padding: 20px 0 0 0;
+}
+
+.single_movie_web_link {
+  color: white;
+}
+
+.single_movie_web_link:hover {
+  color: rgb(113, 161, 251);
+}
+
+.section_header {
+  padding-top: 20px;
 }
