@@ -326,8 +326,7 @@ public class MoviesController {
 
     model.addAttribute("movies", results);
     model.addAttribute("searchedMovie", formObj.getSearch());
-
-
+    model.addAttribute("formObj", new FormObj());
 
     return "pages/results";
   }
