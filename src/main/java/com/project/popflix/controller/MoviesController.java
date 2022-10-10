@@ -309,6 +309,8 @@ public class MoviesController {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     // MovieResultsPage newReleases = movies.get
     // model.addAttribute("movies", newReleases);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/newReleases";
   }
 
