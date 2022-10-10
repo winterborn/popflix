@@ -407,13 +407,17 @@ h3 {
   border: none;
   background-color: rgb(40, 40, 40);
   color: rgb(113, 161, 251);
-  width: 180%;
+  width: 80%;
   height: 35px;
   margin-left: 15px;
   margin-top: 15px;
   border-radius: 5px;
   font-weight: bold;
   transition-duration: 0.2s;
+}
+
+.watchlist_add {
+  display: inline;
 }
 
 .film-watchlist-button:hover {

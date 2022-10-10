@@ -195,3 +195,13 @@ hr {
   border-radius: 50%;
   padding: 10px;
 }
+
+/* @media only screen and (min-width: 1680px) {
+  .mainMovieDiv {
+    width: 1370px;
+    height: auto;
+    background-color: rgba(80, 80, 80, 0.208);
+  }
+} */
+
+/* SIMILAR MOVIES - CAROUSEL SPECIFIC */
