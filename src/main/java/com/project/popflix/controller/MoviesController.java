@@ -271,6 +271,8 @@ public class MoviesController {
 
     // this.getMoviesWithVideo(topRated, movies);
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/topRatings";
   }
 
