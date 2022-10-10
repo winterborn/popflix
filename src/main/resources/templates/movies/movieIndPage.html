@@ -87,9 +87,9 @@
 
               <!-- Release Date - Date Time Formatter -->
               <th:block th:with="sdf = ${new java.text.SimpleDateFormat('yyyy-MM-dd')}">
-                <p th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'yyyy')}"></p>
+                <p class="paragraph_details" th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'yyyy')}"></p>
                 <!-- Runtime -->
-                <p th:text="' • ' + ${movie.getRuntime()} + ' minutes'"></p>
+                <p class="paragraph_details" th:text="' • ' + ${movie.getRuntime()} + ' minutes'"></p>
               </th:block>
             </div>
 
@@ -131,9 +131,9 @@
                   <!-- Director Iteration Block -->
                   <p>Director:</p>
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
-                    <div th:if="${movie.getCrew().get(i).getJob().equals('Director')}">
-                       <p th:text="${movie.getCrew().get(i).getName()}"></p>
-                    </div>
+                    <ul th:if="${movie.getCrew().get(i).getJob().equals('Director')}">
+                       <li th:text="${movie.getCrew().get(i).getName()}"></li>
+                    </ul>
                     <div th:unless="${movie.getCrew().get(i).getJob().equals('Director')}">
                     </div>
                   </th:block>
@@ -141,20 +141,18 @@
                   <!-- Writers Iteration Block -->
                   <p>Writers:</p>
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
-                    <div th:if="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}">
-                      <p th:text="${movie.getCrew().get(i).getName()}"></p>
-                    </div>
-                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}"></div>
+                    <ul class="ul_single_movie_crew_details" th:if="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}">
+                      <li th:text="${movie.getCrew().get(i).getName()}"></li>
+                      </ul>
+                    <!-- <div style="display: inline-block" th:unless="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}"></div> -->
                   </th:block>
 
                   <!-- Based On Novel By Iteration Block -->
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
                     <div th:if="${movie.getCrew().get(i).getJob().equals('Novel')}">
-                      <p>Based on the novel by</p>
-                      <p th:text="${movie.getCrew().get(i).getName()}"></p>
+                      <p th:text="'Based on the novel by ' + ${movie.getCrew().get(i).getName()}"></p>
                     </div>
-                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Novel')}">
-                    </div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Novel')}"></div>
                   </th:block>
 
                   <hr>
@@ -216,8 +214,8 @@
 
                 <!-- Release Date - Date Time Formatter -->
                 <th:block th:with="sdf = ${new java.text.SimpleDateFormat('yyyy-MM-dd')}">
-                  <p>Release Date:</p>
-                  <p th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'dd-MM-yyyy')}"></p>
+                  <p class="paragraph_details">Release Date:</p>
+                  <p class="paragraph_details" th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'dd-MM-yyyy')}"></p>
                 </th:block>
                                
                 <p th:text="@{Budget: ${budget}(budget=${#numbers.formatDecimal(movie.getBudget(), 0, 'COMMA', 0, 'POINT')})}"></p>
