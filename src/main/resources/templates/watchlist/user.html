@@ -128,7 +128,7 @@
                 class="star-for-rating"
                 src="../img/popcorn.png"
                 alt="star"
-                th:text="${card.voteAverage}"
+                th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}"
               />
               <button class="star-button">☆</button>
             </div>
