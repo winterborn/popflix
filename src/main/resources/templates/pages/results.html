@@ -132,13 +132,13 @@
               class="star-for-rating"
               src="../img/popcorn.png"
               alt="star"
-              th:text="${card.voteAverage}"
+              th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}"
             />
             <button class="star-button">☆</button>
           </div>
 
           <div class="film-name" th:text="${card.title}"></div>
-          <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+          <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
             <button type="submit" class="film-watchlist-button">+ Watchlist</button>
           </form>
           <!-- <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"> -->
