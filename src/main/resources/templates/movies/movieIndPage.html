@@ -114,11 +114,11 @@
 
                   <!-- Genre check -->
                   <div class="genre">
-                    <div th:if="${movie.getGenres.size > 1}">
+                    <div th:if="${movie.getGenres.size > 0}">
                       <p th:text="${movie.getGenres().get(0).getName} + ' • ' + ${movie.getGenres().get(1).getName}"></p>
                     </div>
-                    <div th:unless="${movie.getGenres().size > 1}">
-                      <p th:text="${movie.getGenres().get(0).getName}"></p>
+                    <div th:unless="${movie.getGenres().size > 0}">
+                      <!-- <p th:text="${movie.getGenres().get(0).getName}"></p> -->
                     </div>
                   </div> 
                 
@@ -182,8 +182,8 @@
             <!-- Where to watch -->
             <div class="whereWatchBlock">
               <a href="#" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</a>
-              <a href="#" class="streamingService"><img src="https://img.icons8.com/color/40/000000/amazon-prime-video.png"/>Watch now on Prime Video</a>
-              <a href="#" class="streamingService"><img src="https://img.icons8.com/3d-fluency/40/000000/netflix-desktop-app.png"/>Watch now on Netflix</a>
+              <a href="https://www.amazon.co.uk/Amazon-Video/b?ie=UTF8&node=3010085031" class="streamingService"><img src="https://img.icons8.com/color/40/000000/amazon-prime-video.png"/>Watch now on Prime Video</a>
+              <a href="https://www.netflix.com/gb/" class="streamingService"><img src="https://img.icons8.com/3d-fluency/40/000000/netflix-desktop-app.png"/>Watch now on Netflix</a>
             </div>
       
           <!-- Main block of info finish -->
