@@ -74,7 +74,9 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
-                  <input type="text" id="search-imdb"/> 
+                <form th:action="@{/results}" th:object="${formObj}" method="get" >  
+                  <input th:field="*{search}" type="text" id="search-imdb"/> 
+                </form>
           </div>
 
             <div class="empty-div"> </div>
