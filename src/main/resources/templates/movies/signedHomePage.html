@@ -74,7 +74,23 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
+                <div class="text"></div>
                   <input type="text" id="search-imdb"/> 
+                  <script src="scramble.js"></script>
+                  
+                  <script>   
+                const phrases = ['Hola,', 'Beautiful there', 'you\'re loving ones for other', 'just as I am', 'that there\'s a connection', 'between you and other', 'keep enjoying :)'];
+                const el = document.getElementById('search-imdb').placeholder;
+                const fx = new TextScramble(el);
+                let counter = 0;
+                const next = () => {
+                  fx.setText(phrases[counter]).then(() => {
+                    setTimeout(next, 800);
+                  });
+                  counter = (counter + 1) % phrases.length;
+                };
+                next();
+                </script>   
           </div>
 
             <div class="empty-div"> </div>
