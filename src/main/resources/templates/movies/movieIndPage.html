@@ -127,7 +127,8 @@
                     <div th:if="${movie.getCrew().get(i).getJob().equals('Director')}">
                        <p th:text="${movie.getCrew().get(i).getName()}"></p>
                     </div>
-                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Director')}"></div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Director')}">
+                    </div>
                   </th:block>
 
                   <!-- Writers Iteration Block -->
@@ -145,7 +146,8 @@
                       <p>Based on the novel by</p>
                       <p th:text="${movie.getCrew().get(i).getName()}"></p>
                     </div>
-                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Novel')}"></div>
+                    <div th:unless="${movie.getCrew().get(i).getJob().equals('Novel')}">
+                    </div>
                   </th:block>
 
                   <hr>
@@ -187,7 +189,7 @@
             <div class="fullDetailsBlock">
                <div class="detailsContainer">
                   <h2><b>Details:</b></h2>
-                  <p th:text="'Studios: ' + ${movie.getProductionCompanies().get(0).getName} + ' • ' + ${movie.getProductionCompanies().get(1).getName}" ></p>
+                  <!-- <p th:text="'Studios: ' + ${movie.getProductionCompanies().get(0).getName} + ' • ' + ${movie.getProductionCompanies().get(1).getName}" ></p> -->
                   <p th:text="@{Language: {language}(language=${movie.getSpokenLanguages().get(0).getName()})}"></p>
                   <a class="single_movie_web_link" th:href="${movie.getHomepage()}"><p th:text="${movie.getHomepage()}"></p></a>               
                 </div>
