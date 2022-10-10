@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.project.popflix.model.FormObj;
 import com.project.popflix.repository.AuthoritiesRepository;
 import com.project.popflix.repository.UserRepository;
 
@@ -86,17 +88,15 @@ public class MoviesController {
     List<MovieDb> top20 = movies.getPopularMovies("en-US", 1).getResults();
     List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
-
     TmdbMovies movie_test = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb fightClub = movie_test.getMovie(550, "en-US", MovieMethod.credits);
-    
+
     for (int i = 0; i < fightClub.getCrew().size(); i++) {
       if (fightClub.getCrew().get(i).getJob().equals("Director")) {
-         System.out.println(fightClub.getCrew().get(i).getName());
-      } 
+        System.out.println(fightClub.getCrew().get(i).getName());
+      }
     }
 
-    
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
       top20Vid = top20id.stream()
@@ -232,6 +232,7 @@ public class MoviesController {
     // ************************************
     model.addAttribute("newMoviesFirstList", newMoviesFirstList);
     model.addAttribute("newMoviesNested", newMoviesNested);
+    model.addAttribute("formObj", new FormObj());
 
     // System.out.println("NEW MOVIES HERE:");
     // System.out.println(newMoviesFirstList);
@@ -316,13 +317,21 @@ public class MoviesController {
     return "about";
   }
 
-  @GetMapping("/results")
-  public String results(Model model){
-
-    String searchedItem = "superman";
+  // ******************
+  @RequestMapping("/results")
+  public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result) {
+    // String searchedItem = "superman";
     TmdbSearch search = new TmdbApi("d84f9365179dc98dc69ab22833381835").getSearch();
-    List<MovieDb> results = search.searchMovie(searchedItem, null, null, false, null).getResults();
+    List<MovieDb> results = search.searchMovie(formObj.getSearch(), null, null, false, null).getResults();
+
     model.addAttribute("movies", results);
+
     return "pages/results";
   }
+
+  // @PostMapping("/results")
+  // public RedirectView getInput(@ModelAttribute MovieDb form) {
+
+  // return new RedirectView("/results");
+  // }
 }
