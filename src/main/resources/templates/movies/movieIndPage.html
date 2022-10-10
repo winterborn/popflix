@@ -114,11 +114,11 @@
 
                   <!-- Genre check -->
                   <div class="genre">
-                    <div th:if="${movie.getGenres.size > 0}">
+                    <div th:if="${movie.getGenres.size > 1}">
                       <p th:text="${movie.getGenres().get(0).getName} + ' • ' + ${movie.getGenres().get(1).getName}"></p>
                     </div>
-                    <div th:unless="${movie.getGenres().size > 0}">
-                      <!-- <p th:text="${movie.getGenres().get(0).getName}"></p> -->
+                    <div th:unless="${movie.getGenres().size > 1}">
+                      <p th:text="${movie.getGenres().get(0).getName}"></p>
                     </div>
                   </div> 
                 
