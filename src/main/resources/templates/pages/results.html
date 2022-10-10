@@ -112,9 +112,9 @@
           <a href="#" class="most-popular" tabindex="0"><h3 class="">Results</h3></a>
           <h3 class="chevron">></h3>
         </div>
-        <div class="section_description">Check out these movies</div>
+        <div class="section_description" th:text="'Because you searched: ' + ${searchedMovie}"></div>
       </div>
-    </div>
+    
 
     <div class="topRatings">
       <div class="film" th:each="card: ${movies}">
@@ -147,5 +147,7 @@
         </div>
       </div>
     </div>
+
+  </div>
   </body>
 </html>
