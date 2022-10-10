@@ -288,6 +288,8 @@ public class MoviesController {
     }
 
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/nowPlayingMovies";
   }
 
