@@ -325,6 +325,9 @@ public class MoviesController {
     List<MovieDb> results = search.searchMovie(formObj.getSearch(), null, null, false, null).getResults();
 
     model.addAttribute("movies", results);
+    model.addAttribute("searchedMovie", formObj.getSearch());
+
+
 
     return "pages/results";
   }
