@@ -200,6 +200,10 @@ hr {
   display: block;
 }
 
+.paragraph_details {
+  display: inline-block;
+}
+
 /* @media only screen and (min-width: 1680px) {
   .mainMovieDiv {
     width: 1370px;
