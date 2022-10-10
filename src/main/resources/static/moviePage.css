@@ -196,8 +196,8 @@ hr {
   padding: 10px;
 }
 
-.paragraph_details {
-  display: inline-block;
+.ul_single_movie_crew_details {
+  display: block;
 }
 
 /* @media only screen and (min-width: 1680px) {
