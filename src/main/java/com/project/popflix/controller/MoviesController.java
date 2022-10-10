@@ -301,6 +301,8 @@ public class MoviesController {
     list = this.getMoviesWithVideo(list, movies);
 
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/upcomingMovies";
   }
 
