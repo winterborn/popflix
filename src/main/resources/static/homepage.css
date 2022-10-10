@@ -99,9 +99,11 @@ ul {
   font-size: 15px;
   transition: 500ms;
 }
+
 .neon-button:focus {
   outline: none;
 }
+
 .blue:hover {
   color: #71b7f0;
   text-shadow: 0px 0px 10px #71b7f0;
@@ -276,6 +278,10 @@ main {
   padding: 10px 0 0 0;
 }
 
+b:hover {
+  color: rgb(113, 161, 251);
+}
+
 h3 {
   font-weight: bold;
   display: inline;
@@ -335,8 +341,8 @@ h3 {
 }
 
 .main-button:hover {
-  /* background-color: rgb(20, 20, 20); */
   text-decoration: none;
+  color: rgb(113, 161, 251);
 }
 
 .films-wrapper {
