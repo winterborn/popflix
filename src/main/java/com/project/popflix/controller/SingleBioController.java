@@ -48,7 +48,6 @@ public class SingleBioController {
     public String bioDetails(Model model) {
         TmdbPeople people = new TmdbApi("d84f9365179dc98dc69ab22833381835").getPeople();
         PersonPeople person = people.getPersonInfo(2);
-
         String name = person.getName();
         String bio = person.getBiography();
         String department = person.getKnownForDepartment();
@@ -64,7 +63,6 @@ public class SingleBioController {
         int cast = person.getCastId();
         String birthPlace = person.getBirthplace();
         String profilePath = person.getProfilePath();
-
         model.addAttribute("img", img);
         model.addAttribute("character", character);
         model.addAttribute("media", media);
