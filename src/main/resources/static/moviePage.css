@@ -203,6 +203,18 @@ hr {
   padding: 10px;
 }
 
+.actor_name {
+  color: white;
+}
+
+.actor_name:hover {
+  color: rgb(113, 161, 251);
+}
+
+.actor_link:hover {
+  text-decoration: none;
+}
+
 .ul_single_movie_crew_details {
   display: block;
 }
