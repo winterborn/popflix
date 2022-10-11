@@ -376,9 +376,9 @@ h3 {
 }
 
 .star-for-rating {
-  width: 30px;
-  padding: 0 6px 0 0;
-  /* width: 8%; */
+  /* width: 30px;
+  padding: 0 6px 0 0; */
+  width: 8%;
   margin-left: 10px;
 }
 
