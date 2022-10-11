@@ -29,7 +29,15 @@
           <form th:action="@{/users}" th:object="${user}" method="post">
             <div>
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" class="text-input" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" maxlength="20" required/>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="text-input"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                maxlength="20"
+                required
+              />
             </div>
             <div>
               <label for="username">Username</label>
@@ -39,7 +47,7 @@
                 name="username"
                 class="text-input"
                 maxlength="10"
-                autocomplete='off'
+                autocomplete="off"
                 required
               />
             </div>
@@ -51,7 +59,7 @@
                 id="password"
                 name="password"
                 class="text-input"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}"
                 maxlength="20"
                 required
               />
@@ -86,7 +94,7 @@
             <div class="wrapper">
               <div class="frame-container">
                 <iframe
-                  src="https://www.youtube.com/embed/U3-iXA6H3Q0?start=17&autoplay=1&loop=1&mute=1&modestbranding=1&controls=0&autohide=1&vq=2160&playlist=U3-iXA6H3Q0"
+                  src="https://www.youtube.com/embed/U3-iXA6H3Q0?start=17&end=234&&autoplay=1&loop=1&mute=1&modestbranding=1&controls=0&autohide=1&vq=2160&playlist=U3-iXA6H3Q0"
                   frameborder="0"
                 ></iframe>
               </div>
@@ -100,17 +108,17 @@
   <script>
     // toggle password visibility
     function toggle() {
-      var x = document.getElementById('password')
-      var y = document.getElementById('hide1')
-      var z = document.getElementById('hide2')
-      if (x.type === 'password') {
-        x.type = 'text'
-        y.style.display = 'block'
-        z.style.display = 'none'
+      var x = document.getElementById("password");
+      var y = document.getElementById("hide1");
+      var z = document.getElementById("hide2");
+      if (x.type === "password") {
+        x.type = "text";
+        y.style.display = "block";
+        z.style.display = "none";
       } else {
-        x.type = 'password'
-        y.style.display = 'none'
-        z.style.display = 'block'
+        x.type = "password";
+        y.style.display = "none";
+        z.style.display = "block";
       }
     }
   </script>
