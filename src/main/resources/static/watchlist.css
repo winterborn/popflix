@@ -1,7 +1,6 @@
 body {
   background-color: black;
   margin: 0;
-  /* font-family: "Open Sans", sans-serif; */
   font-family: "Poppins", sans-serif;
   color: white;
 }
@@ -26,7 +25,6 @@ header {
 .imdb-logo {
   width: auto;
   height: 70%;
-  /* padding-right: 15px; */
 }
 
 .header-button {
@@ -64,7 +62,6 @@ header {
 }
 
 .header-button:hover {
-  /* background-color: rgb(40, 40, 40); */
   text-decoration: none;
 }
 
@@ -90,7 +87,6 @@ header {
   padding: 15px;
   border: none;
   border-radius: 0px 5px 5px 0px;
-  /* top-left | top-right | bottom-right | bottom-left */
 }
 
 .pro-button {

@@ -38,7 +38,61 @@
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
 
-    <header>
+    <header class="header">
+        <a href="/">
+          <img src="logo_black.png" alt="Logo" class="homepage-logo" />
+        </a>
+              <div class="dropdown navitem">
+                <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+                  <div class="dropdown-content">
+                    <form action="/nowPlayingMovies">
+                      <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                    </form>
+                    <form action="/upcomingMovies">
+                      <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                    </form>
+                    <form action="/mostPopular">
+                      <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                    </form>
+                    <form action="/topRatings">
+                      <button class="navitem noselect neon-button blue">TOP RATED</button>
+                    </form>                   
+                  </div>
+              </div>
+
+        <form th:action="@{/results}" th:object="${formObj}" method="get" class="search-bar">
+            <input th:field="*{search}" class="search-input" id="searchbox" type="search" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
+            <button type="submit" class="search-btn">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/magnify.svg" alt="search"/>
+            </button>
+        </form>
+
+        <!-- <a sec:authorize="isAuthenticated()">Logged in as: <span sec:authentication="name"></span></a> -->
+
+        <select class="lang-select" style="margin-top: 3px;">
+          <option value='en'>EN &#9662</option>
+          <option value="titles">UA</option>
+          <option value="tv-episodes">ESP</option>
+          <option value="celebs">IT</option>
+          <option value="companies">DE</option>
+        </select>
+        
+        <div class="menu-icons">
+            <a href="/watchlist/">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/video-plus.svg" alt="Upload Video" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/apps.svg" alt="Apps" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/bell.svg" alt="Notifications" />
+            </a>
+            <a href="/logout">
+                <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+            </a>
+        </div>
+    </header>
+    <!-- <header>
         <div class="head-block" >
           <a href="/">
           <img class="imdb-logo" 
@@ -73,23 +127,7 @@
                     <option value="keywords">Keywords</option>
                     <option value="advanced-search">Advanced Search</option>
                 </select>
-                <div class="text"></div>
                   <input type="text" id="search-imdb"/> 
-                  <script src="scramble.js"></script>
-                  
-                  <script>   
-                const phrases = ['Hola,', 'Beautiful there', 'you\'re loving ones for other', 'just as I am', 'that there\'s a connection', 'between you and other', 'keep enjoying :)'];
-                const el = document.getElementById('search-imdb').placeholder;
-                const fx = new TextScramble(el);
-                let counter = 0;
-                const next = () => {
-                  fx.setText(phrases[counter]).then(() => {
-                    setTimeout(next, 800);
-                  });
-                  counter = (counter + 1) % phrases.length;
-                };
-                next();
-                </script>   
           </div>
 
             <div class="empty-div"> </div>
@@ -104,7 +142,7 @@
                 <option value="companies">DE</option>
             </select>
         </div>
-    </header>
+    </header> -->
     <main>
 
       <!-- ------------------------------------------------ -->
@@ -232,11 +270,12 @@
                 </a>
                 <div>
                   <div>
-                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${card.voteAverage}">                
+                    <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}">
+                                   
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
-                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                  <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
                     <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                   </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
@@ -260,11 +299,11 @@
                     </a>
                     <div>
                       <div>
-                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
+                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${#numbers.formatDecimal(movie1.voteAverage, 0, 1)}">
                         <button class="star-button">☆</button>
                       </div>
                       <div class="film-name" th:text="${movie1.title}">Card title</div>
-                      <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
+                      <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
                         <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                       </form>
                       <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
@@ -337,12 +376,12 @@
 
                 <div>
                   <div>
-                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${card.voteAverage}">
+                    <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}">
                     <button class="star-button">☆</button>
                   </div>
                   
                   <div class="film-name" th:text="${card.title}"></div>
-                  <form th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                  <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
                     <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                   </form>
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
@@ -367,11 +406,11 @@
                     </a>
                     <div>
                       <div>
-                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${movie1.voteAverage}">
+                        <img class="star-for-rating" src="../img/popcorn.png" alt="star" th:text="${#numbers.formatDecimal(movie1.voteAverage, 0, 1)}">
                         <button class="star-button">☆</button>
                       </div>
                       <div class="film-name" th:text="${movie1.title}">Card title</div>
-                      <form th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
+                      <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
                         <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                       </form>
                       <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
@@ -430,5 +469,7 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
+    <script src="typing.js"></script>
+
 </body>
 </html> 

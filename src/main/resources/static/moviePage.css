@@ -80,6 +80,7 @@ hr {
 }
 
 .streamingService {
+  color: white;
   padding-top: 4px;
   border-style: solid;
   border-radius: 7px;
@@ -92,6 +93,8 @@ hr {
 }
 
 .addToWatchlist {
+  text-align: left;
+  color: white;
   border-style: solid;
   border-radius: 7px;
   border-color: rgb(136, 136, 136);
@@ -104,6 +107,10 @@ hr {
   padding-top: 4px;
 }
 
+.addToWatchlist :hover {
+  border-color: rgb(0, 81, 255);
+  background-color: rgba(248, 243, 243, 0.574);
+}
 .fullDetailsBlock {
   color: white;
   margin-top: 10px;
@@ -195,3 +202,21 @@ hr {
   border-radius: 50%;
   padding: 10px;
 }
+
+.ul_single_movie_crew_details {
+  display: block;
+}
+
+.paragraph_details {
+  display: inline-block;
+}
+
+/* @media only screen and (min-width: 1680px) {
+  .mainMovieDiv {
+    width: 1370px;
+    height: auto;
+    background-color: rgba(80, 80, 80, 0.208);
+  }
+} */
+
+/* SIMILAR MOVIES - CAROUSEL SPECIFIC */

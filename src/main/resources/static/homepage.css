@@ -5,13 +5,13 @@ body {
   color: white;
 }
 
-header {
+/* header {
   display: flex;
   justify-content: center;
   background-color: rgb(18, 18, 18);
   height: 7.8vh;
   width: 100%;
-}
+} */
 .dropbtn {
   background-color: rgba(76, 175, 79, 0);
   color: white;
@@ -19,6 +19,7 @@ header {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin-left: 50px;
 }
 .dropdown {
   position: relative;
@@ -99,9 +100,11 @@ ul {
   font-size: 15px;
   transition: 500ms;
 }
+
 .neon-button:focus {
   outline: none;
 }
+
 .blue:hover {
   color: #71b7f0;
   text-shadow: 0px 0px 10px #71b7f0;
@@ -192,9 +195,11 @@ header {
 
 #search-imdb-select {
   height: 70%;
-  width: 8%;
+  width: 12%;
   border: none;
   padding-left: 10px;
+  margin-left: 10px;
+  position: relative;
   font-weight: bold;
   border-radius: 5px 0px 0px 5px;
 }
@@ -229,10 +234,10 @@ header {
 
 .lang-select {
   text-align: center;
-  color: white;
-  background-color: rgb(18, 18, 18);
+  color: #777;
+  background-color: rgb(0, 0, 0);
   border: none;
-  margin-left: 5px;
+  margin-right: 5px;
   font-weight: bold;
   width: 50px;
   height: 65%;
@@ -244,7 +249,7 @@ header {
 }
 
 .lang-select:hover {
-  background-color: rgb(40, 40, 40);
+  /* background-color: rgb(40, 40, 40); */
 }
 
 main {
@@ -274,6 +279,10 @@ main {
 
 .section_description {
   padding: 10px 0 0 0;
+}
+
+b:hover {
+  color: rgb(113, 161, 251);
 }
 
 h3 {
@@ -335,8 +344,8 @@ h3 {
 }
 
 .main-button:hover {
-  /* background-color: rgb(20, 20, 20); */
   text-decoration: none;
+  color: rgb(113, 161, 251);
 }
 
 .films-wrapper {
@@ -367,7 +376,9 @@ h3 {
 }
 
 .star-for-rating {
-  width: 8%;
+  width: 30px;
+  padding: 0 6px 0 0;
+  /* width: 8%; */
   margin-left: 10px;
 }
 
@@ -401,13 +412,17 @@ h3 {
   border: none;
   background-color: rgb(40, 40, 40);
   color: rgb(113, 161, 251);
-  width: 180%;
+  width: 80%;
   height: 35px;
   margin-left: 15px;
   margin-top: 15px;
   border-radius: 5px;
   font-weight: bold;
   transition-duration: 0.2s;
+}
+
+.watchlist_add {
+  display: inline;
 }
 
 .film-watchlist-button:hover {
@@ -556,7 +571,6 @@ h1 {
 }
 
 .topRatings {
-  margin-left: 120px;
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
