@@ -322,11 +322,6 @@ public class MoviesController {
     return "pages/newReleases";
   }
 
-  @GetMapping("/about")
-  public String getAboutPage(Model model) {
-    return "about";
-  }
-
   // ******************
   @RequestMapping("/results")
   public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result) {

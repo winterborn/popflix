@@ -5,7 +5,7 @@
 .mainMovieDiv {
   width: 1200px;
   height: auto;
-  background-color: rgba(80, 80, 80, 0.208);
+  /* background-color: rgba(80, 80, 80, 0.208); */
 }
 
 .secondaryMovieDiv {
@@ -203,6 +203,18 @@ hr {
   padding: 10px;
 }
 
+.actor_name {
+  color: white;
+}
+
+.actor_name:hover {
+  color: rgb(113, 161, 251);
+}
+
+.actor_link:hover {
+  text-decoration: none;
+}
+
 .ul_single_movie_crew_details {
   display: block;
 }
@@ -217,6 +229,6 @@ hr {
   .mainMovieDiv {
     width: 1375px;
     height: auto;
-    background-color: rgba(80, 80, 80, 0.208);
+    /* background-color: rgba(80, 80, 80, 0.208); */
   }
 }

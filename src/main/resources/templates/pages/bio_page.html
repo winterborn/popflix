@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/moviePage.css">
+    <link rel="stylesheet" href="/nav.css">
+
 </head>
 <body>
 
@@ -38,54 +40,58 @@
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
 
-  <header>
-    <div class="head-block" >
-      <a href="/">
-      <img class="imdb-logo" 
-       src="img/popflix_logo_2.png" style="width:66.6px; height:51.26px;" alt="error">
-      </a>
-      <div class="header-button">          
-        <div class="dropdown navitem">
-          <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
-            <div class="dropdown-content">
-              <form action="/nowPlayingMovies">
-                <button class="navitem noselect neon-button blue">IN THEATRES</button>
-              </form>
-              <form action="/upcomingMovies">
-                <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
-              </form>
-              <form action="/mostPopular">
-                <button class="navitem noselect neon-button blue">MOST POPULAR</button>
-              </form>
-              <form action="/topRatings">
-                <button class="navitem noselect neon-button blue">TOP RATED</button>
-              </form>                   
-            </div>
-        </div>
-    </div>   
-          <div class="input-field">
-            <select id="search-imdb-select">
-                <option value='all'>All <span>&#9662</span></option>
-                <option value="titles">Titles</option>
-                <option value="tv-episodes">TV Episodes</option>
-                <option value="celebs">Celebs</option>
-                <option value="companies">Companies</option>
-                <option value="keywords">Keywords</option>
-                <option value="advanced-search">Advanced Search</option>
-            </select>
-            <input type="text" id="search-imdb" placeholder="Search PopFlix"/>
-        </div>
+  <header class="header">
+    <a href="/">
+      <img src="logo_black.png" alt="Logo" class="homepage-logo" />
+    </a>
+          <div class="dropdown navitem">
+            <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+              <div class="dropdown-content">
+                <form action="/nowPlayingMovies">
+                  <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                </form>
+                <form action="/upcomingMovies">
+                  <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                </form>
+                <form action="/mostPopular">
+                  <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                </form>
+                <form action="/topRatings">
+                  <button class="navitem noselect neon-button blue">TOP RATED</button>
+                </form>                   
+              </div>
+          </div>
 
-        <div class="empty-div"> </div>
-        <a href='/login' class="header-button" style="margin-top: 8px;"><b>Watchlist</b></a>
-        <a href='/login' class="header-button" style="margin-top: 7px;"><b>Login</b></a>
-        <select class="lang-select"style="margin-top: 5px;">
-            <option value='en'>EN &#9662</option>
-            <option value="titles">UA</option>
-            <option value="tv-episodes">ESP</option>
-            <option value="celebs">IT</option>
-            <option value="companies">DE</option>
-        </select>
+    <form th:action="@{/results}" th:object="${formObj}" method="get" class="search-bar">
+        <input th:field="*{search}" class="search-input" id="searchbox" type="search" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
+        <button type="submit" class="search-btn">
+            <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/magnify.svg" alt="search"/>
+        </button>
+    </form>
+
+    <!-- <a sec:authorize="isAuthenticated()">Logged in as: <span sec:authentication="name"></span></a> -->
+
+    <select class="lang-select" style="margin-top: 3px;">
+      <option value='en'>EN &#9662</option>
+      <option value="titles">UA</option>
+      <option value="tv-episodes">ESP</option>
+      <option value="celebs">IT</option>
+      <option value="companies">DE</option>
+    </select>
+    
+    <div class="menu-icons">
+        <a href="/watchlist/">
+            <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/video-plus.svg" alt="Upload Video" />
+        </a>
+        <a href="#">
+            <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/apps.svg" alt="Apps" />
+        </a>
+        <a href="#">
+            <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/bell.svg" alt="Notifications" />
+        </a>
+        <a href="/logout">
+            <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+        </a>
     </div>
 </header>
     <main>

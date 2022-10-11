@@ -386,6 +386,7 @@ h3 {
   height: 30px;
   margin: 10px;
   margin-top: 10px;
+  padding-bottom: 50px;
 }
 
 .star-button {
@@ -505,6 +506,10 @@ h3 {
   text-decoration: none;
 }
 
+.most-popular:hover {
+  text-decoration: none;
+}
+
 /* HERO_HEADER */
 
 /* .btn-warning {
@@ -533,7 +538,7 @@ h3 {
 }
 
 h1 {
-  font-size: 60px;
+  /* font-size: 60px; */
   font-weight: bold;
   padding: 0 0 40px 0;
 }
@@ -592,5 +597,3 @@ h1 {
 .dud {
   color: #757575;
 }
-
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:100";
