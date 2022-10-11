@@ -80,6 +80,7 @@ hr {
 }
 
 .streamingService {
+  color: white;
   padding-top: 4px;
   border-style: solid;
   border-radius: 7px;
@@ -92,6 +93,8 @@ hr {
 }
 
 .addToWatchlist {
+  text-align: left;
+  color: white;
   border-style: solid;
   border-radius: 7px;
   border-color: rgb(136, 136, 136);

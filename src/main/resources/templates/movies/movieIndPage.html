@@ -302,7 +302,8 @@
               </a>
               <div>
                 <div>
-                  <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}">                
+                  <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="popcorn"/>
+                  <p th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}"></p>                
                   <button class="star-button">☆</button>
                 </div>
                 <div class="film-name" th:text="${card.title}"></div>
