@@ -84,13 +84,13 @@
             <a href="/watchlist/">
                 <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/video-plus.svg" alt="Upload Video" />
             </a>
-            <a href="/logout">
+            <a href="#">
                 <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/apps.svg" alt="Apps" />
             </a>
             <a href="#">
                 <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/bell.svg" alt="Notifications" />
             </a>
-            <a href="#">
+            <a href="/logout">
                 <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
             </a>
         </div>
@@ -209,7 +209,7 @@
             <!-- Where to watch -->
             <div class="whereWatchBlock">
                   <form th:action="@{/watchlist/new?movieid={id}(id=${movie.getId()})}" th:object="${watchlist}" method="post">
-                    <button class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</button>
+                    <button type="submit" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</button>
                     <!-- <button type="submit" class="film-watchlist-button">+ Watchlist</button> -->
                   </form>
 
