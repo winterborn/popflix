@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/glitch_effect.css">
+    <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 
@@ -39,7 +40,61 @@
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
 
-    <header>
+    <header class="header">
+        <a href="/">
+          <img src="logo_black.png" alt="Logo" class="homepage-logo" />
+        </a>
+              <div class="dropdown navitem">
+                <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+                  <div class="dropdown-content">
+                    <form action="/nowPlayingMovies">
+                      <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                    </form>
+                    <form action="/upcomingMovies">
+                      <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                    </form>
+                    <form action="/mostPopular">
+                      <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                    </form>
+                    <form action="/topRatings">
+                      <button class="navitem noselect neon-button blue">TOP RATED</button>
+                    </form>                   
+                  </div>
+              </div>
+
+        <form th:action="@{/results}" th:object="${formObj}" method="get" class="search-bar">
+            <input th:field="*{search}" class="search-input" id="searchbox" type="search" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
+            <button type="submit" class="search-btn">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/magnify.svg" alt="search"/>
+            </button>
+        </form>
+
+        <!-- <a sec:authorize="isAuthenticated()">Logged in as: <span sec:authentication="name"></span></a> -->
+
+        <select class="lang-select" style="margin-top: 3px;">
+          <option value='en'>EN &#9662</option>
+          <option value="titles">UA</option>
+          <option value="tv-episodes">ESP</option>
+          <option value="celebs">IT</option>
+          <option value="companies">DE</option>
+        </select>
+        
+        <div class="menu-icons">
+            <a href="/watchlist/">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/video-plus.svg" alt="Upload Video" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/apps.svg" alt="Apps" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/bell.svg" alt="Notifications" />
+            </a>
+            <a href="/logout">
+                <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+            </a>
+        </div>
+    </header>
+    <!-- <header>
         <div class="head-block" >
           <a href="/">
           <img class="imdb-logo" 
@@ -75,7 +130,7 @@
                     <option value="advanced-search">Advanced Search</option>
                 </select>
                 <form th:action="@{/results}" th:object="${formObj}" method="get" >  
-                  <input th:field="*{search}" type="text" id="search-imdb"/> 
+                  <input th:field="*{search}" type="text" id="search-imdb" pattern=".*\S+.*" autocomplete="off" title="Enter a movie name" required/> 
                 </form>
           </div>
 
@@ -91,7 +146,7 @@
                 <option value="companies">DE</option>
             </select>
         </div>
-    </header>
+    </header> -->
     <main>
 
       <!-- ------------------------------------------------ -->
@@ -418,5 +473,7 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
+    <script src="typing.js"></script>
+
 </body>
 </html> 
