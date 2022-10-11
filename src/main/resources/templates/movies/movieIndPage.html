@@ -29,9 +29,11 @@
 
     <title th:text="${movie.title}"></title>
     <link rel="icon" href="img/popflix_logo_2.png">
+    <!-- <link rel="icon" href="img/popflix_logo_2.png"> -->
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/moviePage.css">
+    <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 
@@ -39,33 +41,58 @@
   <!--           NAVBAR WITH SEARCH BAR                 -->
   <!-- ------------------------------------------------ -->
 
-    <header>
-        <div class="head-block" >
-          <img class="imdb-logo" src="img/popflix_logo_2.png" alt="error">
-            <a href='/' class="header-button"><b><span class='buttons-logo'>&#9776</span> Home</b></a>
-            <div class="input-field">
-                <select id="search-imdb-select">
-                    <option value='all'>All <span>&#9662</span></option>
-                    <option value="titles">Titles</option>
-                    <option value="tv-episodes">TV Episodes</option>
-                    <option value="celebs">Celebs</option>
-                    <option value="companies">Companies</option>
-                    <option value="keywords">Keywords</option>
-                    <option value="advanced-search">Advanced Search</option>
-                </select>
-                <input type="text" id="search-imdb" placeholder="Search Popflix"/>
-            </div>
-            <div class="empty-div"> </div>
-            <a href='/watchlist' class="header-button"><b>Watchlist</b></a>
-            <a sec:authorize="isAuthenticated()"><b><span sec:authentication="name"></span></b></a>
-            <a href='/logout' class="header-button"><b>Logout</b></a>
-            <select class="lang-select">
-                <option value='en'>EN &#9662</option>
-                <option value="titles">UA</option>
-                <option value="tv-episodes">ESP</option>
-                <option value="celebs">IT</option>
-                <option value="companies">DE</option>
-            </select>
+    <header class="header">
+        <a href="/">
+          <img src="logo_black.png" alt="Logo" class="youtube-logo" />
+        </a>
+              <div class="dropdown navitem">
+                <button class="dropbtn"><span class='burger-logo'>&#9776</span></button>
+                  <div class="dropdown-content">
+                    <form action="/nowPlayingMovies">
+                      <button class="navitem noselect neon-button blue">IN THEATRES</button>
+                    </form>
+                    <form action="/upcomingMovies">
+                      <button class="navitem noselect neon-button blue">FUTURE MOVIES</button>   
+                    </form>
+                    <form action="/mostPopular">
+                      <button class="navitem noselect neon-button blue">MOST POPULAR</button>
+                    </form>
+                    <form action="/topRatings">
+                      <button class="navitem noselect neon-button blue">TOP RATED</button>
+                    </form>                   
+                  </div>
+              </div>
+
+        <form th:action="@{/results}" th:object="${formObj}" method="get" class="search-bar">
+            <input th:field="*{search}" class="search-input" id="searchbox" type="search" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
+            <button type="submit" class="search-btn">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/magnify.svg" alt="search"/>
+            </button>
+        </form>
+
+        <!-- <a sec:authorize="isAuthenticated()">Logged in as: <span sec:authentication="name"></span></a> -->
+
+        <select class="lang-select" style="margin-top: 3px;">
+          <option value='en'>EN &#9662</option>
+          <option value="titles">UA</option>
+          <option value="tv-episodes">ESP</option>
+          <option value="celebs">IT</option>
+          <option value="companies">DE</option>
+        </select>
+        
+        <div class="menu-icons">
+            <a href="/watchlist/">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/video-plus.svg" alt="Upload Video" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/apps.svg" alt="Apps" />
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/bell.svg" alt="Notifications" />
+            </a>
+            <a href="/logout">
+                <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+            </a>
         </div>
     </header>
     <main>
@@ -181,7 +208,11 @@
 
             <!-- Where to watch -->
             <div class="whereWatchBlock">
-              <a href="#" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</a>
+                  <form th:action="@{/watchlist/new?movieid={id}(id=${movie.getId()})}" th:object="${watchlist}" method="post">
+                    <button type="submit" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</button>
+                    <!-- <button type="submit" class="film-watchlist-button">+ Watchlist</button> -->
+                  </form>
+
               <a href="https://www.amazon.co.uk/Amazon-Video/b?ie=UTF8&node=3010085031" class="streamingService"><img src="https://img.icons8.com/color/40/000000/amazon-prime-video.png"/>Watch now on Prime Video</a>
               <a href="https://www.netflix.com/gb/" class="streamingService"><img src="https://img.icons8.com/3d-fluency/40/000000/netflix-desktop-app.png"/>Watch now on Netflix</a>
             </div>
@@ -304,7 +335,10 @@
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${movie1.title}">Card title</div>
-                  <a href="/login"><button type="submit" class="film-watchlist-button">+ Watchlist</button></a>
+                  <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
+                    <button type="submit" class="film-watchlist-button">+ Watchlist</button>
+                    </form>
+
                   <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}">
                       <button class="film-trailer-button">Trailer</button>
                   </a>
@@ -365,5 +399,6 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
+    <script src="typing.js"></script>
 </body>
 </html> 

@@ -29,7 +29,7 @@
           <form th:action="@{/users}" th:object="${user}" method="post">
             <div>
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" class="text-input" />
+              <input type="email" id="email" name="email" class="text-input" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" maxlength="20" required/>
             </div>
             <div>
               <label for="username">Username</label>
@@ -38,6 +38,9 @@
                 id="username"
                 name="username"
                 class="text-input"
+                maxlength="10"
+                autocomplete='off'
+                required
               />
             </div>
 
@@ -48,6 +51,8 @@
                 id="password"
                 name="password"
                 class="text-input"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" 
+                maxlength="20"
                 required
               />
               <span class="eye" onclick="toggle()">

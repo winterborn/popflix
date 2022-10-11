@@ -256,6 +256,8 @@ public class MoviesController {
     mostPopular = this.getMoviesWithVideo(mostPopular, movies);
 
     model.addAttribute("movies", mostPopular);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/mostPopular";
   }
 
@@ -271,6 +273,8 @@ public class MoviesController {
 
     // this.getMoviesWithVideo(topRated, movies);
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/topRatings";
   }
 
@@ -288,6 +292,8 @@ public class MoviesController {
     }
 
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/nowPlayingMovies";
   }
 
@@ -301,6 +307,8 @@ public class MoviesController {
     list = this.getMoviesWithVideo(list, movies);
 
     model.addAttribute("movies", list);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/upcomingMovies";
   }
 
@@ -309,6 +317,8 @@ public class MoviesController {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     // MovieResultsPage newReleases = movies.get
     // model.addAttribute("movies", newReleases);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/newReleases";
   }
 
@@ -326,8 +336,7 @@ public class MoviesController {
 
     model.addAttribute("movies", results);
     model.addAttribute("searchedMovie", formObj.getSearch());
-
-
+    model.addAttribute("formObj", new FormObj());
 
     return "pages/results";
   }
