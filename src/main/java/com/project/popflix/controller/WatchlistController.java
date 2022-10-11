@@ -20,6 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import org.springframework.security.core.Authentication;
 
+import com.project.popflix.model.FormObj;
 import com.project.popflix.model.Watchlist;
 import com.project.popflix.repository.UserRepository;
 import com.project.popflix.repository.WatchlistRepository;
@@ -71,8 +72,9 @@ public class WatchlistController {
                 .map(x -> movies
                         .getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
                 .collect(Collectors.toList());
-        System.out.println(moviesWatchlist);
+        // System.out.println(moviesWatchlist);
         model.addAttribute("watchlist", moviesWatchlist);
+        model.addAttribute("formObj", new FormObj());
 
         return "watchlist/user";
     }
@@ -86,5 +88,4 @@ public class WatchlistController {
         return new RedirectView("/watchlist");
 
     }
-
 }
