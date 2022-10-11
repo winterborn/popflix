@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.project.popflix.model.FormObj;
 import com.project.popflix.repository.AuthoritiesRepository;
 import com.project.popflix.repository.UserRepository;
 
@@ -76,6 +77,7 @@ public class SingleBioController {
         model.addAttribute("cast", cast);
         model.addAttribute("pob", birthPlace);
         model.addAttribute("profile", profilePath);
+        model.addAttribute("formObj", new FormObj());
 
         return "pages/bio_page";
     }
