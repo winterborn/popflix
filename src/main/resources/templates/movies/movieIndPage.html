@@ -199,16 +199,22 @@
                   <p class="actors_header">Stars:</p>
                   <div class="actors_container">
                     <div class="actor_container">
-                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(0).getProfilePath()})}" alt="">
-                      <p th:text="${movie.getCast().get(0).getName}"></p>
+                      <a href="/bio">
+                        <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(0).getProfilePath()})}" alt="">
+                        <p th:text="${movie.getCast().get(0).getName}"></p>
+                      </a>
                     </div>
                     <div class="actor_container">
-                      <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(1).getProfilePath()})}" alt="">
-                      <p th:text="${movie.getCast().get(1).getName}"></p>
+                      <a href="/bio">
+                        <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(1).getProfilePath()})}" alt="">
+                        <p th:text="${movie.getCast().get(1).getName}"></p>
+                      </a>  
                     </div>
                     <div class="actor_container">
+                      <a href="/bio">
                       <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(2).getProfilePath()})}" alt="">
                       <p th:text="${movie.getCast().get(2).getName}"></p>
+                      </a>
                     </div>
                     <!-- <div class="actor_container">
                       <img class="actor_img" th:src="@{https://image.tmdb.org/t/p/original/{pic}(pic=${movie.getCast().get(3).getProfilePath()})}" alt="">

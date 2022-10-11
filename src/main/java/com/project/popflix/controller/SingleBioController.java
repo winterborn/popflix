@@ -53,6 +53,7 @@ public class SingleBioController {
         String bio = person.getBiography();
         String department = person.getKnownForDepartment();
         // String unknown = person.handleUnknown(bio, job);
+
         float popularity = person.getPopularity();
         String birthday = person.getBirthday();
         String deathdate = person.getDeathday();
@@ -64,6 +65,7 @@ public class SingleBioController {
         int cast = person.getCastId();
         String birthPlace = person.getBirthplace();
         String profilePath = person.getProfilePath();
+
         model.addAttribute("img", img);
         model.addAttribute("character", character);
         model.addAttribute("media", media);

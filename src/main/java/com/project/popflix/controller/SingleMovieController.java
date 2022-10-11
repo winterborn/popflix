@@ -27,8 +27,9 @@ public class SingleMovieController {
     TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb movie = movies.getMovie(movieid, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
     List<MovieDb> top20 = movies.getRecommendedMovies(movieid, "en-US", 1).getResults();
-    List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
 
+    // System.out.println(movie.getCast().get(0).getId());
+    List<Integer> top20id = top20.stream().map(x -> x.getId()).collect(Collectors.toList());
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
       top20Vid = top20id.stream()
