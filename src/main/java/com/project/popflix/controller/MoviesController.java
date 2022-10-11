@@ -256,6 +256,8 @@ public class MoviesController {
     mostPopular = this.getMoviesWithVideo(mostPopular, movies);
 
     model.addAttribute("movies", mostPopular);
+    model.addAttribute("formObj", new FormObj());
+
     return "pages/mostPopular";
   }
 
