@@ -102,14 +102,26 @@
         <!-- ------------------------------------------------ -->
 
         <div class="wrapper">
+
+          <div class="main-header">What to watch:</div>
+          <div class="main-buttons">
+            <a href='/nowPlayingMovies' class="main-button" id="in-theatres"><b>IN THEATRES</b></a>
+            <a href='/upcomingMovies' class="main-button" id="new-releases"><b>UPCOMING MOVIES</b></a>
+            <a href='/mostPopular' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
+            <a href='/topRatings' class="main-button" id="top-rated"><b>TOP RATED</b></a>
+            <a href='/watchlist' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
+            <a href='/recommendation' class="main-button"><b>RECOMMENDATIONS</b></a>
+          </div>
+
+
         <div class="mainMovieDiv">
             <!-- Movie title, release date and run time -->
 
             <div class="section-heading">
               <div class="section_header">
-                <div class="single_movie_rectangle"></div>
-                <h1 class="single_movie_title" th:text="${movie.title}"></h1>
-                <h1 class="single_movie_chevron">></h1>
+                <div class="rectangle"></div>
+                <h3 class="single_movie_title" th:text="${movie.title}"></h3>
+                <h3 class="single_movie_chevron">></h3>
               </div>
               <div class="single_movie_section_description" th:text="${movie.tagline}"></div>
 
