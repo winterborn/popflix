@@ -1,7 +1,7 @@
 const texts = [
-  "Search PopFlix",
+  "Search PopFlix...",
   "Find your next favourite movie...",
-  "Stop looking and start searching…",
+  "Stop looking and start searching...",
 ];
 const input = document.querySelector("#searchbox");
 const animationWorker = function (input, texts) {
