@@ -211,12 +211,12 @@ hr {
   display: inline-block;
 }
 
-/* @media only screen and (min-width: 1680px) {
+/* MEDIA QUERIES FOR SCALED DISPLAY VIEW */
+
+@media only screen and (min-width: 1680px) {
   .mainMovieDiv {
-    width: 1370px;
+    width: 1375px;
     height: auto;
     background-color: rgba(80, 80, 80, 0.208);
   }
-} */
-
-/* SIMILAR MOVIES - CAROUSEL SPECIFIC */
+}
