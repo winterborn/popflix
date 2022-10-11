@@ -14,7 +14,9 @@
     <!-- confirm log out form -->
     <div class="d-flex justify-content-center">
     <form class="logout" th:action="@{/logout}" method="post">
-      <label for="logout" class="logout">Are you sure you want to logout?</label>
+        <!-- <a sec:authorize="isAuthenticated()">Logged in as: </a> -->
+
+      <label for="logout" class="logout">Are you sure you want to logout <span sec:authentication="name"></span>?</label>
       <br>
       <div class="col text-center">
       <input id="button" class="btn btn-danger" type="submit" value="Logout" />
