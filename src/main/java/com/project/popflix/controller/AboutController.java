@@ -52,4 +52,11 @@ public class AboutController {
   return "about";
  }
 
+ @GetMapping("/credits")
+ public String getCreditPage(Model model) {
+  model.addAttribute("formObj", new FormObj());
+
+  return "credits";
+ }
+
 }
