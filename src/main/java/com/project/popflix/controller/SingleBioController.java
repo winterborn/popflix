@@ -84,6 +84,7 @@ public class SingleBioController {
         model.addAttribute("person_credits", person_credits);
         model.addAttribute("formObj", new FormObj());
 
+
         return "pages/bio_page";
     }
 }
