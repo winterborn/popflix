@@ -35,6 +35,7 @@ import info.movito.themoviedbapi.model.Video.Results;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import info.movito.themoviedbapi.model.people.PersonCast;
 import info.movito.themoviedbapi.model.people.PersonCredit;
+import info.movito.themoviedbapi.model.people.PersonCredits;
 import info.movito.themoviedbapi.model.people.PersonPeople;
 
 import org.springframework.security.core.Authentication;
@@ -65,6 +66,7 @@ public class SingleBioController {
         int cast = person.getCastId();
         String birthPlace = person.getBirthplace();
         String profilePath = person.getProfilePath();
+        PersonCredits person_credits = people.getCombinedPersonCredits(personid);
 
         model.addAttribute("img", img);
         model.addAttribute("character", character);
@@ -79,6 +81,7 @@ public class SingleBioController {
         model.addAttribute("cast", cast);
         model.addAttribute("pob", birthPlace);
         model.addAttribute("profile", profilePath);
+        model.addAttribute("person_credits", person_credits);
         model.addAttribute("formObj", new FormObj());
 
         return "pages/bio_page";
