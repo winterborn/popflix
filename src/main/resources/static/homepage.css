@@ -597,3 +597,28 @@ h1 {
 .dud {
   color: #757575;
 }
+
+.mediaContainer {
+  position: relative;
+  bottom: 520px;
+  left: 420px;
+  text-align: left;
+}
+
+.biography_header {
+  color: white;
+  padding: 0 0 10px 0;
+}
+
+.biography_text {
+  padding-top: 10px;
+}
+
+.movieContainer {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.genre {
+  padding-top: 10px;
+}
