@@ -267,7 +267,7 @@
                   <p class="paragraph_details">Release Date:</p>
                   <p class="paragraph_details" th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'dd-MM-yyyy')}"></p>
                 </th:block>
-                               
+                      
                 <p th:text="@{Budget: ${budget}(budget=${#numbers.formatDecimal(movie.getBudget(), 0, 'COMMA', 0, 'POINT')})}"></p>
                 <p th:text="@{Revenue: ${revenue}(revenue=${#numbers.formatDecimal(movie.getRevenue(), 0, 'COMMA', 0, 'POINT')})}"></p>
               </div>
@@ -291,7 +291,7 @@
       <div class="similar_movies_carousel">
         <!-- ------------------------------------------------ -->
         <!--           SIMILAR MOVIES CAROUSEL                -->
-      <!-- ------------------------------------------------ -->
+        <!-- ------------------------------------------------ -->
         
         <div class="section-heading">
           <div class="section_header">
