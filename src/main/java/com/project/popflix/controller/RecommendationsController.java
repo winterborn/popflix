@@ -45,7 +45,8 @@ public class RecommendationsController {
  }
 
  @GetMapping("/recommendation")
- public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result) {
+ public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result,
+   Exception Exception) throws Exception {
 
   TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
   // MovieResultsPage results = movies.getRecommendedMovies(550, "en-US", 1);
@@ -54,15 +55,18 @@ public class RecommendationsController {
   Iterable<Watchlist> watchlist = watchlistRepository.findByUserid(getUserId());
 
   List<Watchlist> ids = new ArrayList<>();
+
   watchlist.forEach(ids::add);
   Random rand = new Random();
-  Integer r = rand.nextInt(ids.size() - 1);
-  Integer id = ids.get(r).getMovieid();
-  String movie = movies.getMovie(id, "en-US").getTitle();
-  MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
+  if (!ids.isEmpty()) {
+   Integer r = rand.nextInt(ids.size() - 1);
+   Integer id = ids.get(r).getMovieid();
+   String movie = movies.getMovie(id, "en-US").getTitle();
+   MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
 
-  model.addAttribute("movies", results);
-  model.addAttribute("searchedMovie", movie);
+   model.addAttribute("movies", results);
+   model.addAttribute("searchedMovie", movie);
+  }
   // model.addAttribute("searchedMovie", formObj.getSearch());
   model.addAttribute("formObj", new FormObj());
 

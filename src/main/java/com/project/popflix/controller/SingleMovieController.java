@@ -40,25 +40,49 @@ public class SingleMovieController {
     List<List<MovieDb>> nested = new ArrayList<>();
     List<List<String>> videoNested = new ArrayList<>();
 
-    for (int i = 0; i < 20; i += 5) { // 1
+    System.out.println(top20Vid);
+    for (int i = 0; i < top20Vid.size() - 1; i += 5) { // 1
       List<MovieDb> list = new ArrayList<>();
       List<String> vidList = new ArrayList<>();
       for (int j = i; j < i + 5; j++) { // 3
-        list.add(top20Vid.get(j));
-        if (top20Vid.get(j).getVideos() == null || top20Vid.get(j).getVideos().size() == 0) {
-          vidList.add("");
-        } else {
-          vidList.add(top20Vid.get(j).getVideos().get(0).getKey());
+        System.out.println(top20Vid.get(j) + "HERE");
+        if (top20Vid.get(j).toString().length() > 1) {
+          list.add(top20Vid.get(j));
+          if (top20Vid.get(j).getVideos() == null || top20Vid.get(j).getVideos().size() == 0) {
+            vidList.add("");
+          } else {
+            vidList.add(top20Vid.get(j).getVideos().get(0).getKey());
+          }
         }
       }
       videoNested.add(vidList);
       nested.add(list);
     }
 
+    // for (int i = 0; i < top20Vid.size() - 1; i++) { // 1
+    // List<MovieDb> list = new ArrayList<>();
+    // List<String> vidList = new ArrayList<>();
+    // // for (int j = i; j < i + 5; j++) { // 3
+    // System.out.println(top20Vid.get(i) + "HERE");
+    // if (top20Vid.get(i).toString().length() > 1) {
+    // list.add(top20Vid.get(i));
+    // if (top20Vid.get(i).getVideos() == null || top20Vid.get(i).getVideos().size()
+    // == 0) {
+    // vidList.add("");
+    // } else {
+    // vidList.add(top20Vid.get(i).getVideos().get(0).getKey());
+    // }
+    // }
+    // // }
+    // videoNested.add(vidList);
+    // nested.add(list);
+    // }
+
     List<MovieDb> firstList = new ArrayList<>(nested.get(0));
     nested.remove(0);
     videoNested.remove(0);
 
+    // firstList.
     model.addAttribute("firstList", firstList);
     model.addAttribute("vidExt", videoNested);
     model.addAttribute("movies", nested);
