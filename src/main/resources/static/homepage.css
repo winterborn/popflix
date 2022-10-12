@@ -264,6 +264,12 @@ main {
   width: 84%;
 }
 
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
+
 .rectangle {
   display: inline-block;
   margin: 0 0 -9px 0;
