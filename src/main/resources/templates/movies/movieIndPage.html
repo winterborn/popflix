@@ -143,7 +143,11 @@
                   />
               </div>
               <div class="trailerblock">
-                  <iframe th:src="@{https://www.youtube.com/embed/{id}(id=${movie.getVideos().get(0).getKey()})}" width="835" height="500" frameBorder="0" class="giphy-embed"></iframe>
+              <div th:unless="${movie.getVideos().isEmpty()}">
+            <iframe th:src="@{https://www.youtube.com/embed/{id}(id=${movie.getVideos().get(0).getKey()})}" width="835" height="500" frameBorder="0" class="giphy-embed"></iframe>
+              </div>
+     
+
               </div>
             </div>
 
@@ -172,7 +176,7 @@
                   <p>Director:</p>
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
                     <ul th:if="${movie.getCrew().get(i).getJob().equals('Director')}">
-                       <li th:text="${movie.getCrew().get(i).getName()}"></li>
+                      <li th:text="${movie.getCrew().get(i).getName()}"></li>
                     </ul>
                     <div th:unless="${movie.getCrew().get(i).getJob().equals('Director')}">
                     </div>
@@ -183,8 +187,7 @@
                   <th:block th:each="i: ${#numbers.sequence(0, movie.getCrew().size() - 1)}">
                     <ul class="ul_single_movie_crew_details" th:if="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}">
                       <li th:text="${movie.getCrew().get(i).getName()}"></li>
-                      </ul>
-                    <!-- <div style="display: inline-block" th:unless="${movie.getCrew().get(i).getJob().equals('Writer')} OR ${movie.getCrew().get(i).getJob().equals('Screenplay')}"></div> -->
+                    </ul>
                   </th:block>
 
                   <!-- Based On Novel By Iteration Block -->
@@ -227,10 +230,10 @@
 
             <!-- Where to watch -->
             <div class="whereWatchBlock">
-                  <form th:action="@{/watchlist/new?movieid={id}(id=${movie.getId()})}" th:object="${watchlist}" method="post">
-                    <button type="submit" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</button>
+            <form th:action="@{/watchlist/new?movieid={id}(id=${movie.getId()})}" th:object="${watchlist}" method="post">
+                    <button type="submit" class="addToWatchlist"><img src="https://img.icons8.com/ios-filled/35/000000/plus-key.png"/> Add to Watchlist</button> 
                     <!-- <button type="submit" class="film-watchlist-button">+ Watchlist</button> -->
-                  </form>
+              </form> 
 
               <a href="https://www.amazon.co.uk/Amazon-Video/b?ie=UTF8&node=3010085031" class="streamingService"><img src="https://img.icons8.com/color/40/000000/amazon-prime-video.png"/>Watch now on Prime Video</a>
               <a href="https://www.netflix.com/gb/" class="streamingService"><img src="https://img.icons8.com/3d-fluency/40/000000/netflix-desktop-app.png"/>Watch now on Netflix</a>
@@ -242,7 +245,7 @@
 
           <div class="secondaryMovieDiv">
             <div class="fullDetailsBlock">
-               <div class="detailsContainer">
+              <div class="detailsContainer">
                   <h2><b>Details:</b></h2>
 
                   <!-- Production Companies check -->
@@ -372,7 +375,7 @@
         <!-- ------------------------------------------------ -->
         <!--            CAROUSEL CONTROLS                     -->
         <!-- ------------------------------------------------ -->
-              <a
+              <!-- <a
                 class="carousel-control-prev"
                 href="#carouselExampleControls"
                 role="button"
@@ -389,7 +392,7 @@
               >
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
