@@ -46,9 +46,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class SingleBioController {
     @RequestMapping("/bio")
-    public String bioDetails(Model model) {
+    public String bioDetails(@RequestParam("personid") Integer personid, Model model) {
         TmdbPeople people = new TmdbApi("d84f9365179dc98dc69ab22833381835").getPeople();
-        PersonPeople person = people.getPersonInfo(2);
+        PersonPeople person = people.getPersonInfo(personid);
         String name = person.getName();
         String bio = person.getBiography();
         String department = person.getKnownForDepartment();
@@ -58,7 +58,7 @@ public class SingleBioController {
         String birthday = person.getBirthday();
         String deathdate = person.getDeathday();
         String personalPage = person.getHomepage();
-        List<Artwork> person_img = people.getPersonImages(2);
+        List<Artwork> person_img = people.getPersonImages(personid);
         String img = person_img.get(0).getFilePath();
         MediaType media = person.getMediaType();
         String character = person.getCharacter();
