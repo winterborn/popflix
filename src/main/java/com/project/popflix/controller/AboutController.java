@@ -47,6 +47,8 @@ public class AboutController {
 
  @GetMapping("/about")
  public String getAboutPage(Model model) {
+
+  model.addAttribute("formObj", new FormObj());
   return "about";
  }
 
