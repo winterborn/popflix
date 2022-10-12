@@ -107,6 +107,12 @@ hr {
   padding-top: 4px;
 }
 
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
+
 .addToWatchlist :hover {
   border-color: rgb(0, 81, 255);
   background-color: rgba(248, 243, 243, 0.574);

@@ -39,6 +39,11 @@
   margin-right: 90px;
 }
 
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
 /* .carousel-control-next-icon {
   right: 200px;
 } */

@@ -27,11 +27,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <title>PopFlix | Most Popular</title>
+    <title>PopFlix | Credits</title>
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="credits.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
 
@@ -62,7 +64,7 @@
               </div>
 
         <form th:action="@{/results}" th:object="${formObj}" method="get" class="search-bar">
-            <input th:field="*{search}" class="search-input" id="searchbox" type="search" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
+            <input th:field="*{search}" class="search-input" id="searchbox" type="search"  placeholder="Search Popflix" aria-label="Search" pattern=".*\S+.*" autocomplete="off" required/>
             <button type="submit" class="search-btn">
                 <img src="https://raw.githubusercontent.com/WebDevSimplified/YouTube-Design-Clone/73993ebe5f06d59e9ab68e07830f9cfc585b8f72/magnify.svg" alt="search"/>
             </button>
@@ -93,86 +95,186 @@
             </a>
         </div>
     </header>
-    <main>
-      <!-- ------------------------------------------------ -->
-      <!--           MENU WITH MAIN BUTTONS                 -->
-      <!-- ------------------------------------------------ -->
 
-    <div class="wrapper">
-      <div class="main-header">What to watch:</div>
-      <div class="main-buttons">
-        <a href='/nowPlayingMovies' class="main-button" id="in-theatres"><b>IN THEATRES</b></a>
-        <a href='/upcomingMovies' class="main-button" id="new-releases"><b>UPCOMING MOVIES</b></a>
-        <a href='/mostPopular' class="main-button" id="most-popular"><b>MOST POPULAR</b></a>
-        <a href='/topRatings' class="main-button" id="top-rated"><b>TOP RATED</b></a>
-        <a href='/watchlist' class="main-button"><b>FROM YOUR WATCHLIST</b></a>
-        <a href='/recommendation' class="main-button"><b>RECOMMENDATIONS</b></a>
+    <!-- CREDITS -->
+    <div class="wrapperx">
+   <section class="credits">
+   <div class="intro">
+      <span class="label">A project by</span>
+      <div class="director">
+         Popflix Production
       </div>
-    
-
-      <br>
-
-      <div class="section-heading">
-        <div class="section_header">
-          <div class="rectangle"></div>
-          <a href="#" class="most-popular" tabindex="0"><h3 class="">Popular Movies</h3></a>
-          <h3 class="chevron">></h3>
-        </div>
-        <div class="section_description">Check out the most popular movies on PopFlix</div>
+   </div>
+   <article class="crew">
+      <div>
+         459 
       </div>
-    
-
-    <div class="topRatings">
-      <div class="film" th:each="card: ${movies}">
-        <a th:href="@{/movie?movieid={id}(id=${card.id})}">
-          <img 
-          th:src="@{https://image.tmdb.org/t/p/w500/{ext}(ext=${card.getPosterPath()})}"
-          loading="lazy"
-          class="film-img"
-          alt="..."
-          /> 
-        </a>
-        <div>
-          <div>
-            <img
-              class="star-for-rating"
-              src="../img/popcorn.png"
-              alt="star"
-              th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}"
-            />
-            <button class="star-button">☆</button>
-          </div>
-
-          <div class="film-name" th:text="${card.title}"></div>
-          <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
-            <button type="submit" class="film-watchlist-button">+ Watchlist</button>
-          </form>
-          <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}">
-            <button class="film-trailer-button">Trailer</button>
-          </a>
-        </div>
+      <div>
+         Commits
       </div>
+      <div>
+         80
+      </div>
+      <div>
+         Branches
+      </div>
+      <div>
+         Unit test manager 
+      </div>
+      <div>
+         Harith
+      </div>
+      <div>
+        Chief Design Officer
+      </div>
+      <div>
+         Phil
+      </div>
+      <div>
+         Camera Man
+      </div>
+      <div>
+         Connor
+      </div>
+      <div>
+         Chief Silent Observer
+      </div>
+      <div>	
+        Gregory
+      </div>
+      <div>
+         Chief Joy Officer
+      </div>
+      <div>	
+        James
+      </div>
+      <div>
+         Chief Logistics Officer
+      </div>
+      <div>	
+         Nuhu
+      </div>
+      <div>
+         Chief Nail Tech
+      </div>
+      <div>	
+         Sebastian
+      </div>
+      <div>
+         Chief Stunt Guy
+      </div>
+      <div>	
+         Connor
+      </div>
+      <div>
+         Chief Integration Tester
+      </div>
+      <div>	
+         Harith
+      </div>
+      <div>
+         The Antagonist
+      </div>
+      <div>	
+         Gregory
+      </div>
+      <div>
+         Chief Chef
+      </div>
+      <div>	
+         Phil
+      </div>
+      <div>
+         Lighting Coordinator
+      </div>
+      <div>	
+         Nuhu
+      </div>
+      <div>
+         Java Manager
+      </div>
+      <div>	
+         Backend 
+      </div>
+      <div>
+         Javascript
+      </div>
+      <div>	
+         Frontend
+      </div>
+      <div>
+         Neil Studd
+      </div>
+      <div>	
+         Batman
+      </div>
+      <div>
+         HTML 
+      </div>
+      <div>	
+         Frontend
+      </div>
+      <div>
+         TheMovieDB
+      </div>
+      <div>	
+         API
+      </div>
+      <div>
+         Holger Brandl
+      </div>
+      <div>	
+         TheMovieDbAPI Java Library
+      </div>
+      <div>
+         Eddie Andress
+      </div>
+      <div>	
+         Music Composer
+      </div>
+      <div>
+         Xavier Bourguignon
+      </div>
+      <div>	
+         Learning Manager
+      </div>
+       <div>
+         Kieran Morten
+      </div>
+      <div>	
+         Development Manager
+      </div>
+     <div>
+         Roi Driscoll
+      </div>
+      <div>
+         Superman
+      </div>
+      <div>
+         Kay Lack
+      </div>
+      <div>
+         Wonder Woman
+      </div>
+      <div>
+         Will O'Connell
+      </div>
+      <div>
+         Python Wrangler
+      </div>
+      <div>
+         Leo Hetsch
+      </div>
+      <div>	
+         Database Manager
+      </div>
+   </article>
+</section>
     </div>
-    
-  </div>
-  </main>
-      <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js"></script>
-    <script src="typing.js"></script>
+    <script>
+     setTimeout(function(){
+       window.location.reload();
+    }, 17000);
+    </script>
   </body>
 </html>
