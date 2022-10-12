@@ -18,6 +18,12 @@ h1{
   -moz-perspective: 1000px;
 }
 
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
+
 body{
   margin: 0;
   padding: 0;
