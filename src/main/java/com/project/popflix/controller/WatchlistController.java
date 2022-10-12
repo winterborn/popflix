@@ -48,10 +48,18 @@ public class WatchlistController {
     @PostMapping("/watchlist/new")
     public RedirectView addToWatchlist(@RequestParam("movieid") Integer movieid, @ModelAttribute Watchlist watchlist) {
         // watchlist/new?movieid=
-        watchlist.setUserid(this.getUserId());
-        watchlist.setMovieid(movieid);
 
-        watchlistRepository.save(watchlist);
+        Iterable<Watchlist> moviesByUser = watchlistRepository.findAllMoviesByUserid(getUserId(), movieid);
+        List<Integer> allMoviesIds = new ArrayList<>();
+        for (Watchlist x : moviesByUser) {
+            allMoviesIds.add(x.getMovieid());
+        }
+
+        if (!allMoviesIds.contains(movieid)) {
+            watchlist.setUserid(this.getUserId());
+            watchlist.setMovieid(movieid);
+            watchlistRepository.save(watchlist);
+        }
 
         return new RedirectView("/watchlist");
     }
@@ -73,6 +81,7 @@ public class WatchlistController {
                         .getMovie(x, "en-US", MovieMethod.images, MovieMethod.videos))
                 .collect(Collectors.toList());
         // System.out.println(moviesWatchlist);
+
         model.addAttribute("watchlist", moviesWatchlist);
         model.addAttribute("formObj", new FormObj());
 
