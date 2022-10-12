@@ -268,7 +268,7 @@
                 <!-- Release Date - Date Time Formatter -->
                 <th:block th:with="sdf = ${new java.text.SimpleDateFormat('yyyy-MM-dd')}">
                   <p class="paragraph_details">Release Date:</p>
-                  <p class="paragraph_details" th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'dd-MM-yyyy')}"></p>
+                  <p class="paragraph_details" th:text="${#dates.format(sdf.parse(movie.getReleaseDate()), 'dd/MM/yyyy')}"></p>
                 </th:block>
                       
                 <p th:text="@{Budget: ${budget}(budget=${#numbers.formatDecimal(movie.getBudget(), 0, 'COMMA', 0, 'POINT')})}"></p>
