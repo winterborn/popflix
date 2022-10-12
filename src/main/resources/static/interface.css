@@ -259,3 +259,9 @@ h6 {
   overflow: hidden;
   max-width: 100%;
 }
+
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
