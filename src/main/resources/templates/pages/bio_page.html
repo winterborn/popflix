@@ -137,7 +137,7 @@
         <div class="genre">
 
           <th:block th:with="sdf = ${new java.text.SimpleDateFormat('yyyy-MM-dd')}">
-            <p class="single_person_title" th:text="${#dates.format(sdf.parse(birthday), 'dd/MM/yyyy') + ' in ' + pob}"></p>
+            <p class="single_person_title" th:text="'Born on ' + ${#dates.format(sdf.parse(birthday), 'dd/MM/yyyy') + ' in ' + pob}"></p>
             <!-- <p class="single_person_title" th:text="${#dates.format(sdf.parse(deathday), 'dd-MM-yyyy')}"></p> -->
           </th:block>
 
