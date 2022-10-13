@@ -40,12 +40,12 @@ public class SingleMovieController {
     List<List<MovieDb>> nested = new ArrayList<>();
     List<List<String>> videoNested = new ArrayList<>();
 
-    System.out.println(top20Vid);
+    // System.out.println(top20Vid);
     for (int i = 0; i < top20Vid.size() - 1; i += 5) { // 1
       List<MovieDb> list = new ArrayList<>();
       List<String> vidList = new ArrayList<>();
       for (int j = i; j < i + 5; j++) { // 3
-        System.out.println(top20Vid.get(j) + "HERE");
+        // System.out.println(top20Vid.get(j) + "HERE");
         if (top20Vid.get(j).toString().length() > 1) {
           list.add(top20Vid.get(j));
           if (top20Vid.get(j).getVideos() == null || top20Vid.get(j).getVideos().size() == 0) {
