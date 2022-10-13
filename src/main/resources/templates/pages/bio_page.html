@@ -162,11 +162,11 @@
         <div>
           <h3 class="biography_header">Credits:</h3>
           <div class="credits_block">
-            <th:block th:each="i: ${#numbers.sequence(0, person_credits.getCast().size() - 1)}">
-              <ul style="display: block" th:unless="${person_credits.getCast().get(i).getCharacter().equals('')} OR ${person_credits.getCast().get(i).getMovieTitle.equals('null')}">
-                <li th:text="${person_credits.getCast().get(i).getCharacter()} + ' in ' + ${person_credits.getCast.get(i).getMovieTitle()}"></li>
-              </ul>
-            </th:block>
+          <th:block th:each="i: ${#numbers.sequence(0, person_credits.getCast().size() - 1)}">
+            <ul style="display: block" th:if="${person_credits.getCast().get(i).getMediaType.equals('movie')}">
+              <li th:text="${person_credits.getCast().get(i).getCharacter()} + ' in ' + ${person_credits.getCast.get(i).getMovieTitle()}"></li>
+            </ul>
+          </th:block>
           </div>
         </div>
     
