@@ -23,21 +23,16 @@ import com.project.popflix.repository.AuthoritiesRepository;
 import com.project.popflix.repository.UserRepository;
 
 import info.movito.themoviedbapi.TmdbApi;
-import info.movito.themoviedbapi.TmdbDiscover;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.TmdbSearch;
 import info.movito.themoviedbapi.TmdbMovies.MovieMethod;
-import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.Video.Results;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-import info.movito.themoviedbapi.model.people.PersonCast;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class MoviesController {
@@ -91,11 +86,11 @@ public class MoviesController {
     TmdbMovies movie_test = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
     MovieDb fightClub = movie_test.getMovie(550, "en-US", MovieMethod.credits);
 
-    for (int i = 0; i < fightClub.getCrew().size(); i++) {
-      if (fightClub.getCrew().get(i).getJob().equals("Director")) {
-        System.out.println(fightClub.getCrew().get(i).getName());
-      }
-    }
+    // for (int i = 0; i < fightClub.getCrew().size(); i++) {
+    // if (fightClub.getCrew().get(i).getJob().equals("Director")) {
+    // System.out.println(fightClub.getCrew().get(i).getName());
+    // }
+    // }
 
     List<MovieDb> top20Vid = new ArrayList<>();
     for (int i = 0; i < top20id.size(); i++) {
@@ -144,13 +139,15 @@ public class MoviesController {
     return "movies/homepage";
   }
 
-  @GetMapping("/test")
-  @ResponseBody
-  public MovieDb getData() {
-    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-    MovieDb movie = movies.getMovie(550, "en-US", MovieMethod.credits, MovieMethod.images, MovieMethod.videos);
-    return movie;
-  }
+  // @GetMapping("/test")
+  // @ResponseBody
+  // public MovieDb getData() {
+  // TmdbMovies movies = new
+  // TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+  // MovieDb movie = movies.getMovie(550, "en-US", MovieMethod.credits,
+  // MovieMethod.images, MovieMethod.videos);
+  // return movie;
+  // }
 
   @GetMapping("/")
   public String getHomePageForSignedInUser(Model model) {
