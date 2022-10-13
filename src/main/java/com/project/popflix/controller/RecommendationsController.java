@@ -31,45 +31,46 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage;
 @Controller
 public class RecommendationsController {
 
- @Autowired
- UserRepository userRepository;
+  @Autowired
+  UserRepository userRepository;
 
- @Autowired
- WatchlistRepository watchlistRepository;
+  @Autowired
+  WatchlistRepository watchlistRepository;
 
- private Long getUserId() {
-  SecurityContext context = SecurityContextHolder.getContext();
-  Authentication authentication = context.getAuthentication();
-  Long id = userRepository.findByUsername(authentication.getName()).getId();
-  return id;
- }
-
- @GetMapping("/recommendation")
- public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result,
-   Exception Exception) throws Exception {
-
-  TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
-  // MovieResultsPage results = movies.getRecommendedMovies(550, "en-US", 1);
-  Optional<User> user = userRepository.findById(getUserId());
-
-  Iterable<Watchlist> watchlist = watchlistRepository.findByUserid(getUserId());
-
-  List<Watchlist> ids = new ArrayList<>();
-
-  watchlist.forEach(ids::add);
-  Random rand = new Random();
-  if (!ids.isEmpty()) {
-   Integer r = rand.nextInt(ids.size() - 1);
-   Integer id = ids.get(r).getMovieid();
-   String movie = movies.getMovie(id, "en-US").getTitle();
-   MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
-
-   model.addAttribute("movies", results);
-   model.addAttribute("searchedMovie", movie);
+  private Long getUserId() {
+    SecurityContext context = SecurityContextHolder.getContext();
+    Authentication authentication = context.getAuthentication();
+    Long id = userRepository.findByUsername(authentication.getName()).getId();
+    return id;
   }
-  // model.addAttribute("searchedMovie", formObj.getSearch());
-  model.addAttribute("formObj", new FormObj());
 
-  return "pages/recommendation";
- }
+  @GetMapping("/recommendation")
+  public String results(Model model, @ModelAttribute("formObj") FormObj formObj, BindingResult result,
+      Exception Exception) throws Exception {
+
+    TmdbMovies movies = new TmdbApi("d84f9365179dc98dc69ab22833381835").getMovies();
+    // MovieResultsPage results = movies.getRecommendedMovies(550, "en-US", 1);
+    Optional<User> user = userRepository.findById(getUserId());
+
+    Iterable<Watchlist> watchlist = watchlistRepository.findByUserid(getUserId());
+
+    List<Watchlist> ids = new ArrayList<>();
+
+    watchlist.forEach(ids::add);
+    Random rand = new Random();
+    if (!ids.isEmpty() && ids.size() >= 1) { // 2 movies
+      Integer r = rand.nextInt(ids.size()); // 0 - 1
+      Integer id = ids.get(r).getMovieid();
+
+      String movie = movies.getMovie(id, "en-US").getTitle();
+      MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
+
+      model.addAttribute("movies", results);
+      model.addAttribute("searchedMovie", movie);
+    }
+    // model.addAttribute("searchedMovie", formObj.getSearch());
+    model.addAttribute("formObj", new FormObj());
+
+    return "pages/recommendation";
+  }
 }
