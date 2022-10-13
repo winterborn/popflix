@@ -180,7 +180,7 @@ div.candidatos .parcial .info .nome {
     position: absolute;
     top: 0;
     left:0;
-    font-size: 15px;
+    font-size: 17px;
     padding-bottom: 20px;
     font-weight: 600;
     color: #fefefe;
@@ -234,7 +234,7 @@ div.candidatos.color4 .parcial .percentagem {
 }
 div.candidatos .parcial .partidas {
     font-family: Arial, helvetica, Sans-serif;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
     color: #9e9c9b;
     text-transform: uppercase;
