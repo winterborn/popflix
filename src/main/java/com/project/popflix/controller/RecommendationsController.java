@@ -97,11 +97,19 @@ public class RecommendationsController {
       String movie = movies.getMovie(id, "en-US").getTitle();
       MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
 
-      List<MovieDb> movieList = ids.stream().map(
-          w -> movies.getMovie(w.getMovieid(), "en", MovieMethod.images, MovieMethod.videos))
-          .collect(Collectors.toList());
 
-      model.addAttribute("movies", movieList);
+      List<MovieDb> list = new ArrayList<>();
+      results.forEach(list::add);
+
+      list = this.getMoviesWithVideo(list, movies);
+      // List<MovieDb> movieList = ids.stream().map(
+      // w -> movies.getMovie(w.getMovieid(), "en", MovieMethod.images,
+      // MovieMethod.videos))
+      // .collect(Collectors.toList());
+      System.out.println(list);
+
+      model.addAttribute("movies", list);
+
       model.addAttribute("searchedMovie", movie);
     }
 
