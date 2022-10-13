@@ -97,6 +97,7 @@ public class RecommendationsController {
       String movie = movies.getMovie(id, "en-US").getTitle();
       MovieResultsPage results = movies.getRecommendedMovies(id, "en-US", 1);
 
+
       List<MovieDb> list = new ArrayList<>();
       results.forEach(list::add);
 
@@ -108,6 +109,7 @@ public class RecommendationsController {
       System.out.println(list);
 
       model.addAttribute("movies", list);
+
       model.addAttribute("searchedMovie", movie);
     }
 
