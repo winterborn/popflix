@@ -31,10 +31,8 @@ public class CustomErrorController implements ErrorController {
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 // handle HTTP 500 Internal Server error
                 errorPage = "error/500";
-
             }
         }
-
         return errorPage;
     }
 
