@@ -176,9 +176,7 @@
         </div>
 
         <!-- ***************************************************************************************************** -->
-        <!-- ***************************************************************************************************** -->
         <!--                                      WATCHLIST CAROUSEL                                              -->
-        <!-- ***************************************************************************************************** -->
         <!-- ***************************************************************************************************** -->
 
         <div class="wrapper">
@@ -194,7 +192,7 @@
   
           <br>
           <div class="watchlist">
-             <div class="section_header">
+            <div class="section_header">
               <div class="rectangle"></div>
               <a href="/watchlist" class="most-popular" tabindex="0"><h3 class="">Featured Today</h3></a>
               <h3 class="chevron">></h3>
@@ -221,7 +219,6 @@
                 <div>
                   <div>
                     <img class="star-for-rating" src="../img/popcorn.png" loading="lazy" alt="star" th:text="${#numbers.formatDecimal(card.voteAverage, 0, 1)}">
-                                   
                     <button class="star-button">☆</button>
                   </div>
                   <div class="film-name" th:text="${card.title}"></div>
@@ -420,6 +417,5 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script src="typing.js"></script>
-
 </body>
 </html> 

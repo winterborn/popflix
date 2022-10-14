@@ -70,8 +70,6 @@
             </button>
         </form>
 
-        <!-- <a sec:authorize="isAuthenticated()">Logged in as: <span sec:authentication="name"></span></a> -->
-
         <select class="lang-select" style="margin-top: 3px;">
           <option value='en'>EN &#9662</option>
           <option value="titles">UA</option>
@@ -146,8 +144,6 @@
               <div th:unless="${movie.getVideos().isEmpty()}">
             <iframe th:src="@{https://www.youtube.com/embed/{id}(id=${movie.getVideos().get(0).getKey()})}" width="835" height="500" frameBorder="0" class="giphy-embed"></iframe>
               </div>
-     
-
               </div>
             </div>
 
@@ -284,8 +280,6 @@
 
           </div>
         </div>
-
-
 
       <div class="similar_movies_carousel">
         <!-- ------------------------------------------------ -->
