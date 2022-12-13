@@ -11,6 +11,7 @@
 	<groupId>com.project</groupId>
 	<artifactId>popflix</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>popflix</name>
 	<description>Film Recommendation</description>
 	<properties>
