@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.project.popflix.PopflixApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.326 s - in com.project.popflix.PopflixApplicationTests
