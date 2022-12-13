@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:3306/postgres-development
+    url: jdbc:postgresql://localhost:8080/postgres-development
     username: root
     password: root
 
