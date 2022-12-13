@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    container_name: springboot_postgres_container
+    environment:
+      POSTGRES_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - spring_data:/var/lib/postgressql
+
+volumes:
+  spring_data:
