@@ -1,0 +1,240 @@
+.movieTitle {
+  text-align: left;
+}
+
+.mainMovieDiv {
+  width: 1200px;
+  height: auto;
+  /* background-color: rgba(80, 80, 80, 0.208); */
+}
+
+.secondaryMovieDiv {
+  width: 1200px;
+  height: auto;
+  border-radius: 3px;
+  vertical-align: bottom;
+  /* background-color: rgba(80, 80, 80, 0.208); */
+}
+
+.posterblock {
+  display: inline-block;
+  width: 350px;
+  height: 500px;
+  background-color: blue;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.trailerblock {
+  display: inline-block;
+  width: 830px;
+  height: 500px;
+  background-color: rgb(66, 66, 66);
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: rgb(66, 66, 66);
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.mediaContainter {
+  text-align: left;
+}
+
+.detailsContainer {
+  text-align: left;
+}
+
+.detailsBlock {
+  margin-top: 10px;
+  display: inline-block;
+  width: 700px;
+  height: auto;
+  /* background-color: rgb(66, 66, 66); */
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.whereWatchBlock {
+  margin-top: 20px;
+  display: inline-block;
+  width: 450px;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+hr {
+  background-color: rgb(121, 121, 121);
+  height: 1px;
+  border-width: 0;
+  width: auto;
+  text-align: left;
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.streamingService {
+  color: white;
+  padding-top: 4px;
+  border-style: solid;
+  border-radius: 7px;
+  border-color: rgb(136, 136, 136);
+  display: inline-block;
+  width: 450px;
+  height: 50px;
+  background-color: rgba(90, 90, 90, 0.574);
+  margin-bottom: 5px;
+}
+
+.addToWatchlist {
+  text-align: left;
+  color: white;
+  border-style: solid;
+  border-radius: 7px;
+  border-color: rgb(136, 136, 136);
+  display: inline-block;
+  width: 450px;
+  height: 50px;
+  background-color: rgba(90, 90, 90, 0.574);
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-top: 4px;
+}
+
+.creditIcon {
+ width: 20px;
+ height: 20px;
+ /* background-color: rgb(57, 57, 57); */
+}
+
+.addToWatchlist :hover {
+  border-color: rgb(0, 81, 255);
+  background-color: rgba(248, 243, 243, 0.574);
+}
+.fullDetailsBlock {
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  width: 700px;
+  height: auto;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 7px;
+  padding-left: 10px;
+}
+
+.budgetBlock {
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  width: 480px;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 7px;
+  vertical-align: top;
+  padding-left: 10px;
+  transform: translateY(-20px);
+  text-align: left;
+}
+
+.castBlock {
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  width: 1200px;
+  height: auto;
+  margin-right: 5px;
+  text-align: left;
+  border-radius: 7px;
+  padding-left: 10px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  height: auto;
+}
+
+.row {
+  margin-left: 0;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.similar_movies_carousel {
+  padding: 20px 0 0 0;
+}
+
+.single_movie_web_link {
+  color: white;
+}
+
+.single_movie_web_link:hover {
+  color: rgb(113, 161, 251);
+}
+
+.section_header {
+  padding-top: 20px;
+}
+
+/* ACTORS_SECTION */
+
+.actors_container {
+  display: flex;
+  justify-content: start;
+}
+
+.actor_container {
+  display: inline-block;
+  text-align: center;
+}
+
+.actor_img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.actor_name {
+  color: white;
+}
+
+.actor_name:hover {
+  color: rgb(113, 161, 251);
+}
+
+.actor_link:hover {
+  text-decoration: none;
+}
+
+.ul_single_movie_crew_details {
+  display: block;
+}
+
+.paragraph_details {
+  display: inline-block;
+}
+
+/* MEDIA QUERIES FOR SCALED DISPLAY VIEW */
+
+@media only screen and (min-width: 1680px) {
+  .mainMovieDiv {
+    width: 1375px;
+    height: auto;
+    /* background-color: rgba(80, 80, 80, 0.208); */
+  }
+}
