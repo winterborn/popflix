@@ -6,17 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- ------------------------------------------------ -->
     <!--                  BOOTSTRAP CDN                   -->
     <!-- ------------------------------------------------ -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <!-- ------------------------------------------------ -->
@@ -31,7 +27,6 @@
     <link rel="icon" href="img/popflix_logo_2.png">
     <link rel="stylesheet" href="/movies.css" />
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/glitch_effect.css">
     <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
@@ -98,20 +93,22 @@
       <!--                   HERO_HEADER                    -->
       <!-- ------------------------------------------------ -->
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-          </ol>
-          <div class="carousel-inner">
-              <div class="carousel-item active">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+          <div class="carousel-indicators">
+           
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" ></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
+          </div>
+
+        <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="8000">
                 <a href="/movie?movieid=335984">
-                  <img class="hero_image d-block w-100" src="https://www.themoviedb.org/t/p/original/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg" alt="First slide">
-                </a>
-                  <div class="hero_caption carousel-caption d-none d-md-block">
+                  <img class="hero_image d-block w-100 "  src="https://www.themoviedb.org/t/p/original/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg" alt="First slide">
+                    </a>
+                  <div class="hero_caption carousel-caption">
                     <h1 class="hero_header">BLADE RUNNER 2049</h1>
                     <p class="hero_tagline">THE KEY TO THE FUTURE IS FINALLY UNEARTHED.</p>
                     <p class="hero_genre">SCI-FI</p>
@@ -120,11 +117,11 @@
                     <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="8000" >
               <a href="/movie?movieid=330459">
-                <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
-              </a>
-              <div class="hero_caption carousel-caption d-none d-md-block">
+                <img class="hero_image d-block w-100"  src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
+                </a>
+              <div class="hero_caption carousel-caption">
                 <h1 class="hero_header">ROGUE ONE: <br> A STAR WARS STORY</h1>
                 <p class="hero_tagline">A REBELLION BUILT ON HOPE.</p>
                 <p class="hero_genre">SCI-FI</p>
@@ -133,11 +130,11 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="8000">
               <a href="/movie?movieid=157336">
-                <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
-              </a>
-              <div class="hero_caption carousel-caption d-none d-md-block">
+                <img class="hero_image d-block w-100 " src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
+                </a>
+              <div class="hero_caption carousel-caption">
                 <h1 class="hero_header">INTERSTELLAR</h1>
                 <p class="hero_tagline">MANKIND WAS BORN ON EARTH. IT WAS NEVER MEANT TO DIE HERE.</p>
                 <p class="hero_genre">SCI-FI</p>
@@ -146,11 +143,11 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="8000">
               <a href="/movie?movieid=286217">
-                <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
-              </a>
-              <div class="hero_caption carousel-caption d-none d-md-block">
+                <img class="hero_image d-block w-100 "src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
+                </a>
+              <div class="hero_caption carousel-caption">
                 <h1 class="hero_header">THE MARTIAN</h1>
                 <p class="hero_tagline">BRING HIM HOME.</p>
                 <p class="hero_genre">SCI-FI</p>
@@ -159,11 +156,11 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=ej3ioOneTy8"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="8000">
               <a href="/movie?movieid=27205">
-                <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
-              </a>
-              <div class="hero_caption carousel-caption d-none d-md-block">
+                <img class="hero_image d-block w-100 " src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
+                </a>
+              <div class="hero_caption carousel-caption">
                 <h1 class="hero_header">INCEPTION</h1>
                 <p class="hero_tagline">YOUR MIND IS THE SCENE OF THE CRIME.</p>
                 <p class="hero_genre">SCI-FI</p>
@@ -172,9 +169,14 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=YoHD9XEInc0"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" ></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" ></span>
+            </button> -->
           </div>
         </div>
-
         <!-- ***************************************************************************************************** -->
         <!--                                      WATCHLIST CAROUSEL                                              -->
         <!-- ***************************************************************************************************** -->
@@ -399,21 +401,6 @@
     <!-- ------------------------------------------------ -->
     <!--          ALL SCRIPTS (BOOTSTRAP && JS)           -->
     <!-- ------------------------------------------------ -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script src="typing.js"></script>
