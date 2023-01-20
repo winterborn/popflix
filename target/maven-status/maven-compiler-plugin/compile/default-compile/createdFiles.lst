@@ -12,7 +12,7 @@ com/project/popflix/SecurityConfiguration.class
 com/project/popflix/controller/AboutController.class
 com/project/popflix/model/FormObj.class
 com/project/popflix/controller/RecommendationsController.class
-com/project/popflix/controller/MoviesController.class 
-com/project/popflix/model/User.class
+com/project/popflix/controller/MoviesController.class
 com/project/popflix/controller/SingleBioController.class
+com/project/popflix/model/User.class
 com/project/popflix/model/Authority.class
