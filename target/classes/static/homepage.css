@@ -17,6 +17,9 @@ body {
   position: relative;
   width: 100%;
 }
+.carousel-control-prev, .carousel-control-next {
+  z-index: 1;
+}
 
 .dropbtn {
   background-color: rgba(76, 175, 79, 0);
