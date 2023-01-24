@@ -86,7 +86,7 @@
       <!-- ------------------------------------------------ -->
       <!--                   HERO_HEADER                    -->
       <!-- ------------------------------------------------ -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" ></button>
@@ -95,7 +95,7 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
           </div>
         <div class="carousel-inner">
-              <div class="carousel-item active" >
+              <div class="carousel-item active" data-bs-interval="7000">
                 <a href="/movie?movieid=335984">
                   <img class="hero_image d-block w-100 " loading="lazy"  src="https://www.themoviedb.org/t/p/original/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg" alt="First slide">
                     </a>
@@ -108,7 +108,7 @@
                     <a class="hero_trailer" href="https://www.youtube.com/watch?v=gCcx85zbxz4"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
                   </div>
                 </div>
-            <div class="carousel-item" >
+            <div class="carousel-item" data-bs-interval="7000">
               <a href="/movie?movieid=330459">
                 <img class="hero_image d-block w-100" loading="lazy" src="https://www.themoviedb.org/t/p/original/6t8ES1d12OzWyCGxBeDYLHoaDrT.jpg" alt="Second slide">
                 </a>
@@ -121,7 +121,7 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=frdj1zb9sMY"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="7000">
               <a href="/movie?movieid=157336">
                 <img class="hero_image d-block w-100 " loading="lazy" src="https://www.themoviedb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Third slide">
                 </a>
@@ -134,7 +134,7 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=zSWdZVtXT7E"><button type="button" class="btn btn-warning ">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="7000">
               <a href="/movie?movieid=286217">
                 <img class="hero_image d-block w-100 " loading="lazy" src="https://www.themoviedb.org/t/p/original/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg" alt="Fourth slide">
                 </a>
@@ -147,7 +147,7 @@
                 <a class="hero_trailer" href="https://www.youtube.com/watch?v=ej3ioOneTy8"><button type="button" class="btn btn-warning">WATCH TRAILER<i class="bi bi-play-circle"></i></button></a>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="7000">
               <a href="/movie?movieid=27205">
                 <img class="hero_image d-block w-100 " loading="lazy" src="https://www.themoviedb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg" alt="Fifth slide">
                 </a>
@@ -184,7 +184,7 @@
             </div>
             <div class="section_description">Check out these featured movies</div>
             <div class="films-wrapper">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
             <div class="carousel-item active">
             <div class="cards-wrapper">
@@ -242,8 +242,7 @@
                   </div>
                 </div>
               </div>
-              </div>
-            
+            </div>
               <!-- ------------------------------------------------ -->
               <!--            CAROUSEL CONTROLS                     -->
               <!-- ------------------------------------------------ -->
@@ -252,38 +251,20 @@
                 href="#carouselExampleControls"
                 role="button"
                 data-bs-slide="prev"
+                aria-hidden="true"
               >
                 <span class="carousel-control-prev-icon"></span>
-              </a>
+          </a>
               <a
                 class="watchlist_carousel-control-next"
                 href="#carouselExampleControls"
                 role="button"
                 data-bs-slide="next"
+                aria-hidden="true"
               >
                 <span class="carousel-control-next-icon"></span>
-              </a>
+        </a>
             </div>
-            <!-- ------------------------------------------------ -->
-            <!--            CAROUSEL CONTROLS                     -->
-            <!-- ------------------------------------------------ -->
-            <a
-              class="watchlist_carousel-control-prev"
-              href="#carouselExampleControls"
-              role="button"
-              data-bs-slide="prev"
-            >
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              
-            </a>
-            <a
-              class="watchlist_carousel-control-next"
-              href="#carouselExampleControls"
-              role="button"
-              data-bs-slide="next"
-            >
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
           </div>
           </div> 
         <!-- ***************************************************************************************************** -->
@@ -301,7 +282,7 @@
             </div>
             <div class="section_description">Check out the most popular movies on PopFlix</div>
             <div class="films-wrapper">
-            <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleControls2" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
             <div class="carousel-item active">
             <div class="cards-wrapper">
@@ -384,6 +365,7 @@
           </div>
           </div>
          </div> 
+        </div>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>

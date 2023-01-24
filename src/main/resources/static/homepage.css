@@ -17,9 +17,6 @@ body {
   position: relative;
   width: 100%;
 }
-.carousel-control-prev, .carousel-control-next {
-  z-index: 1;
-}
 
 .dropbtn {
   background-color: rgba(76, 175, 79, 0);
@@ -542,9 +539,22 @@ h3 {
 /* .btn-warning {
   background-color: rgb(113, 161, 251);
 } */
-.carousel-control-prev,
-.carousel-control-next {
+
+.watchlist_carousel-control-prev,
+.movies_carousel-control-prev,
+.watchlist_carousel-control-next,
+.movies_carousel-control-next {
+  display: inline-block;
+  position: absolute;
   top: 50%;
+}
+.watchlist_carousel-control-prev,
+.movies_carousel-control-prev {
+  left: -1%;
+}
+.watchlist_carousel-control-next,
+.movies_carousel-control-next {
+  right: -4%;
 }
 .carousel-inner img {
   margin: auto;
