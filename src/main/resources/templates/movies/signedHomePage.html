@@ -209,7 +209,7 @@
                   <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${card.getId()})}" th:object="${watchlist}" method="post">
                     <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                   </form>
-                  <div th:if="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()}) == true}">
+                  <div th:if="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}">
                   <a th:href="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
                   </div>
                   <div th:unless="@{https://www.youtube.com/watch?v={id}(id=${card.getVideos().get(0).getKey()}) == null}">
@@ -240,10 +240,10 @@
                       <form class="watchlist_add" th:action="@{/watchlist/new?movieid={id}(id=${movie1.getId()})}" th:object="${watchlist}" method="post">
                         <button type="submit" class="film-watchlist-button">+ Watchlist</button>
                       </form>
-                      <div th:if="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()}) == true}">
-                      <a th:href="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()})}"><button class="film-trailer-button">Trailer</button></a>
+                      <div th:if="${YOUTUBE LINK HERE}">
+                      <a th:href="@{#}"><button class="film-trailer-button">Trailer</button></a>
                       </div>
-                      <div th:unless="@{https://www.youtube.com/watch?v={ex}(ex=${movie1.getVideos().get(0).getKey()}) == null">
+                      <div th:unless="${YOUTUBE LINK NOT FOUND}">
                         <a th:href="@{#}"><button class="film-trailer-button">No Trailer</button></a>
                       </div>
                     </div>
